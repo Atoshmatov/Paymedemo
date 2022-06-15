@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.view.auth.language.screen.LanguageScreen">
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/language_text_mobil_style"
+        android:text="@string/mobile_banking"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/rusButton"
+        style="@style/language_text_style"
+        android:layout_marginTop="100dp"
+        android:text="@string/rus"
+        app:layout_constraintBottom_toTopOf="@id/uzButton"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <View
+        style="@style/liner_style"
+        android:layout_marginHorizontal="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/uzButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rusButton" />
+
+    <TextView
+        android:id="@+id/uzButton"
+        style="@style/language_text_style"
+        android:text="@string/uz"
+        app:layout_constraintBottom_toTopOf="@id/engButton"
+        app:layout_constraintEnd_toEndOf="@+id/rusButton"
+        app:layout_constraintStart_toStartOf="@+id/rusButton"
+        app:layout_constraintTop_toBottomOf="@+id/rusButton" />
+
+    <View
+        style="@style/liner_style"
+        android:layout_marginHorizontal="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/engButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uzButton" />
+
+    <TextView
+        android:id="@+id/engButton"
+        style="@style/language_text_style"
+        android:text="@string/eng"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/uzButton"
+        app:layout_constraintStart_toStartOf="@+id/uzButton"
+        app:layout_constraintTop_toBottomOf="@+id/uzButton" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

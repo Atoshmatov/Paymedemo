@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Payme demo</string>
+
+    // auth / language screen text
+    <string name="mobile_banking">Mobile Banking</string>
+    <string name="rus">Русский</string>
+    <string name="uz">O\'zbekcha</string>
+    <string name="eng">English</string>
+</resources>

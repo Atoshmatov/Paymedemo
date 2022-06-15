@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreen">
+
+    <fragment
+        android:id="@+id/languageScreen"
+        android:name="uz.gita.paymedemo.presentation.view.auth.language.screen.LanguageScreen"
+        android:label="screen_language"
+        tools:layout="@layout/screen_language" />
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="uz.gita.paymedemo.presentation.view.splash.screen.SplashScreen"
+        android:label="screen_splash"
+        tools:layout="@layout/screen_splash">
+        <action
+            android:id="@+id/action_splashScreen_to_languageScreen"
+            app:destination="@id/languageScreen"
+            app:popUpTo="@id/splashScreen"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
