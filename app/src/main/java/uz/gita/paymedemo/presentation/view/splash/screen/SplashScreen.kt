@@ -3,7 +3,6 @@ package uz.gita.paymedemo.presentation.view.splash.screen
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
-import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -27,7 +26,6 @@ class SplashScreen : Fragment(R.layout.screen_splash) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)  = with(binding){
-        requireActivity().window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
     }
 
     private val openLanguageObserver = Observer<Unit> {

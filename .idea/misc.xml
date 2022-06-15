@@ -3,8 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable-v24/circle_tab_indicator.xml" value="0.155" />
+        <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable-v24/dot.xml" value="0.155" />
+        <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.155" />
+        <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable/circle_tab_indicator.xml" value="0.155" />
+        <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable/dot.xml" value="0.155" />
+        <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable/ic_launcher_background.xml" value="0.155" />
+        <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable/ic_next.xml" value="0.155" />
+        <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable/intro_style_bg.xml" value="0.155" />
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/layout/activity_main.xml" value="0.2152777777777778" />
+        <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/layout/pager_intro1.xml" value="0.2152777777777778" />
+        <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/layout/pager_intro2.xml" value="0.2152777777777778" />
+        <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/layout/pager_intro3.xml" value="0.2152777777777778" />
+        <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/layout/screen_intro.xml" value="0.21435185185185185" />
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/layout/screen_language.xml" value="0.21232876712328766" />
+        <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/layout/screen_signup.xml" value="0.21435185185185185" />
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/layout/screen_splash.xml" value="0.2152777777777778" />
       </map>
     </option>

@@ -3,8 +3,16 @@
     <string name="app_name">Payme demo</string>
 
     // auth / language screen text
-    <string name="mobile_banking">Mobile Banking</string>
+    <string name="mobile_banking">Mobile\nBanking</string>
     <string name="rus">Русский</string>
     <string name="uz">O\'zbekcha</string>
     <string name="eng">English</string>
+    <string name="text_splash_payme">версия %1$s</string>
+
+    //splash screen
+    <string name="created">Создано Алимардоном.\n Академия программистов GITA</string>
+
+    //intro screen
+    <string name="next">Следующий</string>
+    <string name="get_started">Начать</string>
 </resources>

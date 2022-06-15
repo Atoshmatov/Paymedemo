@@ -6,4 +6,13 @@
     <string name="rus">Русский</string>
     <string name="uz">O\'zbekcha</string>
     <string name="eng">English</string>
+    <string name="text_splash_payme">version %1$s</string>
+
+    //splash screen
+    <string name="created">Created by Alimardon.\n GITA Academy of Programmers</string>
+
+    //intro screen
+    <string name="next">Next</string>
+    <string name="get_started">Get Started</string>
+
 </resources>

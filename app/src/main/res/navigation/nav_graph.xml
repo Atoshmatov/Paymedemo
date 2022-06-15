@@ -3,13 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/splashScreen">
+    app:startDestination="@id/introScreen">
 
     <fragment
         android:id="@+id/languageScreen"
         android:name="uz.gita.paymedemo.presentation.view.auth.language.screen.LanguageScreen"
         android:label="screen_language"
-        tools:layout="@layout/screen_language" />
+        tools:layout="@layout/screen_language">
+        <action
+            android:id="@+id/action_languageScreen_to_signUPScreen"
+            app:destination="@id/signUPScreen" />
+    </fragment>
     <fragment
         android:id="@+id/splashScreen"
         android:name="uz.gita.paymedemo.presentation.view.splash.screen.SplashScreen"
@@ -20,5 +24,22 @@
             app:destination="@id/languageScreen"
             app:popUpTo="@id/splashScreen"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashScreen_to_introScreen"
+            app:destination="@id/introScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUPScreen"
+        android:name="uz.gita.paymedemo.presentation.view.auth.signup.screen.SignUPScreen"
+        android:label="screen_signup"
+        tools:layout="@layout/screen_signup" />
+    <fragment
+        android:id="@+id/introScreen"
+        android:name="uz.gita.paymedemo.presentation.view.intro.screen.IntroScreen"
+        android:label="screen_intro"
+        tools:layout="@layout/screen_intro">
+        <action
+            android:id="@+id/action_introScreen_to_languageScreen"
+            app:destination="@id/languageScreen" />
     </fragment>
 </navigation>

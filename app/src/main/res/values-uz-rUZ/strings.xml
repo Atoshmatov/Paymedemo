@@ -3,8 +3,16 @@
     <string name="app_name">Payme demo</string>
 
     // auth / language screen text
-    <string name="mobile_banking">Mobile Banking</string>
+    <string name="mobile_banking">Mobile\nBanking</string>
     <string name="rus">Русский</string>
     <string name="uz">O\'zbekcha</string>
     <string name="eng">English</string>
+    <string name="text_splash_payme">talqin %1$s</string>
+
+    //splash screen
+    <string name="created">Alimardon tomonidan yaratilgan.\n GITA Dasturchilar academiyasi</string>
+
+    //intro screen
+    <string name="next">Keyingi</string>
+    <string name="get_started">Boshlash</string>
 </resources>

@@ -6,24 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".presentation.view.auth.language.screen.LanguageScreen">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/textView"
-        style="@style/language_text_mobil_style"
+        style="@style/payme_logo_style"
+        android:src="@drawable/ic_payme_logo"
         android:text="@string/mobile_banking"
+        app:layout_constraintBottom_toTopOf="@+id/rusButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
 
     <TextView
         android:id="@+id/rusButton"
         style="@style/language_text_style"
-        android:layout_marginTop="100dp"
         android:text="@string/rus"
         app:layout_constraintBottom_toTopOf="@id/uzButton"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <View
@@ -59,6 +61,15 @@
         app:layout_constraintEnd_toEndOf="@+id/uzButton"
         app:layout_constraintStart_toStartOf="@+id/uzButton"
         app:layout_constraintTop_toBottomOf="@+id/uzButton" />
+
+    <TextView
+        android:id="@+id/paymeVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
