@@ -9,7 +9,18 @@ import javax.inject.Singleton
 class SharedPrefToken @Inject constructor(@ApplicationContext context: Context) {
     private val pref = context.getSharedPreferences("TOKEN", Context.MODE_PRIVATE)
 
-    var language: Long
-        get() = pref.getLong("token", 0)
-        set(value) = pref.edit().putLong("token", value).apply()
+    //token
+    var token: String
+        get() = pref.getString("token", "")!!
+        set(value) = pref.edit().putString("token", value).apply()
+
+    // screen action
+    var id: Int
+        get() = pref.getInt("id", 0)
+        set(value) = pref.edit().putInt("token", value).apply()
+
+    //language position
+    var language: Int
+        get() = pref.getInt("lang", 0)
+        set(value) = pref.edit().putInt("lang", value).apply()
 }

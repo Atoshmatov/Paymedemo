@@ -15,7 +15,7 @@ class IntroViewModelImpl @Inject constructor() : ViewModel(), IntroViewModel {
 
     override fun openLang() {
         viewModelScope.launch(Dispatchers.IO) {
-            openLanguageScreenLiveData.value = Unit
+            openLanguageScreenLiveData.postValue(Unit)
         }
     }
 }

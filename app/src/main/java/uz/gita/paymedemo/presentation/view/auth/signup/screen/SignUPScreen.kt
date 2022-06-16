@@ -8,13 +8,13 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.gita.paymedemo.R
 import uz.gita.paymedemo.databinding.ScreenSignupBinding
-import uz.gita.paymedemo.presentation.viewmodel.auth.signup.SignUPViewModel
+import uz.gita.paymedemo.presentation.viewmodel.auth.signup.SignUpViewModel
 import uz.gita.paymedemo.presentation.viewmodel.auth.signup.impl.SignUPViewModelImpl
 
 @AndroidEntryPoint
 class SignUPScreen : Fragment(R.layout.screen_signup) {
     private val binding by viewBinding(ScreenSignupBinding::bind)
-    private val viewModel: SignUPViewModel by viewModels<SignUPViewModelImpl>()
+    private val viewModel: SignUpViewModel by viewModels<SignUPViewModelImpl>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 

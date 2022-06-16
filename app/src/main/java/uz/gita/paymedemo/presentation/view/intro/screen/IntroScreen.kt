@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.tabs.TabLayoutMediator
@@ -21,13 +23,18 @@ class IntroScreen : Fragment(R.layout.screen_intro) {
     private val binding by viewBinding(ScreenIntroBinding::bind)
     private val viewModel: IntroViewModel by viewModels<IntroViewModelImpl>()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.openLanguageScreenLiveData.observe(this@IntroScreen, openLanguageScreenObserver)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
         val introAdapter = IntroAdapter(childFragmentManager, lifecycle)
         introPager.adapter = introAdapter
         listener = object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                if (position == 2) {
+                if (position == 3) {
                     nextButton.visibility = View.GONE
                     introTab.visibility = View.GONE
                     getStart.visibility = View.VISIBLE
@@ -43,7 +50,7 @@ class IntroScreen : Fragment(R.layout.screen_intro) {
         nextButton.setOnClickListener {
             introPager.unregisterOnPageChangeCallback(listener)
             introPager.currentItem = introPager.currentItem + 1
-            if (introPager.currentItem == 2) {
+            if (introPager.currentItem == 3) {
                 introPager.registerOnPageChangeCallback(listener)
                 nextButton.visibility = View.GONE
                 introTab.visibility = View.GONE
@@ -56,5 +63,13 @@ class IntroScreen : Fragment(R.layout.screen_intro) {
             }
         }
         TabLayoutMediator(introTab, introPager) { _, _ -> }.attach()
+
+        getStart.setOnClickListener {
+            viewModel.openLang()
+        }
+    }
+
+    private val openLanguageScreenObserver = Observer<Unit> {
+        findNavController().navigate(R.id.action_introScreen_to_languageScreen)
     }
 }
