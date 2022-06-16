@@ -2,7 +2,10 @@ package uz.gita.paymedemo.presentation.viewmodel.auth.language.impl
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import uz.gita.paymedemo.presentation.viewmodel.auth.language.LanguageVIewModel
 import javax.inject.Inject
 
@@ -11,6 +14,8 @@ class LanguageVIewModelImpl @Inject constructor() : ViewModel(), LanguageVIewMod
     override val openSignUpScreen = MutableLiveData<Unit>()
 
     override fun openSingUp() {
-        openSignUpScreen.value = Unit
+        viewModelScope.launch(Dispatchers.IO) {
+            openSignUpScreen.postValue(Unit)
+        }
     }
 }
