@@ -39,6 +39,6 @@ class LanguageScreen : Fragment(R.layout.screen_language) {
 
 
     private val openSignUpObserver = Observer<Unit> {
-        findNavController().navigate(R.id.action_languageScreen_to_signUPScreen)
+        findNavController().navigate(R.id.action_languageScreen_to_policeScreen)
     }
 }

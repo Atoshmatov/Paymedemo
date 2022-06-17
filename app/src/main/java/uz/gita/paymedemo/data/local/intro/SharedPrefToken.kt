@@ -11,13 +11,13 @@ class SharedPrefToken @Inject constructor(@ApplicationContext context: Context) 
 
     //token
     var token: String
-        get() = pref.getString("token", "")!!
-        set(value) = pref.edit().putString("token", value).apply()
+        get() = pref.getString("TOKEN", "")!!
+        set(value) = pref.edit().putString("TOKEN", value).apply()
 
     // screen action
     var id: Int
         get() = pref.getInt("id", 0)
-        set(value) = pref.edit().putInt("token", value).apply()
+        set(value) = pref.edit().putInt("id", value).apply()
 
     //language position
     var language: Int

@@ -1,5 +1,6 @@
 package uz.gita.paymedemo.presentation.view.auth.signup.screen
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -16,7 +17,7 @@ class SignUPScreen : Fragment(R.layout.screen_signup) {
     private val binding by viewBinding(ScreenSignupBinding::bind)
     private val viewModel: SignUpViewModel by viewModels<SignUPViewModelImpl>()
 
+    @SuppressLint("ResourceAsColor")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
     }
 }

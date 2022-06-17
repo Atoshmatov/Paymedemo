@@ -1,12 +1,39 @@
 <resources>
     <string name="app_name">Payme demo</string>
 
-    // auth / language screen text
+    // auth..................
+    // language screen text
     <string name="mobile_banking">Mobile\nBanking</string>
     <string name="rus">Русский</string>
     <string name="uz">O\'zbekcha</string>
     <string name="eng">English</string>
     <string name="text_splash_payme">version %1$s</string>
+
+
+    //sign up screen
+    <string name="sign_up">Sign Up</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="password">Password</string>
+    //sign in screen
+    <string name="sign_in">Sign In</string>
+    <string name="wrong_password">Wrong password!</string>
+    <string name="forgot_password">Forgot password!</string>
+    //pincode screen
+    <string name="enter_the_pin_code">Enter the PIN code</string>
+
+    //verify screen
+    <string name="ready">Ready</string>
+    <string name="verify_text">Enter the verification code</string>
+    <string name="stranger_device">Stranger device</string>
+
+    //police
+    <string name="terms_of_use">Terms of use</string>
+    <string name="to_accept">Accept</string>
+    <string name="i_agree_to_all_terms">I agree to all terms.</string>
+
+    // auth..................
 
     //splash screen
     <string name="created">Created by Alimardon.\n GITA Academy of Programmers</string>

@@ -2,17 +2,43 @@
 <resources>
     <string name="app_name">Payme demo</string>
 
-    // auth / language screen text
+    // auth.................
+    // language screen text
     <string name="mobile_banking">Mobile\nBanking</string>
     <string name="rus">Русский</string>
     <string name="uz">O\'zbekcha</string>
     <string name="eng">English</string>
     <string name="text_splash_payme">talqin %1$s</string>
 
+    //sign up screen
+    <string name="sign_up">Ro\'yhatdan o\'tish</string>
+    <string name="first_name">Ism</string>
+    <string name="last_name">Familya</string>
+    <string name="phone_number">Telefon</string>
+    <string name="password">Parol</string>
+    //sign in screen
+    <string name="sign_in">Tizimga kirish</string>
+    <string name="wrong_password">Noto\'g\'ri parol!</string>
+    <string name="forgot_password">Parolni unutdingizmi!</string>
+    //pincode screen
+    <string name="enter_the_pin_code">PIN kodni kiriting</string>
+    //verify screen
+    <string name="ready">Tayyor</string>
+    <string name="verify_text">Tekshiruv kodini kiriting</string>
+    <string name="stranger_device">Begona qurilma</string>
+
+    //police
+    <string name="terms_of_use">Foydalanish shartlari</string>
+    <string name="to_accept">Qabul qilmoq</string>
+    <string name="i_agree_to_all_terms">Men barcha shartlarga roziman.</string>
+    // auth.................
+
     //splash screen
     <string name="created">Alimardon tomonidan yaratilgan.\n GITA Dasturchilar academiyasi</string>
+    //splash screen
 
     //intro screen
     <string name="next">Keyingi</string>
     <string name="get_started">Boshlash</string>
+    //intro screen
 </resources>

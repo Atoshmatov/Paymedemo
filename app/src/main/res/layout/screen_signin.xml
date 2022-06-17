@@ -3,6 +3,110 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.view.auth.signin.screen.SignInScreen">
+
+    <TextView
+        android:id="@+id/signIpText"
+        style="@style/sign_in_text_style"
+        android:text="@string/sign_in"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView5"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_payme_logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <TextView
+        android:id="@+id/textView5"
+        style="@style/input_text_hint_style"
+        android:text="@string/last_name"
+        app:layout_constraintBottom_toTopOf="@+id/editText1SignIn"
+        app:layout_constraintEnd_toEndOf="@+id/editText1SignIn"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@+id/editText1SignIn" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editText1SignIn"
+        style="@style/inputText_style"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintBottom_toTopOf="@id/editText2SignIn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/firstNameSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:maxLength="30" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView6"
+        style="@style/input_text_hint_style"
+        android:text="@string/first_name"
+        app:layout_constraintBottom_toTopOf="@+id/editText2SignIn"
+        app:layout_constraintEnd_toEndOf="@+id/editText2SignIn"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@+id/editText2SignIn" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editText2SignIn"
+        style="@style/inputText_style"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editText1SignIn">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/lastNameSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:maxLength="30" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/wrongPassword"
+        style="@style/wrong_password_style"
+        android:text="@string/wrong_password"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/editText2SignIn"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@+id/editText2SignIn"
+        app:layout_constraintTop_toBottomOf="@+id/editText2SignIn"
+        tools:visibility="visible" />
+
+    <TextView
+        style="@style/forgot_password_style"
+        android:text="@string/forgot_password"
+        app:layout_constraintEnd_toEndOf="@+id/editText2SignIn"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@+id/editText2SignIn"
+        app:layout_constraintTop_toBottomOf="@+id/wrongPassword" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/singIpButton"
+        style="@style/signin_style"
+        android:layout_marginHorizontal="16dp"
+        android:enabled="false"
+        android:text="@string/sign_in"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

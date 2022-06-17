@@ -3,6 +3,122 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.view.auth.verify.screen.VerifyScreen">
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="@string/ready"
+        android:textColor="@color/text_color_black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView4"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_payme_logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <TextView
+        android:id="@+id/textView2"
+        style="@style/input_text_hint_style"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/amiko_semibold"
+        android:text="@string/verify_text"
+        app:layout_constraintBottom_toTopOf="@+id/verifyEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView4"
+        app:layout_constraintVertical_bias="1" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/verifyEditText"
+        style="@style/inputText_style"
+        android:layout_marginHorizontal="16dp"
+        android:clickable="false"
+        android:focusable="false"
+        app:layout_constraintBottom_toTopOf="@+id/keyboard2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView4"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/verifyCode"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="false"
+            android:focusable="false"
+            android:maxLength="30" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/amiko_semibold"
+        android:text="@string/stranger_device"
+        android:textColor="@color/text_color_black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/verifyEditText" />
+
+    <Switch
+        android:id="@+id/strangerDevice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/verifyEditText"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/amiko_semibold"
+        android:gravity="center"
+        android:text="Код отправлен на номер\n +998 90 000 90 90"
+        android:textColor="@color/text_color_black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/verifyEditText"
+        app:layout_constraintEnd_toEndOf="@+id/verifyEditText"
+        app:layout_constraintStart_toStartOf="@+id/verifyEditText"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView4"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <include
+        android:id="@+id/keyboard2"
+        layout="@layout/keyboard2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

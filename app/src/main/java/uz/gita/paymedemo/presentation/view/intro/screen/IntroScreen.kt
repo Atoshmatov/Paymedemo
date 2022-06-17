@@ -11,6 +11,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 import uz.gita.paymedemo.R
+import uz.gita.paymedemo.data.local.intro.SharedPrefToken
 import uz.gita.paymedemo.databinding.ScreenIntroBinding
 import uz.gita.paymedemo.presentation.view.intro.adapter.IntroAdapter
 import uz.gita.paymedemo.presentation.viewmodel.intro.IntroViewModel
@@ -22,9 +23,12 @@ class IntroScreen : Fragment(R.layout.screen_intro) {
     private lateinit var listener: ViewPager2.OnPageChangeCallback
     private val binding by viewBinding(ScreenIntroBinding::bind)
     private val viewModel: IntroViewModel by viewModels<IntroViewModelImpl>()
+    lateinit var shared: SharedPrefToken
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        shared = SharedPrefToken(requireContext())
         viewModel.openLanguageScreenLiveData.observe(this@IntroScreen, openLanguageScreenObserver)
     }
 

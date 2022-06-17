@@ -10,22 +10,17 @@
         android:name="uz.gita.paymedemo.presentation.view.auth.language.screen.LanguageScreen"
         android:label="screen_language"
         tools:layout="@layout/screen_language">
+
         <action
-            android:id="@+id/action_languageScreen_to_signUPScreen"
-            app:destination="@id/signUPScreen"
-            app:popUpTo="@id/languageScreen"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_languageScreen_to_policeScreen"
+            app:destination="@id/policeScreen" />
     </fragment>
     <fragment
         android:id="@+id/splashScreen"
         android:name="uz.gita.paymedemo.presentation.view.splash.screen.SplashScreen"
         android:label="screen_splash"
         tools:layout="@layout/screen_splash">
-        <action
-            android:id="@+id/action_splashScreen_to_languageScreen"
-            app:destination="@id/languageScreen"
-            app:popUpTo="@id/splashScreen"
-            app:popUpToInclusive="true" />
+
         <action
             android:id="@+id/action_splashScreen_to_introScreen"
             app:destination="@id/introScreen"
@@ -33,16 +28,16 @@
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_splashScreen_to_signUPScreen"
-            app:destination="@id/signUPScreen" />
+            app:destination="@id/signUPScreen"
+            app:popUpTo="@id/splashScreen"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_splashScreen_to_pinCodeScreen"
             app:destination="@id/pinCodeScreen" />
         <action
             android:id="@+id/action_splashScreen_to_signInScreen"
             app:destination="@id/signInScreen" />
-        <action
-            android:id="@+id/action_splashScreen_to_mainScreen"
-            app:destination="@id/mainScreen" />
+
     </fragment>
     <fragment
         android:id="@+id/signUPScreen"
@@ -68,20 +63,44 @@
         android:id="@+id/pinCodeScreen"
         android:name="uz.gita.paymedemo.presentation.view.auth.pincode.screen.PinCodeScreen"
         android:label="screen_pincode"
-        tools:layout="@layout/screen_pincode" />
+        tools:layout="@layout/screen_pincode">
+        <action
+            android:id="@+id/action_pinCodeScreen_to_mainScreen"
+            app:destination="@id/mainScreen" />
+    </fragment>
     <fragment
         android:id="@+id/signInScreen"
         android:name="uz.gita.paymedemo.presentation.view.auth.signin.screen.SignInScreen"
         android:label="screen_signin"
-        tools:layout="@layout/screen_signin" />
+        tools:layout="@layout/screen_signin">
+        <action
+            android:id="@+id/action_signInScreen_to_mainScreen"
+            app:destination="@id/mainScreen" />
+    </fragment>
     <fragment
         android:id="@+id/verifyScreen"
         android:name="uz.gita.paymedemo.presentation.view.auth.verify.screen.VerifyScreen"
         android:label="screen_verify"
-        tools:layout="@layout/screen_verify" />
+        tools:layout="@layout/screen_verify">
+
+        <action
+            android:id="@+id/action_verifyScreen_to_pinCodeScreen"
+            app:destination="@id/pinCodeScreen" />
+    </fragment>
     <fragment
         android:id="@+id/mainScreen"
         android:name="uz.gita.paymedemo.presentation.view.main.screen.MainScreen"
         android:label="screen_main"
         tools:layout="@layout/screen_main" />
+    <fragment
+        android:id="@+id/policeScreen"
+        android:name="uz.gita.paymedemo.presentation.view.police.screen.PoliceScreen"
+        android:label="screen_police"
+        tools:layout="@layout/screen_police">
+        <action
+            android:id="@+id/action_policeScreen_to_signUPScreen"
+            app:destination="@id/signUPScreen"
+            app:popUpTo="@id/policeScreen"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

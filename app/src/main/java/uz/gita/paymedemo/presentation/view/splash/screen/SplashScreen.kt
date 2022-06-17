@@ -33,14 +33,14 @@ class SplashScreen : Fragment(R.layout.screen_splash) {
     }
 
     private val openLanguageObserver = Observer<Unit> {
-        if (shared.token.isEmpty()) {
+        if (shared.token.isEmpty() && shared.id == 0) {
             findNavController().navigate(R.id.action_splashScreen_to_introScreen)
-        } else {
-            if (shared.id == 0) {
-                findNavController().navigate(R.id.action_splashScreen_to_languageScreen)
-            } else {
-                findNavController().navigate(R.id.action_splashScreen_to_signUPScreen)
-            }
+        } else if (shared.token.isEmpty() && shared.id == 1) {
+            findNavController().navigate(R.id.action_splashScreen_to_signUPScreen)
+        } else if (shared.token.isNotEmpty() && shared.id == 2) {
+            findNavController().navigate(R.id.action_splashScreen_to_pinCodeScreen)
+        } else if (shared.id == 3 && shared.token.isNotEmpty()) {
+            findNavController().navigate(R.id.action_splashScreen_to_signInScreen)
         }
     }
 }
