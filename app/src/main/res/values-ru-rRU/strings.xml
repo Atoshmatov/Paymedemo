@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">Payme demo</string>
 
     // auth..................
@@ -26,11 +26,17 @@
     <string name="ready">Готовый</string>
     <string name="verify_text">Введите код подтверждения</string>
     <string name="stranger_device">Чужое устройство</string>
+    <string name="text_phone_number">Код отправлен на номер\n</string>
+
 
     //police
     <string name="terms_of_use">Условия эксплуатации</string>
     <string name="to_accept">Принять</string>
     <string name="i_agree_to_all_terms">Я согласен со всеми условиями.</string>
+
+    //not connection screen
+    <string name="not_connection">Нет связи с сервером</string>
+    <string name="connect_text">Проверьте подключение к Интернету\n и повторите попытку.</string>
     // auth..................
 
     //splash screen

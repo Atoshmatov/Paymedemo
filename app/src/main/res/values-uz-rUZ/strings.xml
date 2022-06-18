@@ -26,11 +26,17 @@
     <string name="ready">Tayyor</string>
     <string name="verify_text">Tekshiruv kodini kiriting</string>
     <string name="stranger_device">Begona qurilma</string>
+    <string name="text_phone_number">Raqamga kod yuborildi\n</string>
+
 
     //police
     <string name="terms_of_use">Foydalanish shartlari</string>
     <string name="to_accept">Qabul qilmoq</string>
     <string name="i_agree_to_all_terms">Men barcha shartlarga roziman.</string>
+
+    //not connection screen
+    <string name="not_connection">Server bilan aloqa yo\'q</string>
+    <string name="connect_text">Internet ulanishingizni tekshiring\n va qayta urinib ko\'ring</string>
     // auth.................
 
     //splash screen

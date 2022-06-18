@@ -1,4 +1,4 @@
-package uz.gita.paymedemo.data.remote.auth.request.signup
+package uz.gita.paymedemo.data.remote.auth.request
 
 data class SignUpRequest(
     val firstName:String,

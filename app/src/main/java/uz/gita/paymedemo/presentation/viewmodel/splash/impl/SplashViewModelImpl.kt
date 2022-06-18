@@ -8,15 +8,21 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import uz.gita.paymedemo.presentation.viewmodel.splash.SplashViewModel
+import uz.gita.paymedemo.utils.isConnected
 import javax.inject.Inject
 
 @HiltViewModel
 class SplashViewModelImpl @Inject constructor() : ViewModel(), SplashViewModel {
     override val openLanguageScreen = MutableLiveData<Unit>()
+    override val notConnectionLiveData = MutableLiveData<Unit>()
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
             delay(2000)
+            if (!isConnected()) {
+                notConnectionLiveData.postValue(Unit)
+                return@launch
+            }
             openLanguageScreen.postValue(Unit)
         }
     }

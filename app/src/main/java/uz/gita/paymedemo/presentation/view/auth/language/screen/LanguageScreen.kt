@@ -11,8 +11,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import uz.gita.paymedemo.BuildConfig
 import uz.gita.paymedemo.R
 import uz.gita.paymedemo.databinding.ScreenLanguageBinding
-import uz.gita.paymedemo.presentation.viewmodel.auth.language.LanguageVIewModel
-import uz.gita.paymedemo.presentation.viewmodel.auth.language.impl.LanguageVIewModelImpl
+import uz.gita.paymedemo.presentation.viewmodel.auth.LanguageVIewModel
+import uz.gita.paymedemo.presentation.viewmodel.auth.impl.LanguageVIewModelImpl
 
 @AndroidEntryPoint
 class LanguageScreen : Fragment(R.layout.screen_language) {

@@ -27,11 +27,15 @@ class SplashScreen : Fragment(R.layout.screen_splash) {
         super.onCreate(savedInstanceState)
         shared = SharedPrefToken(requireContext())
         viewModel.openLanguageScreen.observe(this@SplashScreen, openLanguageObserver)
+        viewModel.notConnectionLiveData.observe(this@SplashScreen, notConnectionObserver)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
     }
 
+    private val notConnectionObserver = Observer<Unit> {
+        findNavController().navigate(R.id.action_splashScreen_to_notConnectionScreen)
+    }
     private val openLanguageObserver = Observer<Unit> {
         if (shared.token.isEmpty() && shared.id == 0) {
             findNavController().navigate(R.id.action_splashScreen_to_introScreen)

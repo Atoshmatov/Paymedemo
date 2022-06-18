@@ -1,4 +1,4 @@
-package uz.gita.paymedemo.presentation.viewmodel.auth.language
+package uz.gita.paymedemo.presentation.viewmodel.auth
 
 import androidx.lifecycle.LiveData
 

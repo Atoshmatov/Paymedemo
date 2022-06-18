@@ -52,9 +52,11 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/firstName"
+            android:maxLines="1"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:maxLength="30" />
+            android:maxLength="20" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -76,9 +78,11 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/lastName"
+            android:maxLines="1"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:maxLength="30" />
+            android:maxLength="20" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -102,9 +106,10 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/phoneNumber"
+            android:inputType="phone"
+            android:maxLines="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="phone"
             android:maxLength="13" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -130,10 +135,11 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password"
+            android:maxLines="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="textPassword"
-            android:maxLength="10" />
+            android:maxLength="8" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -4,4 +4,5 @@ import androidx.lifecycle.LiveData
 
 interface SplashViewModel {
     val openLanguageScreen: LiveData<Unit>
+    val notConnectionLiveData: LiveData<Unit>
 }

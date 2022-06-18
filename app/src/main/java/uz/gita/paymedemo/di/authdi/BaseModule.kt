@@ -28,4 +28,5 @@ class BaseModule {
         .addConverterFactory(GsonConverterFactory.create())
         .client(okHttpClient)
         .build()
+
 }

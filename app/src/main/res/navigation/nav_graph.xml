@@ -13,7 +13,9 @@
 
         <action
             android:id="@+id/action_languageScreen_to_policeScreen"
-            app:destination="@id/policeScreen" />
+            app:destination="@id/policeScreen"
+            app:popUpTo="@id/languageScreen"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/splashScreen"
@@ -37,6 +39,11 @@
         <action
             android:id="@+id/action_splashScreen_to_signInScreen"
             app:destination="@id/signInScreen" />
+        <action
+            android:id="@+id/action_splashScreen_to_notConnectionScreen"
+            app:destination="@id/notConnectionScreen"
+            app:popUpTo="@id/splashScreen"
+            app:popUpToInclusive="true" />
 
     </fragment>
     <fragment
@@ -86,6 +93,9 @@
         <action
             android:id="@+id/action_verifyScreen_to_pinCodeScreen"
             app:destination="@id/pinCodeScreen" />
+        <argument
+            android:name="number"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/mainScreen"
@@ -103,4 +113,9 @@
             app:popUpTo="@id/policeScreen"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/notConnectionScreen"
+        android:name="uz.gita.paymedemo.presentation.view.auth.notconnection.screen.NotConnectionScreen"
+        android:label="screen_notconnection"
+        tools:layout="@layout/screen_notconnection" />
 </navigation>

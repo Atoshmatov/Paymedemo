@@ -27,11 +27,16 @@
     <string name="ready">Ready</string>
     <string name="verify_text">Enter the verification code</string>
     <string name="stranger_device">Stranger device</string>
+    <string name="text_phone_number">Code sent to number\n</string>
 
     //police
     <string name="terms_of_use">Terms of use</string>
     <string name="to_accept">Accept</string>
     <string name="i_agree_to_all_terms">I agree to all terms.</string>
+
+    //not connection screen
+    <string name="not_connection">There is no connection\n to the server</string>
+    <string name="connect_text">Check your internet \n connection and try again</string>
 
     // auth..................
 

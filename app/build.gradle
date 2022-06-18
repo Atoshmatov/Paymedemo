@@ -103,4 +103,7 @@ dependencies {
 
     //Better Logging In Android Using Timber
     implementation 'com.jakewharton.timber:timber:5.0.1'
+
+    //otp view
+    implementation 'com.github.aabhasr1:OtpView:v1.1.2-ktx'
 }
