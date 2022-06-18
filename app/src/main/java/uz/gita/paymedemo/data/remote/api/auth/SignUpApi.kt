@@ -3,8 +3,8 @@ package uz.gita.paymedemo.data.remote.api.auth
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
-import uz.gita.paymedemo.data.remote.auth.request.SignUpRequest
-import uz.gita.paymedemo.data.remote.auth.response.SignUpResponse
+import uz.gita.paymedemo.data.remote.request.auth.SignUpRequest
+import uz.gita.paymedemo.data.remote.response.response.SignUpResponse
 
 
 interface SignUpApi {

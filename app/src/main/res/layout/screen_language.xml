@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.view.auth.language.screen.LanguageScreen">
+    tools:context=".presentation.view.auth.screen.LanguageScreen">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/textView"

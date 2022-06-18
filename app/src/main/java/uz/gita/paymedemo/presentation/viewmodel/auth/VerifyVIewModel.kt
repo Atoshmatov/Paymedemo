@@ -1,7 +1,7 @@
 package uz.gita.paymedemo.presentation.viewmodel.auth
 
 import androidx.lifecycle.LiveData
-import uz.gita.paymedemo.data.remote.auth.request.VerifyRequest
+import uz.gita.paymedemo.data.remote.request.auth.VerifyRequest
 
 interface VerifyVIewModel {
     val progressLiveDate: LiveData<Boolean>

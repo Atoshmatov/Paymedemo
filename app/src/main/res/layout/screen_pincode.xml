@@ -4,25 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.view.auth.pincode.screen.PinCodeScreen"
-    tools:ignore="MissingClass">
-
-    <in.aabhasjindal.otptextview.OtpTextView
-        android:id="@+id/otp_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#ffffff"
-        app:bar_enabled="true"
-        app:bar_height="2dp"
-        app:height="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/keyboard"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:length="4"
-        app:otp="1234"
-        app:otp_text_size="24dp"
-        app:width="40dp" />
+    tools:context=".presentation.view.auth.screen.PinCodeScreen">
 
     <TextView
         android:id="@+id/pincodeText"
@@ -33,7 +15,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_eye_slash"
@@ -45,7 +26,6 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <LinearLayout
-        android:visibility="invisible"
         android:id="@+id/pinCodeCircle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -99,6 +79,20 @@
         app:layout_constraintTop_toBottomOf="@+id/pincodeText" />
 
     <include
+        android:id="@+id/keyboard3"
+        layout="@layout/keyboard3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView7"
+        app:layout_constraintStart_toStartOf="@+id/textView7"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.15" />
+
+
+    <include
         android:id="@+id/keyboard"
         layout="@layout/keyboard"
         android:layout_width="match_parent"
@@ -107,5 +101,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintVertical_bias="0.7" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

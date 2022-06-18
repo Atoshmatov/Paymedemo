@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import uz.gita.paymedemo.data.remote.auth.request.VerifyRequest
+import uz.gita.paymedemo.data.remote.request.auth.VerifyRequest
 import uz.gita.paymedemo.presentation.viewmodel.auth.VerifyVIewModel
 import uz.gita.paymedemo.utils.isConnected
 import javax.inject.Inject

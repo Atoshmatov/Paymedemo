@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.gita.paymedemo.R
-import uz.gita.paymedemo.data.local.intro.SharedPrefToken
+import uz.gita.paymedemo.data.local.SharedPrefToken
 import uz.gita.paymedemo.databinding.ScreenSplashBinding
 import uz.gita.paymedemo.presentation.viewmodel.splash.SplashViewModel
 import uz.gita.paymedemo.presentation.viewmodel.splash.impl.SplashViewModelImpl

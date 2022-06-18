@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/languageScreen"
-        android:name="uz.gita.paymedemo.presentation.view.auth.language.screen.LanguageScreen"
+        android:name="uz.gita.paymedemo.presentation.view.auth.screen.LanguageScreen"
         android:label="screen_language"
         tools:layout="@layout/screen_language">
 
@@ -48,7 +48,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUPScreen"
-        android:name="uz.gita.paymedemo.presentation.view.auth.signup.screen.SignUPScreen"
+        android:name="uz.gita.paymedemo.presentation.view.auth.screen.SignUPScreen"
         android:label="screen_signup"
         tools:layout="@layout/screen_signup" >
         <action
@@ -57,7 +57,7 @@
     </fragment>
     <fragment
         android:id="@+id/introScreen"
-        android:name="uz.gita.paymedemo.presentation.view.intro.screen.IntroScreen"
+        android:name="uz.gita.paymedemo.presentation.view.auth.screen.IntroScreen"
         android:label="screen_intro"
         tools:layout="@layout/screen_intro">
         <action
@@ -68,7 +68,7 @@
     </fragment>
     <fragment
         android:id="@+id/pinCodeScreen"
-        android:name="uz.gita.paymedemo.presentation.view.auth.pincode.screen.PinCodeScreen"
+        android:name="uz.gita.paymedemo.presentation.view.auth.screen.PinCodeScreen"
         android:label="screen_pincode"
         tools:layout="@layout/screen_pincode">
         <action
@@ -77,7 +77,7 @@
     </fragment>
     <fragment
         android:id="@+id/signInScreen"
-        android:name="uz.gita.paymedemo.presentation.view.auth.signin.screen.SignInScreen"
+        android:name="uz.gita.paymedemo.presentation.view.auth.screen.SignInScreen"
         android:label="screen_signin"
         tools:layout="@layout/screen_signin">
         <action
@@ -86,7 +86,7 @@
     </fragment>
     <fragment
         android:id="@+id/verifyScreen"
-        android:name="uz.gita.paymedemo.presentation.view.auth.verify.screen.VerifyScreen"
+        android:name="uz.gita.paymedemo.presentation.view.auth.screen.VerifyScreen"
         android:label="screen_verify"
         tools:layout="@layout/screen_verify">
 
@@ -99,12 +99,12 @@
     </fragment>
     <fragment
         android:id="@+id/mainScreen"
-        android:name="uz.gita.paymedemo.presentation.view.main.screen.MainScreen"
+        android:name="uz.gita.paymedemo.presentation.view.auth.screen.MainScreen"
         android:label="screen_main"
         tools:layout="@layout/screen_main" />
     <fragment
         android:id="@+id/policeScreen"
-        android:name="uz.gita.paymedemo.presentation.view.police.screen.PoliceScreen"
+        android:name="uz.gita.paymedemo.presentation.view.auth.screen.PoliceScreen"
         android:label="screen_police"
         tools:layout="@layout/screen_police">
         <action
@@ -115,7 +115,7 @@
     </fragment>
     <fragment
         android:id="@+id/notConnectionScreen"
-        android:name="uz.gita.paymedemo.presentation.view.auth.notconnection.screen.NotConnectionScreen"
+        android:name="uz.gita.paymedemo.presentation.view.auth.screen.NotConnectionScreen"
         android:label="screen_notconnection"
         tools:layout="@layout/screen_notconnection" />
 </navigation>
