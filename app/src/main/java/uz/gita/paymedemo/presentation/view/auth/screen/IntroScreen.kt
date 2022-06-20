@@ -10,6 +10,7 @@ import androidx.viewpager2.widget.ViewPager2
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 import uz.gita.paymedemo.R
 import uz.gita.paymedemo.data.local.SharedPrefToken
 import uz.gita.paymedemo.databinding.ScreenIntroBinding
@@ -69,6 +70,10 @@ class IntroScreen : Fragment(R.layout.screen_intro) {
         TabLayoutMediator(introTab, introPager) { _, _ -> }.attach()
 
         getStart.setOnClickListener {
+            Timber.tag("AAA")
+            viewModel.openLang()
+        }
+        skip.setOnClickListener {
             viewModel.openLang()
         }
     }

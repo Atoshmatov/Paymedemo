@@ -4,7 +4,7 @@ import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
 import uz.gita.paymedemo.data.remote.request.auth.SignUpRequest
-import uz.gita.paymedemo.data.remote.response.response.SignUpResponse
+import uz.gita.paymedemo.data.remote.response.auth.SignUpResponse
 
 
 interface SignUpApi {

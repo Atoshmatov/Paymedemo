@@ -14,13 +14,13 @@ import javax.inject.Inject
 @HiltViewModel
 class SplashViewModelImpl @Inject constructor() : ViewModel(), SplashViewModel {
     override val openLanguageScreen = MutableLiveData<Unit>()
-    override val notConnectionLiveData = MutableLiveData<Unit>()
+    override val notConnectionLiveData = MutableLiveData<Boolean>()
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
             delay(2000)
             if (!isConnected()) {
-                notConnectionLiveData.postValue(Unit)
+                notConnectionLiveData.postValue(false)
                 return@launch
             }
             openLanguageScreen.postValue(Unit)

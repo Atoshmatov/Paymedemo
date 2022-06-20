@@ -13,6 +13,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 import uz.gita.paymedemo.R
+import uz.gita.paymedemo.data.local.SharedPrefToken
 import uz.gita.paymedemo.data.remote.request.auth.VerifyRequest
 import uz.gita.paymedemo.databinding.ScreenVerifyBinding
 import uz.gita.paymedemo.presentation.viewmodel.auth.VerifyVIewModel
@@ -27,6 +28,7 @@ class VerifyScreen:Fragment(R.layout.screen_verify) {
     private val args: VerifyScreenArgs by navArgs()
     private val numberList = ArrayList<TextView>(10)
     private var code = StringBuilder(6)
+    private var shared: SharedPrefToken? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +39,7 @@ class VerifyScreen:Fragment(R.layout.screen_verify) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
         super.onViewCreated(view, savedInstanceState)
         loadViews()
+        shared = SharedPrefToken(requireContext())
         keyboard2.btClear.setOnClickListener {
             if (code.isEmpty()) return@setOnClickListener
             code.deleteCharAt(code.length - 1)
@@ -74,6 +77,7 @@ class VerifyScreen:Fragment(R.layout.screen_verify) {
     }
     private val openPinCodeScreeObserver = Observer<Unit> {
         findNavController().navigate(R.id.action_verifyScreen_to_pinCodeScreen)
+        shared!!.id = 2
     }
 
     private fun loadViews() {

@@ -1,4 +1,4 @@
-package uz.gita.paymedemo.data.remote.response.response
+package uz.gita.paymedemo.data.remote.response.auth
 
 data class SignUpResponse(
     val smsMessage: String

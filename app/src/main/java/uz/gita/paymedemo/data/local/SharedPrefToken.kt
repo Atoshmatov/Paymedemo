@@ -23,4 +23,8 @@ class SharedPrefToken @Inject constructor(@ApplicationContext context: Context) 
     var language: Int
         get() = pref.getInt("lang", 0)
         set(value) = pref.edit().putInt("lang", value).apply()
+
+    var code: String
+        get() = pref.getString("code", "")!!
+        set(value) = pref.edit().putString("code", value).apply()
 }

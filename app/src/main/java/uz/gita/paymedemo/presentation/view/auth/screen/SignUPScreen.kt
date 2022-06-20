@@ -30,6 +30,7 @@ class SignUPScreen : Fragment(R.layout.screen_signup) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewModel.openVerifyScreenLiveData.observe(this@SignUPScreen, openVerifyScreenObserver)
     }
 
     @SuppressLint("ResourceAsColor", "FragmentLiveDataObserve", "ResourceType")
@@ -46,7 +47,6 @@ class SignUPScreen : Fragment(R.layout.screen_signup) {
                 )
             )
         }
-        viewModel.openVerifyScreenLiveData.observe(this@SignUPScreen, openVerifyScreenObserver)
     }
 
 
@@ -60,8 +60,9 @@ class SignUPScreen : Fragment(R.layout.screen_signup) {
     }
 
     //additional features
-    /*private fun subscribers() = with(viewModel) {
-    }*/
+    private fun subscribers() = with(viewModel) {
+
+    }
 
     private fun listener() = with(binding) {
         firstName.addListener {
@@ -78,6 +79,9 @@ class SignUPScreen : Fragment(R.layout.screen_signup) {
         password.addListener {
             boolPassword = (it.length in 5..8)
             check()
+        }
+        if (checked) {
+            singUpButton.setTextColor(resources.getColor(R.color.white))
         }
     }
 

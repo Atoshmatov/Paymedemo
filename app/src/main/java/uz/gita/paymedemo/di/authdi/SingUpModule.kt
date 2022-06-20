@@ -11,6 +11,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class SingUpModule {
+
     @[Provides Singleton]
     fun getSingUpApi(retrofit: Retrofit): SignUpApi = retrofit.create(SignUpApi::class.java)
 }
