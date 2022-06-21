@@ -16,6 +16,9 @@
     <string name="last_name">Familya</string>
     <string name="phone_number">Telefon</string>
     <string name="password">Parol</string>
+    <string name="number_hint">+998 90 123 4567</string>
+    <string name="last_name_hint">Last Name</string>
+
     //sign in screen
     <string name="sign_in">Tizimga kirish</string>
     <string name="wrong_password">Noto\'g\'ri parol!</string>
@@ -49,6 +52,14 @@
     <string name="next">Keyingi</string>
     <string name="get_started">Boshlash</string>
     <string name="skip">Oʻtkazib yuborish</string>
-
     //intro screen
+
+    <!--    main screen-->
+    // tab navigation text
+    <string name="basic">Asosiy</string>
+    <string name="transfer">O\'tkazma</string>
+    <string name="payment">To\'lov</string>
+    <string name="services">Servislar</string>
+    <string name="cashFlow">Kirim-chiqim</string>
+    <!--    main screen-->
 </resources>

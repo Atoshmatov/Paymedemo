@@ -22,7 +22,7 @@ class VerifyViewModelImpl @Inject constructor() : ViewModel(), VerifyVIewModel {
     override fun codeVerifyUser(data: VerifyRequest) {
         viewModelScope.launch(Dispatchers.IO) {
             if (!isConnected()) {
-                openPinCodeScreenLiveDate.postValue(Unit)
+                notConnectionLiveData.postValue(Unit)
                 return@launch
             }
             progressLiveDate.postValue(true)

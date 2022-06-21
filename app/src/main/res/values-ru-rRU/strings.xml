@@ -15,6 +15,9 @@
     <string name="last_name">Фамилия</string>
     <string name="phone_number">Номер телефона</string>
     <string name="password">Пароль</string>
+    <string name="number_hint">+998 90 123 4567</string>
+
+
     //sign in screen
     <string name="sign_in">Войти</string>
     <string name="wrong_password">Неправильный пароль!</string>
@@ -49,4 +52,13 @@
     <string name="get_started">Начать</string>
     <string name="skip">Пропускать</string>
     //intro screen
+
+    <!--    main screen-->
+    // tab navigation text
+    <string name="basic">Базовый</string>
+    <string name="transfer">Transfer</string>
+    <string name="payment">Оплата</string>
+    <string name="services">Сервисы</string>
+    <string name="cashFlow">Mониторинг</string>
+    <!--    main screen-->
 </resources>

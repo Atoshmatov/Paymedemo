@@ -1,31 +1,75 @@
-package com.olsoft.mats.helpers.utils
+package uz.gita.paymedemo.utils
 
+import android.annotation.SuppressLint
+import android.annotation.TargetApi
 import android.content.Context
-import android.content.ContextWrapper
-import android.content.res.Configuration
-import android.content.res.Resources
 import android.os.Build
-import android.os.LocaleList
+import timber.log.Timber
 import java.util.*
 import javax.inject.Singleton
 
 @Singleton
-class ContextUtils(base: Context) : ContextWrapper(base) {
-    fun updateLocale(c: Context, localeToSwitchTo: Locale): ContextWrapper {
-        var context = c
-        val resources: Resources = context.resources
-        val configuration: Configuration = resources.configuration
+object LocaleHelper {
+    private const val SELECTED_LANGUAGE = "Locale.Helper.Selected.Language"
+    fun onAttach(context: Context): Context {
+        val lang = getPersistedData(context, "en")
+//        val lang = getPersistedData(context, Locale.getDefault().language)
+        Timber.tag("TTT").d("onAttach=$lang")
+        return setLocale(context, lang)
+    }
+
+    fun onAttach(context: Context, defaultLanguage: String): Context {
+        val lang = getPersistedData(context, defaultLanguage)
+        return setLocale(context, lang)
+    }
+
+//    fun getLanguage(context: Context): LangEnum {
+//        return LangEnum.getByCode(getPersistedData(context, Locale.getDefault().language)) ?: LangEnum.UZBEK
+//    }
+
+    fun setLocale(context: Context, language: String): Context {
+        persist(context, language)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            val localeList = LocaleList(localeToSwitchTo)
-            LocaleList.setDefault(localeList)
-            configuration.setLocales(localeList)
-        } else {
-            configuration.locale = localeToSwitchTo
+            updateResources(context, language)
+        }
+        updateResourcesLegacy(context, language)
+        return context
+    }
+
+    private fun getPersistedData(context: Context, defaultLanguage: String): String {
+        val preferences = context.getSharedPreferences(SELECTED_LANGUAGE, Context.MODE_PRIVATE)
+        val st = preferences.getString(SELECTED_LANGUAGE, defaultLanguage)!!
+        return st
+    }
+
+    private fun persist(context: Context, language: String?) {
+        val preferences = context.getSharedPreferences(SELECTED_LANGUAGE, Context.MODE_PRIVATE)
+        val editor = preferences.edit()
+        editor.putString(SELECTED_LANGUAGE, language)
+        editor.apply()
+    }
+
+    @TargetApi(Build.VERSION_CODES.N)
+    private fun updateResources(context: Context, language: String): Context {
+        val locale = Locale(language)
+        Locale.setDefault(locale)
+        val configuration = context.resources.configuration
+        configuration.setLocale(locale)
+        configuration.setLayoutDirection(locale)
+        return context.createConfigurationContext(configuration)
+    }
+
+    @SuppressLint("ObsoleteSdkInt")
+    private fun updateResourcesLegacy(context: Context, language: String): Context {
+        val locale = Locale(language)
+        Locale.setDefault(locale)
+        val resources = context.resources
+        val configuration = resources.configuration
+        configuration.locale = locale
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            configuration.setLayoutDirection(locale)
         }
         resources.updateConfiguration(configuration, resources.displayMetrics)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
-            context = context.createConfigurationContext(configuration)
-        }
-        return ContextUtils(context)
+        return context
     }
 }

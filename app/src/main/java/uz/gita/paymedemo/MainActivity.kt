@@ -44,36 +44,4 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         config.locale = locale;
         this.resources.updateConfiguration(config, this.resources.displayMetrics)
     }
-
-    /*  private var mCurrentLocale: Locale? = null
-
-      override fun onStart() {
-          super.onStart()
-          mCurrentLocale = resources.configuration.locale
-      }
-
-      override fun onRestart() {
-          super.onRestart()
-          val locale = getLocale(1)
-          if (locale != mCurrentLocale) {
-              mCurrentLocale = locale
-              recreate()
-          }
-      }
-
-      private fun getLocale(id: Int): Locale {
-          var languageToLoad = "eng";
-          languageToLoad = when (id) {
-              1 -> {
-                  "ru"
-              }
-              2 -> {
-                  "uzb"
-              }
-              else -> {
-                  "eng"
-              }
-          }
-          return Locale(languageToLoad)
-      }*/
 }

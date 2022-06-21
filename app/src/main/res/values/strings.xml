@@ -17,6 +17,8 @@
     <string name="last_name">Last Name</string>
     <string name="phone_number">Phone Number</string>
     <string name="password">Password</string>
+    <string name="number_hint">+998 90 123 4567</string>
+
     //sign in screen
     <string name="sign_in">Sign In</string>
     <string name="wrong_password">Wrong password!</string>
@@ -51,4 +53,14 @@
     <string name="get_started">Get Started</string>
     <string name="skip">Skip</string>
     //intro screen
+
+    <!--    main screen-->
+    // tab navigation text
+    <string name="basic">Basic</string>
+    <string name="transfer">Transfer</string>
+    <string name="payment">Payment</string>
+    <string name="services">Services</string>
+    <string name="cashFlow">Cash flow</string>
+
+    <!--    main screen-->
 </resources>

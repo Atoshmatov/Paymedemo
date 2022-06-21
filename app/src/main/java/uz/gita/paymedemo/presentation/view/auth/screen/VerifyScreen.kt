@@ -11,7 +11,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 import uz.gita.paymedemo.R
 import uz.gita.paymedemo.data.local.SharedPrefToken
 import uz.gita.paymedemo.data.remote.request.auth.VerifyRequest
@@ -37,38 +36,22 @@ class VerifyScreen:Fragment(R.layout.screen_verify) {
 
     @SuppressLint("SetTextI18n", "FragmentLiveDataObserve")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
-        super.onViewCreated(view, savedInstanceState)
-        loadViews()
         shared = SharedPrefToken(requireContext())
-        keyboard2.btClear.setOnClickListener {
-            if (code.isEmpty()) return@setOnClickListener
-            code.deleteCharAt(code.length - 1)
-            verifyCode.setText(code.toString())
-        }
-        keyboard2.btClear.setOnLongClickListener {
-            if (code.isEmpty()) return@setOnLongClickListener true
-            code.clear()
-            return@setOnLongClickListener true
-        }
-        keyboard2.btConfirm.setOnClickListener {
-            viewModel.codeVerifyUser(
-                VerifyRequest(
-                    args.number,
-                    verifyCode.values()
-                )
-            )
-        }
+        // init function
+        loadViews()
+        clearCode()
+        clearLongCode()
+        verifyCode()
 
-
+        // number send sms code
         val number = resources.getString(R.string.text_phone_number)
         verifyCodeNumber.text = number + args.number
-        Timber.tag("NUmber").d(args.number)
-        Timber.tag("NUmber").d("${verifyCodeNumber.text}")
-        viewModel.errorLiveData.observe(viewLifecycleOwner, errorObserver)
-        viewModel.notConnectionLiveData.observe(viewLifecycleOwner, notConnectionObserver)
-        viewModel.progressLiveDate.observe(viewLifecycleOwner, progressObserver)
+
+        //subscriber function
+        subscriber()
     }
 
+    //Observer Object
     private val errorObserver = Observer<String> { showToast(it) }
     private val notConnectionObserver = Observer<Unit> { showToast("Sizda internet mavjud emas") }
     private val progressObserver = Observer<Boolean> {
@@ -80,6 +63,14 @@ class VerifyScreen:Fragment(R.layout.screen_verify) {
         shared!!.id = 2
     }
 
+    //subscriber
+    private fun subscriber() = with(viewModel) {
+        errorLiveData.observe(viewLifecycleOwner, errorObserver)
+        notConnectionLiveData.observe(viewLifecycleOwner, notConnectionObserver)
+        progressLiveDate.observe(viewLifecycleOwner, progressObserver)
+    }
+
+    //function private
     private fun loadViews() {
         binding.keyboard2.apply {
             numberList.add(btZero)
@@ -100,6 +91,33 @@ class VerifyScreen:Fragment(R.layout.screen_verify) {
                 code.append(i)
                 binding.verifyCode.setText(code.toString())
             }
+        }
+    }
+
+    private fun clearCode() {
+        binding.keyboard2.btClear.setOnClickListener {
+            if (code.isEmpty()) return@setOnClickListener
+            code.deleteCharAt(code.length - 1)
+            binding.verifyCode.setText(code.toString())
+        }
+    }
+
+    private fun clearLongCode() = with(binding) {
+        keyboard2.btClear.setOnLongClickListener {
+            if (code.isEmpty()) return@setOnLongClickListener true
+            code.clear()
+            return@setOnLongClickListener true
+        }
+    }
+
+    private fun verifyCode() = with(binding) {
+        keyboard2.btConfirm.setOnClickListener {
+            viewModel.codeVerifyUser(
+                VerifyRequest(
+                    args.number,
+                    verifyCode.values()
+                )
+            )
         }
     }
 

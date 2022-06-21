@@ -4,6 +4,5 @@ import androidx.lifecycle.LiveData
 
 interface PinCodeViewModel {
     val openMainScreenLiveData: LiveData<Unit>
-
     fun openMainScreen()
 }

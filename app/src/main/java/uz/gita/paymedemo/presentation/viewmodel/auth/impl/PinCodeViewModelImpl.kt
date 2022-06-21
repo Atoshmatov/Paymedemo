@@ -12,6 +12,5 @@ class PinCodeViewModelImpl @Inject constructor() : ViewModel(), PinCodeViewModel
 
     override fun openMainScreen() {
         openMainScreenLiveData.value = Unit
-
     }
 }
