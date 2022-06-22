@@ -12,9 +12,8 @@
         tools:layout="@layout/screen_language">
 
         <action
-            android:id="@+id/action_languageScreen_to_policeScreen"
-            app:destination="@id/policeScreen"
-            app:popUpToInclusive="false" />
+            android:id="@+id/action_languageScreen_to_introScreen"
+            app:destination="@id/introScreen" />
     </fragment>
     <fragment
         android:id="@+id/splashScreen"
@@ -23,23 +22,19 @@
         tools:layout="@layout/screen_splash">
 
         <action
-            android:id="@+id/action_splashScreen_to_introScreen"
-            app:destination="@id/introScreen"
-            app:popUpTo="@id/splashScreen"
-            app:popUpToInclusive="true" />
-        <action
             android:id="@+id/action_splashScreen_to_signUPScreen"
             app:destination="@id/signUPScreen"
             app:popUpTo="@id/splashScreen"
             app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_splashScreen_to_pinCodeScreen"
-            app:destination="@id/pinCodeScreen"
-            app:popUpTo="@id/splashScreen"
-            app:popUpToInclusive="true" />
+
         <action
             android:id="@+id/action_splashScreen_to_signInScreen"
             app:destination="@id/signInScreen"
+            app:popUpTo="@id/splashScreen"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashScreen_to_languageScreen"
+            app:destination="@id/languageScreen"
             app:popUpTo="@id/splashScreen"
             app:popUpToInclusive="true" />
 
@@ -59,32 +54,22 @@
         android:label="screen_intro"
         tools:layout="@layout/screen_intro">
         <action
-            android:id="@+id/action_introScreen_to_languageScreen"
-            app:destination="@id/languageScreen"
-            app:popUpTo="@id/introScreen"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_introScreen_to_policeScreen"
+            app:destination="@id/policeScreen" />
     </fragment>
     <fragment
         android:id="@+id/pinCodeScreen"
         android:name="uz.gita.paymedemo.presentation.view.auth.screen.PinCodeScreen"
         android:label="screen_pincode"
-        tools:layout="@layout/screen_pincode">
-        <action
-            android:id="@+id/action_pinCodeScreen_to_mainScreen"
-            app:destination="@id/mainScreen"
-            app:popUpTo="@id/pinCodeScreen"
-            app:popUpToInclusive="true" />
-    </fragment>
+        tools:layout="@layout/screen_pincode" />
     <fragment
         android:id="@+id/signInScreen"
         android:name="uz.gita.paymedemo.presentation.view.auth.screen.SignInScreen"
         android:label="screen_signin"
         tools:layout="@layout/screen_signin">
         <action
-            android:id="@+id/action_signInScreen_to_mainScreen"
-            app:destination="@id/mainScreen"
-            app:popUpTo="@id/signInScreen"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_signInScreen_to_signUPScreen"
+            app:destination="@id/signUPScreen" />
     </fragment>
     <fragment
         android:id="@+id/verifyScreen"
@@ -92,14 +77,12 @@
         android:label="screen_verify"
         tools:layout="@layout/screen_verify">
 
-        <action
-            android:id="@+id/action_verifyScreen_to_pinCodeScreen"
-            app:destination="@id/pinCodeScreen"
-            app:popUpTo="@id/verifyScreen"
-            app:popUpToInclusive="true" />
         <argument
             android:name="number"
             app:argType="string" />
+        <action
+            android:id="@+id/action_verifyScreen_to_signInScreen"
+            app:destination="@id/signInScreen" />
     </fragment>
     <fragment
         android:id="@+id/mainScreen"
@@ -117,4 +100,16 @@
             app:popUpTo="@id/policeScreen"
             app:popUpToInclusive="true" />
     </fragment>
+    <action
+        android:id="@+id/action_global_pinCodeScreen"
+        app:destination="@id/pinCodeScreen"
+        app:launchSingleTop="true"
+        app:popUpTo="@id/signUPScreen"
+        app:popUpToInclusive="true" />
+    <action
+        android:id="@+id/action_global_mainScreen"
+        app:destination="@id/mainScreen"
+        app:launchSingleTop="false"
+        app:popUpTo="@id/splashScreen"
+        app:popUpToInclusive="true" />
 </navigation>

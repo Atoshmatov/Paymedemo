@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/screen_bg_color"
     android:layout_height="match_parent"
     tools:context=".presentation.view.auth.screen.PoliceScreen">
 
@@ -21,12 +22,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         style="@style/polise_image_style"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintVertical_bias="0.1" />
 
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toTopOf="@+id/acceptBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,6 +54,7 @@
             <CheckBox
                 style="@style/polise_check_style"
                 android:id="@+id/checkId"
+                android:textColor="@color/text_color"
                 android:text="@string/i_agree_to_all_terms"
                 android:layout_marginVertical="20dp" />
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -59,6 +63,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/acceptBtn"
         style="@style/signin_style"
+        android:textColor="@color/white"
         android:layout_marginHorizontal="16dp"
         android:enabled="false"
         android:text="@string/to_accept"

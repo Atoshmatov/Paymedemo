@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
+import uz.gita.paymedemo.NavGraphDirections
 import uz.gita.paymedemo.R
 import uz.gita.paymedemo.data.local.SharedPrefToken
 import uz.gita.paymedemo.data.remote.request.auth.VerifyRequest
@@ -59,7 +60,9 @@ class VerifyScreen:Fragment(R.layout.screen_verify) {
 //        else binding.progress.hide()
     }
     private val openPinCodeScreeObserver = Observer<Unit> {
-        findNavController().navigate(R.id.action_verifyScreen_to_pinCodeScreen)
+        val action = NavGraphDirections.actionGlobalPinCodeScreen()
+        findNavController().navigate(action)
+//        NavHostFragment.findNavController(this).navigate(R.id.action_global_pinCodeScreen)
         shared!!.id = 2
     }
 
@@ -119,6 +122,11 @@ class VerifyScreen:Fragment(R.layout.screen_verify) {
                 )
             )
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.openPinCodeScreenLiveDate.removeObservers(this@VerifyScreen)
     }
 
 }

@@ -16,9 +16,10 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/appCompatImageView5"
-        android:layout_width="160dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
+        app:layout_constraintDimensionRatio="1:1"
         android:src="@drawable/ic_payme_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +30,7 @@
     <TextView
         android:id="@+id/textView5"
         style="@style/input_text_hint_style"
-        android:text="@string/last_name"
+        android:text="@string/phone_number"
         app:layout_constraintBottom_toTopOf="@+id/editText1SignIn"
         app:layout_constraintEnd_toEndOf="@+id/editText1SignIn"
         app:layout_constraintHorizontal_bias="0"
@@ -38,6 +39,11 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/editText1SignIn"
         style="@style/inputText_style"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/main_color"
+        app:prefixText="+998 "
+        app:prefixTextColor="@color/text_color"
+        app:startIconDrawable="@drawable/ic_telephone"
         android:layout_marginHorizontal="16dp"
         app:layout_constraintBottom_toTopOf="@id/editText2SignIn"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,6 +53,8 @@
         app:layout_constraintVertical_chainStyle="packed">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:hint="@string/number_hint"
+            android:inputType="phone"
             android:id="@+id/firstNameSignIn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -56,7 +64,7 @@
     <TextView
         android:id="@+id/textView6"
         style="@style/input_text_hint_style"
-        android:text="@string/first_name"
+        android:text="@string/password"
         app:layout_constraintBottom_toTopOf="@+id/editText2SignIn"
         app:layout_constraintEnd_toEndOf="@+id/editText2SignIn"
         app:layout_constraintHorizontal_bias="0"
@@ -65,30 +73,35 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/editText2SignIn"
         style="@style/inputText_style"
+        app:helperText="@string/wrong_password"
+        app:helperTextEnabled="false"
+        app:helperTextTextColor="@color/wrong_password_color"
         android:layout_marginHorizontal="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:passwordToggleEnabled="true"
         app:layout_constraintStart_toStartOf="parent"
+        app:startIconDrawable="@drawable/ic_lock"
         app:layout_constraintTop_toBottomOf="@id/editText1SignIn">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/lastNameSignIn"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:maxLength="30" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/wrongPassword"
-        style="@style/wrong_password_style"
-        android:text="@string/wrong_password"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/editText2SignIn"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="@+id/editText2SignIn"
-        app:layout_constraintTop_toBottomOf="@+id/editText2SignIn"
-        tools:visibility="visible" />
+    <!--  <TextView
+          android:id="@+id/wrongPassword"
+          style="@style/wrong_password_style"
+          android:text="@string/wrong_password"
+          android:visibility="gone"
+          app:layout_constraintEnd_toEndOf="@+id/editText2SignIn"
+          app:layout_constraintHorizontal_bias="0"
+          app:layout_constraintStart_toStartOf="@+id/editText2SignIn"
+          app:layout_constraintTop_toBottomOf="@+id/editText2SignIn" />-->
 
     <TextView
         style="@style/forgot_password_style"
@@ -96,9 +109,7 @@
         app:layout_constraintEnd_toEndOf="@+id/editText2SignIn"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="@+id/editText2SignIn"
-        app:layout_constraintTop_toBottomOf="@+id/wrongPassword" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/editText2SignIn" />
 
 
     <androidx.appcompat.widget.AppCompatButton
@@ -110,5 +121,24 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/login_progress_1"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/login_progress_2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:rotation="180"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

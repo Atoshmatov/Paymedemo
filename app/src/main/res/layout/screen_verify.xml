@@ -21,15 +21,16 @@
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:text="@string/ready"
-        android:textColor="@color/text_color_black"
+        android:textColor="@color/text_color"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/appCompatImageView4"
-        android:layout_width="160dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintDimensionRatio="1:1"
         android:adjustViewBounds="true"
         android:src="@drawable/ic_payme_logo"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -56,6 +57,7 @@
         android:id="@+id/verifyEditText"
         style="@style/inputText_style"
         android:layout_marginHorizontal="16dp"
+        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/keyboard2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -82,7 +84,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/amiko_semibold"
         android:text="@string/stranger_device"
-        android:textColor="@color/text_color_black"
+        android:textColor="@color/text_color"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/verifyEditText" />
@@ -105,7 +107,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/amiko_semibold"
         android:gravity="center"
-        android:textColor="@color/text_color_black"
+        android:textColor="@color/text_color"
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/verifyEditText"
         app:layout_constraintEnd_toEndOf="@+id/verifyEditText"
@@ -121,4 +123,23 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/verify_progress_1"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/verify_progress_2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:rotation="180"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

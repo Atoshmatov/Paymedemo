@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     //main color
+    <color name="input_bg_color">#F4F4F4</color>
     <color name="main_color">#00CECE</color>
-    <color name="text_color_black">#000</color>
+    <color name="text_color">#FF000000</color>
     <color name="text_color_green">#2FB209</color>
+    <color name="screen_bg_color">#FFFFFF</color>
 
     //statusBar color
     <color name="status_bar_color">#FFFFFF</color>
 
+    <!--    auth color..............................-->
     //splash screen color
 
     //intro screen color
@@ -15,20 +18,24 @@
     //auth screen color
     <color name="auth_main_color">#00CECE</color>
     <color name="black">#FF000000</color>
+    <color name="grey">#B3B3B3</color>
     <color name="white">#FFFFFFFF</color>
 
     //sign up screen color
-    <color name="box_stroke_color" tools:override="true">#2FB209</color>
-    <color name="input_bg_color">#F4F4F4</color>
-    <color name="text_sign_up_color">#9F9F9F</color>
+    <color name="box_stroke_color">#2FB209</color>
+    <color name="signup_input__bg_color">#F4F4F4</color>
 
     //sign in color
     <color name="wrong_password_color">#E30510</color>
-    <color name="box_stroke_color_stroke" tools:override="true">#E30510</color>
+    <color name="box_stroke_color_stroke">#E30510</color>
 
     //police screen color
-    <color name="police_text_color">#2FB209</color>
+    <color name="police_text_color">#00CECE</color>
 
     //language color
     <color name="liner_color">#1A000000</color>
+
+    //pincode screen color
+    <color name="pincode_button_color">#F4F4F4</color>
+    <!--    auth color..............................-->
 </resources>

@@ -6,6 +6,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -30,32 +31,30 @@ class LanguageScreen : Fragment(R.layout.screen_language) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
-        paymeVersion.text =
-            resources.getString(R.string.text_splash_payme, BuildConfig.VERSION_NAME)
         rusButton.setOnClickListener {
-            shared?.language = 1
+            shared?.language = "ru"
             LocaleHelper.setLocale(requireContext(), "ru")
             viewModel.openSingUp()
         }
         uzButton.setOnClickListener {
-            shared?.language = 2
+            shared?.language = "uz"
             LocaleHelper.setLocale(requireContext(), "uz")
             viewModel.openSingUp()
         }
         engButton.setOnClickListener {
             LocaleHelper.setLocale(requireContext(), "en")
-            shared?.language = 3
+            shared?.language = "en"
             viewModel.openSingUp()
         }
     }
 
-    private fun onOptionsItemSelected(id: Int) {
+    private fun onOptionsItemSelected(id: String) {
         var languageToLoad = "en"
         languageToLoad = when (id) {
-            1 -> {
+            "ru" -> {
                 "ru"
             }
-            2 -> {
+            "uz" -> {
                 "uz"
             }
             else -> {
@@ -73,6 +72,8 @@ class LanguageScreen : Fragment(R.layout.screen_language) {
     }
 
     private val openSignUpObserver = Observer<Unit> {
-        findNavController().navigate(R.id.action_languageScreen_to_policeScreen)
+        val navOption = NavOptions.Builder()
+            .setPopUpTo(R.id.introScreen, true).build()
+        findNavController().navigate(R.id.action_languageScreen_to_introScreen, null, navOption)
     }
 }

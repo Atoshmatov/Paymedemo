@@ -16,8 +16,7 @@
     <string name="last_name">Familya</string>
     <string name="phone_number">Telefon</string>
     <string name="password">Parol</string>
-    <string name="number_hint">+998 90 123 4567</string>
-    <string name="last_name_hint">Last Name</string>
+    <string name="number_hint"> 90 123 4567</string>
 
     //sign in screen
     <string name="sign_in">Tizimga kirish</string>

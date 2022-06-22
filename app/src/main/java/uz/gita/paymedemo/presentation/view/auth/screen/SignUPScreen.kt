@@ -6,6 +6,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,13 +37,14 @@ class SignUPScreen : Fragment(R.layout.screen_signup) {
     @SuppressLint("ResourceAsColor", "FragmentLiveDataObserve", "ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
         listener()
+
         singUpButton.isEnabled = false
         singUpButton.setOnClickListener {
             viewModel.registerUser(
                 SignUpRequest(
                     firstName.values(),
                     lastName.values(),
-                    phoneNumber.values(),
+                    "+998" + phoneNumber.values(),
                     password.values(),
                 )
             )
@@ -52,10 +54,11 @@ class SignUPScreen : Fragment(R.layout.screen_signup) {
 
     //observer Object
     private val openVerifyScreenObserver = Observer<Unit> {
+        val navOption = NavOptions.Builder()
+            .setPopUpTo(R.id.policeScreen, true).build()
         findNavController().navigate(
-            SignUPScreenDirections.actionSignUPScreenToVerifyScreen(
-                binding.phoneNumber.values()
-            )
+            SignUPScreenDirections.actionSignUPScreenToVerifyScreen("+998 " + binding.phoneNumber.values()),
+            navOption
         )
     }
 
@@ -63,28 +66,27 @@ class SignUPScreen : Fragment(R.layout.screen_signup) {
     private fun subscribers() = with(viewModel) {
 
     }
-
     private fun listener() = with(binding) {
         firstName.addListener {
-            boolFirstName = it.length in 3..20
+            boolFirstName = it.length in 5..20
             check()
         }
         lastName.addListener {
-            boolLastName = it.length in 3..20
+            boolLastName = it.length in 5..20
         }
         phoneNumber.addListener {
-            boolPhoneNumber = it.length == 13 && it.startsWith("+998")
+            boolPhoneNumber =
+                it.length == 9 && "[0-9]*\$".toRegex().matches(it)
             check()
         }
         password.addListener {
             boolPassword = (it.length in 5..8)
             check()
         }
-        if (checked) {
-            singUpButton.setTextColor(resources.getColor(R.color.white))
-        }
-    }
 
+        if (checked)
+            singUpButton.setTextColor(resources.getColor(R.color.white))
+    }
     private fun check() {
         checked = boolFirstName && boolLastName && boolPhoneNumber && boolPassword
         binding.singUpButton.isEnabled = checked

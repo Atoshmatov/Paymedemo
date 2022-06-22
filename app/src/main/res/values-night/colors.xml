@@ -1,4 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    //main color
+    <color name="input_bg_color">#B3B3B3</color>
+    <color name="screen_bg_color">#3A424D</color>
+    <color name="main_color">#00CECE</color>
+    <color name="text_color">#FFF</color>
+    <color name="text_color_green">#2FB209</color>
+
+    //statusBar color
+    <color name="status_bar_color">#3A424D</color>
+
+    <!--    auth color..............................-->
+    //splash screen color
+
+    //intro screen color
+
+    //auth screen color
+    <color name="auth_main_color">#00CECE</color>
+    <color name="black">#FF000000</color>
+    <color name="grey">#B3B3B3</color>
+    <color name="white">#FFFFFFFF</color>
+
+    //sign up screen color
+    <color name="box_stroke_color">#2FB209</color>
+    <color name="signup_input__bg_color">#3A424D</color>
+
+    //sign in color
+    <color name="wrong_password_color">#E30510</color>
+    <color name="box_stroke_color_stroke">#E30510</color>
+
+    //police screen color
+    <color name="police_text_color">#00CECE</color>
+
+    //language color
+    <color name="liner_color">#FFF</color>
+
+    //pincode screen color
+    <color name="pincode_button_color">#3B4F68</color>
+    <!--    auth color..............................-->
 
 </resources>

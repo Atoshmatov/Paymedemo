@@ -15,7 +15,7 @@
     <string name="last_name">Фамилия</string>
     <string name="phone_number">Номер телефона</string>
     <string name="password">Пароль</string>
-    <string name="number_hint">+998 90 123 4567</string>
+    <string name="number_hint"> 90 123 4567</string>
 
 
     //sign in screen

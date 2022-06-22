@@ -6,9 +6,11 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
+import uz.gita.paymedemo.NavGraphDirections
 import uz.gita.paymedemo.R
 import uz.gita.paymedemo.data.local.SharedPrefToken
 import uz.gita.paymedemo.databinding.ScreenSplashBinding
@@ -38,14 +40,20 @@ class SplashScreen : Fragment(R.layout.screen_splash) {
     }
     private val openLanguageObserver = Observer<Unit> {
         if (shared.token.isEmpty() && shared.id == 0) {
-            findNavController().navigate(R.id.action_splashScreen_to_introScreen)
+            findNavController().navigate(R.id.action_splashScreen_to_languageScreen)
         } else if (shared.token.isEmpty() && shared.id == 1) {
             findNavController().navigate(R.id.action_splashScreen_to_signUPScreen)
         } else if (shared.token.isEmpty() && shared.id == 2) {
             //TODO esdan chiqmasin not qilish
-            findNavController().navigate(R.id.action_splashScreen_to_pinCodeScreen)
+            val action = NavGraphDirections.actionGlobalPinCodeScreen()
+            findNavController().navigate(action)
         } else if (shared.id == 3 && shared.token.isNotEmpty()) {
             findNavController().navigate(R.id.action_splashScreen_to_signInScreen)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.openLanguageScreen.removeObservers(this@SplashScreen)
     }
 }

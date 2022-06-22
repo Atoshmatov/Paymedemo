@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -79,6 +80,8 @@ class IntroScreen : Fragment(R.layout.screen_intro) {
     }
 
     private val openLanguageScreenObserver = Observer<Unit> {
-        findNavController().navigate(R.id.action_introScreen_to_languageScreen)
+        val navOption = NavOptions.Builder()
+            .setPopUpTo(R.id.splashScreen, true).build()
+        findNavController().navigate(R.id.action_introScreen_to_policeScreen)
     }
 }

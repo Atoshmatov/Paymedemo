@@ -6,79 +6,79 @@
     android:layout_height="wrap_content"
     tools:ignore="HardcodedText,NewApi">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/btOne"
         style="@style/pincode_style">
 
         <TextView
             style="@style/pincode_text_style2"
             android:text="1" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/btTwo"
         style="@style/pincode_style">
 
         <TextView
             style="@style/pincode_text_style2"
             android:text="2" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/btThree"
         style="@style/pincode_style">
 
         <TextView
             style="@style/pincode_text_style2"
             android:text="3" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/btFour"
         style="@style/pincode_style">
 
         <TextView
             style="@style/pincode_text_style2"
             android:text="4" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/btFive"
         style="@style/pincode_style">
 
         <TextView
             style="@style/pincode_text_style2"
             android:text="5" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/btSix"
         style="@style/pincode_style">
 
         <TextView
             style="@style/pincode_text_style2"
             android:text="6" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/btSeven"
         style="@style/pincode_style">
 
         <TextView
             style="@style/pincode_text_style2"
             android:text="7" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/btEight"
         style="@style/pincode_style">
 
         <TextView
             style="@style/pincode_text_style2"
             android:text="8" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/btNine"
         style="@style/pincode_style"
         tools:ignore="MissingConstraints">
@@ -86,7 +86,7 @@
         <TextView
             style="@style/pincode_text_style2"
             android:text="9" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/btClear"
@@ -98,14 +98,14 @@
         android:src="@drawable/ic_ingerprint"
         tools:ignore="MissingConstraints" />
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/btZero"
         style="@style/pincode_style">
 
         <TextView
             style="@style/pincode_text_style2"
             android:text="0" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/btConfirm"

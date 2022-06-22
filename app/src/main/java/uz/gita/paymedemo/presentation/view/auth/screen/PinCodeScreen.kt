@@ -7,7 +7,6 @@ import android.hardware.biometrics.BiometricManager.Authenticators.DEVICE_CREDEN
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
@@ -21,6 +20,8 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
+import uz.gita.paymedemo.BuildConfig
+import uz.gita.paymedemo.NavGraphDirections
 import uz.gita.paymedemo.R
 import uz.gita.paymedemo.databinding.ScreenPincodeBinding
 import uz.gita.paymedemo.presentation.viewmodel.auth.PinCodeViewModel
@@ -37,30 +38,41 @@ class PinCodeScreen : Fragment(R.layout.screen_pincode) {
     private lateinit var executor: Executor
     private lateinit var biometricPrompt: BiometricPrompt
     private lateinit var promptInfo: BiometricPrompt.PromptInfo
-    private val REQUEST_CODE = 1010
+    private val REQUEST_CODE = BiometricManager.BIOMETRIC_SUCCESS
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         viewModel.openMainScreenLiveData.observe(this@PinCodeScreen, openMainScreenObserver)
     }
 
     @SuppressLint("FragmentLiveDataObserve")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
+        paymeVersion.text =
+            resources.getString(R.string.text_splash_payme, BuildConfig.VERSION_NAME)
         clearCode()
         subscriber()
+        loadView()
         main.post {
-            loadView()
             biometricId()
         }
         return@with
     }
 
+    //observer Object
     private val openMainScreenObserver = Observer<Unit> {
         val navOption = NavOptions.Builder()
-            .setPopUpTo(R.id.pinCodeScreen, true).build()
-        findNavController().navigate(R.id.action_pinCodeScreen_to_mainScreen, null, navOption)
+            .setPopUpTo(R.id.verifyScreen, true).build()
+        val action = NavGraphDirections.actionGlobalMainScreen()
+        findNavController().navigate(action)
+//        findNavController().navigate(R.id.action_pinCodeScreen_to_mainScreen, null, navOption)
     }
 
+
+    //view Model Observer
+    private fun subscriber() = with(viewModel) {}
+
+    //call back function
     private fun loadView() {
         binding.keyboard.apply {
             numberList.add(btZero)
@@ -74,6 +86,7 @@ class PinCodeScreen : Fragment(R.layout.screen_pincode) {
             numberList.add(btEight)
             numberList.add(btNine)
         }
+
         pincodeList.add(binding.imageviewCircle1)
         pincodeList.add(binding.imageviewCircle2)
         pincodeList.add(binding.imageviewCircle3)
@@ -92,7 +105,6 @@ class PinCodeScreen : Fragment(R.layout.screen_pincode) {
             }
         }
     }
-
     @SuppressLint("WrongConstant", "InlinedApi", "SwitchIntDef")
     private fun biometricId() {
         val biometricManager = BiometricManager.from(requireContext())
@@ -121,11 +133,6 @@ class PinCodeScreen : Fragment(R.layout.screen_pincode) {
                     errString: CharSequence
                 ) {
                     super.onAuthenticationError(errorCode, errString)
-                    Toast.makeText(
-                        requireContext(),
-                        "Authentication error: $errString", Toast.LENGTH_SHORT
-                    )
-                        .show()
                 }
 
                 override fun onAuthenticationSucceeded(
@@ -135,22 +142,12 @@ class PinCodeScreen : Fragment(R.layout.screen_pincode) {
                     for (j in 0 until 4) {
                         pincodeList[j].setBackgroundResource(R.drawable.pincode_2)
                     }
-                    if (REQUEST_CODE == 1010)
+                    if (REQUEST_CODE == BiometricManager.BIOMETRIC_SUCCESS)
                         viewModel.openMainScreen()
-                    Toast.makeText(
-                        requireContext(),
-                        "Authentication succeeded!", Toast.LENGTH_SHORT
-                    )
-                        .show()
                 }
 
                 override fun onAuthenticationFailed() {
                     super.onAuthenticationFailed()
-                    Toast.makeText(
-                        requireContext(), "Authentication failed",
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
                 }
             })
 
@@ -169,16 +166,15 @@ class PinCodeScreen : Fragment(R.layout.screen_pincode) {
                 return@setOnClickListener
             pincodeList[code.length - 1].setBackgroundResource(R.drawable.pincode_1)
             code.deleteCharAt(code.length - 1)
-
         }
     }
 
-    private fun subscriber() = with(viewModel) {
-    }
 
+    //fragment lifecycle
     override fun onDestroy() {
         super.onDestroy()
         biometricPrompt.cancelAuthentication()
+        viewModel.openMainScreenLiveData.removeObservers(this@PinCodeScreen)
     }
 }
 

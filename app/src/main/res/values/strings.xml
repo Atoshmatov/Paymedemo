@@ -17,7 +17,7 @@
     <string name="last_name">Last Name</string>
     <string name="phone_number">Phone Number</string>
     <string name="password">Password</string>
-    <string name="number_hint">+998 90 123 4567</string>
+    <string name="number_hint"> 90 123 4567</string>
 
     //sign in screen
     <string name="sign_in">Sign In</string>

@@ -19,6 +19,7 @@
         android:theme="@style/Theme.PaymeDemo"
         tools:targetApi="31">
         <activity
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"
             android:name=".MainActivity"
             android:exported="true">

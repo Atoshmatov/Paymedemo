@@ -13,7 +13,6 @@ object LocaleHelper {
     private const val SELECTED_LANGUAGE = "Locale.Helper.Selected.Language"
     fun onAttach(context: Context): Context {
         val lang = getPersistedData(context, "en")
-//        val lang = getPersistedData(context, Locale.getDefault().language)
         Timber.tag("TTT").d("onAttach=$lang")
         return setLocale(context, lang)
     }
@@ -22,11 +21,6 @@ object LocaleHelper {
         val lang = getPersistedData(context, defaultLanguage)
         return setLocale(context, lang)
     }
-
-//    fun getLanguage(context: Context): LangEnum {
-//        return LangEnum.getByCode(getPersistedData(context, Locale.getDefault().language)) ?: LangEnum.UZBEK
-//    }
-
     fun setLocale(context: Context, language: String): Context {
         persist(context, language)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {

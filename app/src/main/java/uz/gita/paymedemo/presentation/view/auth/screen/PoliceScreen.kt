@@ -5,9 +5,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
-import timber.log.Timber
 import uz.gita.paymedemo.R
 import uz.gita.paymedemo.data.local.SharedPrefToken
 import uz.gita.paymedemo.databinding.ScreenPoliceBinding
@@ -28,19 +28,16 @@ class PoliceScreen : Fragment(R.layout.screen_police) {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
-        checkId.setOnCheckedChangeListener { button, p ->
+        checkId.setOnCheckedChangeListener { _, p ->
             checked = p
             acceptBtn.isEnabled = checked
-            Timber.tag("AAA").d("$p")
-            Timber.tag("AAA").d("checed $checked")
-            if (!p) {
-                acceptBtn.setTextColor(resources.getColor(R.color.text_color_black))
-                button.setTextColor(resources.getColor(R.color.text_color_black))
-            } else {
+            if (checked) {
+                checkId.setTextColor(resources.getColor(R.color.police_text_color))
                 acceptBtn.setTextColor(resources.getColor(R.color.white))
-                button.setTextColor(resources.getColor(R.color.main_color))
+            }else {
+                checkId.setTextColor(resources.getColor(R.color.text_color))
+                acceptBtn.setTextColor(resources.getColor(R.color.white))
             }
-
         }
 
         acceptBtn.setOnClickListener {
@@ -49,7 +46,9 @@ class PoliceScreen : Fragment(R.layout.screen_police) {
     }
 
     private val openSigInScreenObserver = Observer<Unit> {
-        findNavController().navigate(R.id.action_policeScreen_to_signUPScreen)
+        val navOption = NavOptions.Builder()
+            .setPopUpTo(R.id.languageScreen, true).build()
+        findNavController().navigate(R.id.action_policeScreen_to_signUPScreen, null, navOption)
         shared.id = 1
     }
 }

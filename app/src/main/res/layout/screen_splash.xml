@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/screen_bg_color"
     android:layout_height="match_parent"
     tools:context=".presentation.view.splash.screen.SplashScreen">
 
@@ -58,7 +59,7 @@
             android:fontFamily="sans-serif"
             android:gravity="center"
             android:text="@string/connect_text"
-            android:textColor="@color/text_color_black"
+            android:textColor="@color/text_color"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView8"

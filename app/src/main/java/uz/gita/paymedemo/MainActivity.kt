@@ -1,14 +1,13 @@
 package uz.gita.paymedemo
 
-import android.annotation.SuppressLint
-import android.content.res.Configuration
+import android.content.Context
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 import uz.gita.paymedemo.data.local.SharedPrefToken
 import uz.gita.paymedemo.presentation.view.auth.screen.LanguageScreen
+import uz.gita.paymedemo.utils.LocaleHelper
 import java.util.*
 
 
@@ -20,28 +19,11 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         super.onCreate(savedInstanceState, persistentState)
         languageScreen = LanguageScreen()
         shared = SharedPrefToken(this)
-        onOptionsItemSelected(shared!!.language)
-        Timber.tag("EEE").d("${shared?.language}")
     }
 
-    @SuppressLint("ObsoleteSdkInt")
-    private fun onOptionsItemSelected(id: Int) {
-        var languageToLoad = "en";
-        languageToLoad = when (id) {
-            1 -> {
-                "ru"
-            }
-            2 -> {
-                "uz"
-            }
-            else -> {
-                "en"
-            }
-        }
-        val locale = Locale(languageToLoad);
-        Locale.setDefault(locale);
-        val config = Configuration();
-        config.locale = locale;
-        this.resources.updateConfiguration(config, this.resources.displayMetrics)
+    override fun attachBaseContext(newBase: Context?) {
+        val local = Locale(SharedPrefToken(newBase ?: this).language)
+        val contextWrapper = LocaleHelper.setLocale(newBase ?: this, local.toString())
+        super.attachBaseContext(contextWrapper)
     }
 }
