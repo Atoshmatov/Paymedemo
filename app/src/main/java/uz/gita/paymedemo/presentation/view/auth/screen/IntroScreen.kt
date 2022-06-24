@@ -44,23 +44,26 @@ class IntroScreen : Fragment(R.layout.screen_intro) {
                     nextButton.visibility = View.GONE
                     introTab.visibility = View.GONE
                     getStart.visibility = View.VISIBLE
+                    skip.visibility = View.GONE
                 } else {
                     nextButton.visibility = View.VISIBLE
                     introTab.visibility = View.VISIBLE
                     getStart.visibility = View.GONE
+                    skip.visibility = View.VISIBLE
                 }
             }
         }
-        introPager.registerOnPageChangeCallback(listener)
 
+        introPager.registerOnPageChangeCallback(listener)
         nextButton.setOnClickListener {
-            introPager.unregisterOnPageChangeCallback(listener)
+            introPager.registerOnPageChangeCallback(listener)
             introPager.currentItem = introPager.currentItem + 1
             if (introPager.currentItem == 3) {
                 introPager.registerOnPageChangeCallback(listener)
                 nextButton.visibility = View.GONE
                 introTab.visibility = View.GONE
                 getStart.visibility = View.VISIBLE
+                skip.visibility = View.GONE
             } else {
                 introPager.registerOnPageChangeCallback(listener)
                 nextButton.visibility = View.VISIBLE
@@ -69,7 +72,6 @@ class IntroScreen : Fragment(R.layout.screen_intro) {
             }
         }
         TabLayoutMediator(introTab, introPager) { _, _ -> }.attach()
-
         getStart.setOnClickListener {
             Timber.tag("AAA")
             viewModel.openLang()
@@ -81,7 +83,7 @@ class IntroScreen : Fragment(R.layout.screen_intro) {
 
     private val openLanguageScreenObserver = Observer<Unit> {
         val navOption = NavOptions.Builder()
-            .setPopUpTo(R.id.splashScreen, true).build()
-        findNavController().navigate(R.id.action_introScreen_to_policeScreen)
+            .setPopUpTo(R.id.languageScreen, true).build()
+        findNavController().navigate(R.id.action_introScreen_to_policeScreen,null,navOption)
     }
 }

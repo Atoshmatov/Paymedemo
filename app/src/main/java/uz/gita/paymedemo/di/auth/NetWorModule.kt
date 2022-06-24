@@ -1,4 +1,4 @@
-package uz.gita.paymedemo.di.authdi
+package uz.gita.paymedemo.di.auth
 
 import com.google.gson.Gson
 import dagger.Module

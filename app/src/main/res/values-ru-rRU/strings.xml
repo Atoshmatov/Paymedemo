@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Payme demo</string>
+    <string name="app_name">Payme Clone</string>
 
-    // auth..................
+    <!--    auth screen-->
     // language screen text
     <string name="mobile_banking">Mobile\nBanking</string>
     <string name="rus">Русский</string>
@@ -24,12 +24,14 @@
     <string name="forgot_password">Забыл пароль!</string>
     //pincode screen
     <string name="enter_the_pin_code">Введите PIN-код</string>
+    <string name="enter_new_password">Введите новый пароль</string>
 
     //verify screen
     <string name="ready">Готовый</string>
     <string name="verify_text">Введите код подтверждения</string>
     <string name="stranger_device">Чужое устройство</string>
     <string name="text_phone_number">Код отправлен на номер\n</string>
+    <string name="code">код</string>
 
 
     //police
@@ -52,13 +54,14 @@
     <string name="get_started">Начать</string>
     <string name="skip">Пропускать</string>
     //intro screen
+    <!--    auth screen-->
 
     <!--    main screen-->
     // tab navigation text
-    <string name="basic">Базовый</string>
-    <string name="transfer">Transfer</string>
+    <string name="basic">Главный</string>
+    <string name="transfer">Превод</string>
     <string name="payment">Оплата</string>
     <string name="services">Сервисы</string>
-    <string name="cashFlow">Mониторинг</string>
+    <string name="cashFlow">Мониторинг</string>
     <!--    main screen-->
 </resources>

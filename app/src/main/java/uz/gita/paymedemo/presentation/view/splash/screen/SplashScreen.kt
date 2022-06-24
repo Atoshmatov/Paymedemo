@@ -48,7 +48,7 @@ class SplashScreen : Fragment(R.layout.screen_splash) {
             val action = NavGraphDirections.actionGlobalPinCodeScreen()
             findNavController().navigate(action)
         } else if (shared.id == 3 && shared.token.isNotEmpty()) {
-            findNavController().navigate(R.id.action_splashScreen_to_signInScreen)
+//            findNavController().navigate(R.id.action_splashScreen_to_signInScreen)
         }
     }
 

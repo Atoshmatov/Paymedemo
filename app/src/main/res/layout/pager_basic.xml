@@ -8,6 +8,7 @@
     tools:context=".presentation.view.main.pager.BasicPager">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:backgroundTint="@color/screen_bg_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFF"

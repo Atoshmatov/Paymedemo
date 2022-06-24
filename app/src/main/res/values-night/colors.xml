@@ -4,8 +4,9 @@
     <color name="input_bg_color">#B3B3B3</color>
     <color name="screen_bg_color">#3A424D</color>
     <color name="main_color">#00CECE</color>
-    <color name="text_color">#FFF</color>
+    <color name="text_color">#FFFFFF</color>
     <color name="text_color_green">#2FB209</color>
+    <color name="hint_color">#FFFFFF</color>
 
     //statusBar color
     <color name="status_bar_color">#3A424D</color>
@@ -38,5 +39,10 @@
     //pincode screen color
     <color name="pincode_button_color">#3B4F68</color>
     <!--    auth color..............................-->
+
+
+    <!--    main screen color..................................-->
+
+    <!--    main screen color..................................-->
 
 </resources>

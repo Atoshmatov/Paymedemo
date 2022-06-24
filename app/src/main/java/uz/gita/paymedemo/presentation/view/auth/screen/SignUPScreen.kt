@@ -10,7 +10,9 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 import uz.gita.paymedemo.R
+import uz.gita.paymedemo.data.local.SharedPrefToken
 import uz.gita.paymedemo.data.remote.request.auth.SignUpRequest
 import uz.gita.paymedemo.databinding.ScreenSignupBinding
 import uz.gita.paymedemo.presentation.viewmodel.auth.SignUpViewModel
@@ -27,7 +29,7 @@ class SignUPScreen : Fragment(R.layout.screen_signup) {
     private var boolPhoneNumber = false
     private var boolPassword = false
     private var checked = false
-
+    private var shared: SharedPrefToken? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,15 +38,15 @@ class SignUPScreen : Fragment(R.layout.screen_signup) {
 
     @SuppressLint("ResourceAsColor", "FragmentLiveDataObserve", "ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
+        shared = SharedPrefToken(requireContext())
         listener()
-
         singUpButton.isEnabled = false
         singUpButton.setOnClickListener {
             viewModel.registerUser(
                 SignUpRequest(
                     firstName.values(),
                     lastName.values(),
-                    "+998" + phoneNumber.values(),
+                    phoneNumber.values(),
                     password.values(),
                 )
             )
@@ -57,7 +59,7 @@ class SignUPScreen : Fragment(R.layout.screen_signup) {
         val navOption = NavOptions.Builder()
             .setPopUpTo(R.id.policeScreen, true).build()
         findNavController().navigate(
-            SignUPScreenDirections.actionSignUPScreenToVerifyScreen("+998 " + binding.phoneNumber.values()),
+            SignUPScreenDirections.actionSignUPScreenToVerifyScreen(binding.phoneNumber.values()),
             navOption
         )
     }
@@ -76,20 +78,24 @@ class SignUPScreen : Fragment(R.layout.screen_signup) {
         }
         phoneNumber.addListener {
             boolPhoneNumber =
-                it.length == 9 && "[0-9]*\$".toRegex().matches(it)
+                it.length == 17 && "\\+998[\\ 0-9]*\$".toRegex().matches(it)
             check()
         }
         password.addListener {
             boolPassword = (it.length in 5..8)
             check()
+            shared!!.password = it
+            Timber.tag("NUMBER").d("$it")
         }
-
-        if (checked)
-            singUpButton.setTextColor(resources.getColor(R.color.white))
     }
     private fun check() {
         checked = boolFirstName && boolLastName && boolPhoneNumber && boolPassword
         binding.singUpButton.isEnabled = checked
+        if (checked) {
+            binding.singUpButton.setTextColor(resources.getColor(R.color.white))
+        } else {
+            binding.singUpButton.setTextColor(resources.getColor(R.color.hint_color))
+        }
     }
 
 }

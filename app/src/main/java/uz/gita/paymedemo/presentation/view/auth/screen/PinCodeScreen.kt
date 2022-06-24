@@ -20,9 +20,9 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
-import uz.gita.paymedemo.BuildConfig
 import uz.gita.paymedemo.NavGraphDirections
 import uz.gita.paymedemo.R
+import uz.gita.paymedemo.data.local.SharedPrefToken
 import uz.gita.paymedemo.databinding.ScreenPincodeBinding
 import uz.gita.paymedemo.presentation.viewmodel.auth.PinCodeViewModel
 import uz.gita.paymedemo.presentation.viewmodel.auth.impl.PinCodeViewModelImpl
@@ -35,6 +35,7 @@ class PinCodeScreen : Fragment(R.layout.screen_pincode) {
     private val numberList = ArrayList<CardView>()
     private val pincodeList = ArrayList<AppCompatImageView>()
     private var code = StringBuilder(4)
+    private var shared: SharedPrefToken? = null
     private lateinit var executor: Executor
     private lateinit var biometricPrompt: BiometricPrompt
     private lateinit var promptInfo: BiometricPrompt.PromptInfo
@@ -42,39 +43,36 @@ class PinCodeScreen : Fragment(R.layout.screen_pincode) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         viewModel.openMainScreenLiveData.observe(this@PinCodeScreen, openMainScreenObserver)
     }
 
     @SuppressLint("FragmentLiveDataObserve")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
-        paymeVersion.text =
-            resources.getString(R.string.text_splash_payme, BuildConfig.VERSION_NAME)
-        clearCode()
+        shared = SharedPrefToken(requireContext())
         subscriber()
         loadView()
-        main.post {
-            biometricId()
-        }
+        clearCode()
+//        main.post {
+////            biometricId()
+//        }
+        keyboard1.btConfirm.visibility = View.INVISIBLE
         return@with
     }
 
     //observer Object
     private val openMainScreenObserver = Observer<Unit> {
         val navOption = NavOptions.Builder()
-            .setPopUpTo(R.id.verifyScreen, true).build()
+            .setPopUpTo(R.id.pinCodeScreen, true).build()
         val action = NavGraphDirections.actionGlobalMainScreen()
-        findNavController().navigate(action)
-//        findNavController().navigate(R.id.action_pinCodeScreen_to_mainScreen, null, navOption)
+        findNavController().navigate(action, navOption)
     }
-
 
     //view Model Observer
     private fun subscriber() = with(viewModel) {}
 
     //call back function
     private fun loadView() {
-        binding.keyboard.apply {
+        binding.keyboard1.apply {
             numberList.add(btZero)
             numberList.add(btOne)
             numberList.add(btTwo)
@@ -100,7 +98,7 @@ class PinCodeScreen : Fragment(R.layout.screen_pincode) {
                 for (j in code.indices) {
                     pincodeList[j].setBackgroundResource(R.drawable.pincode_2)
                 }
-                if (code.toString() == "1220")
+                if (code.toString() == shared!!.code)
                     viewModel.openMainScreen()
             }
         }
@@ -161,7 +159,7 @@ class PinCodeScreen : Fragment(R.layout.screen_pincode) {
     }
 
     private fun clearCode() {
-        binding.keyboard.btConfirm.setOnClickListener {
+        binding.keyboard1.btClear.setOnClickListener {
             if (code.isEmpty())
                 return@setOnClickListener
             pincodeList[code.length - 1].setBackgroundResource(R.drawable.pincode_1)
@@ -169,12 +167,11 @@ class PinCodeScreen : Fragment(R.layout.screen_pincode) {
         }
     }
 
-
     //fragment lifecycle
     override fun onDestroy() {
         super.onDestroy()
-        biometricPrompt.cancelAuthentication()
-        viewModel.openMainScreenLiveData.removeObservers(this@PinCodeScreen)
+//        biometricPrompt.cancelAuthentication()
+//        viewModel.openMainScreenLiveData.removeObservers(this@PinCodeScreen)
     }
 }
 

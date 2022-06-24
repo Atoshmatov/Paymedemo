@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
+import com.r0adkll.slidr.Slidr
 import dagger.hilt.android.AndroidEntryPoint
 import uz.gita.paymedemo.data.local.SharedPrefToken
 import uz.gita.paymedemo.presentation.view.auth.screen.LanguageScreen
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         super.onCreate(savedInstanceState, persistentState)
         languageScreen = LanguageScreen()
         shared = SharedPrefToken(this)
+        Slidr.attach(this);
     }
 
     override fun attachBaseContext(newBase: Context?) {

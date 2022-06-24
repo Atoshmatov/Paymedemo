@@ -7,65 +7,66 @@
     tools:ignore="HardcodedText,NewApi">
 
     <TextView
-        android:id="@+id/btOne"
+        android:id="@+id/verifyBtOne"
         style="@style/PinItem"
         android:text="1" />
 
     <TextView
-        android:id="@+id/btTwo"
+        android:id="@+id/verifyBtTwo"
         style="@style/PinItem"
         android:text="2" />
 
     <TextView
-        android:id="@+id/btThree"
+        android:id="@+id/verifyBtThree"
         style="@style/PinItem"
         android:text="3" />
 
     <TextView
-        android:id="@+id/btFour"
+        android:id="@+id/verifyBtFour"
         style="@style/PinItem"
         android:text="4" />
 
     <TextView
-        android:id="@+id/btFive"
+        android:id="@+id/verifyBtFive"
         style="@style/PinItem"
         android:text="5" />
 
     <TextView
-        android:id="@+id/btSix"
+        android:id="@+id/verifyBtSix"
         style="@style/PinItem"
         android:text="6" />
 
     <TextView
-        android:id="@+id/btSeven"
+        android:id="@+id/verifyBtSeven"
         style="@style/PinItem"
         android:text="7" />
 
     <TextView
-        android:id="@+id/btEight"
+        android:id="@+id/verifyBtEight"
         style="@style/PinItem"
         android:text="8" />
 
     <TextView
-        android:id="@+id/btNine"
+        android:id="@+id/verifyBtNine"
         style="@style/PinItem"
         android:text="9"
         tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/btClear"
+        android:id="@+id/verifyBtClear"
         style="@style/PinItem"
-        android:padding="20dp"
+        android:padding="22dp"
         android:src="@drawable/ic_backspace"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/btZero"
+        android:id="@+id/verifyBtZero"
         style="@style/PinItem"
         android:text="0" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/btConfirm"
+        android:visibility="gone"
+        android:id="@+id/verifyBtConfirm"
         style="@style/PinItem"
         android:padding="20dp"
         android:src="@drawable/ic_check" />
@@ -74,9 +75,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:constraint_referenced_ids="btOne,btTwo,btThree,btFour,btFive,btSix,btSeven,btEight, btNine, btClear,btZero,btConfirm"
+        app:constraint_referenced_ids="verifyBtOne,verifyBtTwo,verifyBtThree,verifyBtFour,verifyBtFive,verifyBtSix,verifyBtSeven,verifyBtEight, verifyBtNine, verifyBtClear,verifyBtZero,verifyBtConfirm"
         app:flow_maxElementsWrap="3"
-        app:flow_wrapMode="chain"
+        app:flow_wrapMode="aligned"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

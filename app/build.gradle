@@ -16,7 +16,14 @@ android {
         versionCode 1
         versionName "1.0.0"
 
+        buildConfigField('String', 'BASE_URL', '"http://143.198.48.222/"')
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                cppFlags ''
+            }
+        }
     }
 
     buildTypes {
@@ -34,6 +41,12 @@ android {
     }
     buildFeatures {
         viewBinding true
+    }
+    externalNativeBuild {
+        cmake {
+            path file('src/main/cpp/CMakeLists.txt')
+            version '3.18.1'
+        }
     }
 }
 
@@ -67,9 +80,9 @@ dependencies {
     //Lifecycle
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.fragment:fragment-ktx:1.4.1'
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0-rc01"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.0-rc01"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.0-rc01"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0-rc02"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.0-rc02"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.0-rc02"
 
     //kotlinx.coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1"
@@ -109,4 +122,10 @@ dependencies {
 
     //biometric clock
     implementation("androidx.biometric:biometric:1.2.0-alpha04")
+
+    //input text
+    implementation 'com.fredporciuncula:phonemoji:1.2.0'
+
+    //slidrInterface
+    implementation 'com.r0adkll:slidableactivity:2.1.0'
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Payme demo</string>
+    <string name="app_name">Payme Clone</string>
 
-    // auth..................
+    <!--    auth screen-->
     // language screen text
     <string name="mobile_banking">Mobile\nBanking</string>
     <string name="rus">Русский</string>
@@ -25,12 +25,14 @@
     <string name="forgot_password">Forgot password!</string>
     //pincode screen
     <string name="enter_the_pin_code">Enter the PIN code</string>
+    <string name="enter_new_password">Enter a new password</string>
 
     //verify screen
     <string name="ready">Ready</string>
     <string name="verify_text">Enter the verification code</string>
     <string name="stranger_device">Stranger device</string>
     <string name="text_phone_number">Code sent to number\n</string>
+    <string name="code">code</string>
 
     //police
     <string name="terms_of_use">Terms of use</string>
@@ -53,6 +55,7 @@
     <string name="get_started">Get Started</string>
     <string name="skip">Skip</string>
     //intro screen
+    <!--    auth screen-->
 
     <!--    main screen-->
     // tab navigation text
@@ -61,6 +64,7 @@
     <string name="payment">Payment</string>
     <string name="services">Services</string>
     <string name="cashFlow">Cash flow</string>
+
 
     <!--    main screen-->
 </resources>

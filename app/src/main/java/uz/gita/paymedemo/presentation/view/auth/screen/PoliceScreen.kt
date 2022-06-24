@@ -36,7 +36,7 @@ class PoliceScreen : Fragment(R.layout.screen_police) {
                 acceptBtn.setTextColor(resources.getColor(R.color.white))
             }else {
                 checkId.setTextColor(resources.getColor(R.color.text_color))
-                acceptBtn.setTextColor(resources.getColor(R.color.white))
+                acceptBtn.setTextColor(resources.getColor(R.color.hint_color))
             }
         }
 
@@ -47,7 +47,7 @@ class PoliceScreen : Fragment(R.layout.screen_police) {
 
     private val openSigInScreenObserver = Observer<Unit> {
         val navOption = NavOptions.Builder()
-            .setPopUpTo(R.id.languageScreen, true).build()
+            .setPopUpTo(R.id.policeScreen, true).build()
         findNavController().navigate(R.id.action_policeScreen_to_signUPScreen, null, navOption)
         shared.id = 1
     }

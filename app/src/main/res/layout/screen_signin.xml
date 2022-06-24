@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/screen_bg_color"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.view.auth.screen.SignInScreen">
 
@@ -36,14 +37,11 @@
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="@+id/editText1SignIn" />
 
-    <com.google.android.material.textfield.TextInputLayout
+    <com.fredporciuncula.phonemoji.PhonemojiTextInputLayout
         android:id="@+id/editText1SignIn"
         style="@style/inputText_style"
         app:endIconMode="clear_text"
         app:endIconTint="@color/main_color"
-        app:prefixText="+998 "
-        app:prefixTextColor="@color/text_color"
-        app:startIconDrawable="@drawable/ic_telephone"
         android:layout_marginHorizontal="16dp"
         app:layout_constraintBottom_toTopOf="@id/editText2SignIn"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,14 +50,16 @@
         app:layout_constraintVertical_bias="0.3"
         app:layout_constraintVertical_chainStyle="packed">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.fredporciuncula.phonemoji.PhonemojiTextInputEditText
             android:hint="@string/number_hint"
-            android:inputType="phone"
-            android:id="@+id/firstNameSignIn"
-            android:layout_width="match_parent"
+            android:id="@+id/numberSignIn"
+            internationalPhoneNumber="@{user.phoneNumber}"
             android:layout_height="match_parent"
-            android:maxLength="30" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:inputType="phone|number"
+            android:maxLength="17"
+            android:layout_width="match_parent"
+            android:text="@{user.phoneNumber}" />
+    </com.fredporciuncula.phonemoji.PhonemojiTextInputLayout>
 
     <TextView
         android:id="@+id/textView6"
@@ -73,35 +73,26 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/editText2SignIn"
         style="@style/inputText_style"
-        app:helperText="@string/wrong_password"
-        app:helperTextEnabled="false"
-        app:helperTextTextColor="@color/wrong_password_color"
         android:layout_marginHorizontal="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:passwordToggleEnabled="true"
+        app:counterMaxLength="8"
+        app:passwordToggleTint="@color/main_color"
         app:layout_constraintStart_toStartOf="parent"
         app:startIconDrawable="@drawable/ic_lock"
         app:layout_constraintTop_toBottomOf="@id/editText1SignIn">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/lastNameSignIn"
+            android:id="@+id/passwordSignIn"
             android:inputType="textPassword"
+            android:hint="@string/password"
+            android:maxLength="8"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:maxLength="30" />
+            android:textColor="@color/text_color" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
-    <!--  <TextView
-          android:id="@+id/wrongPassword"
-          style="@style/wrong_password_style"
-          android:text="@string/wrong_password"
-          android:visibility="gone"
-          app:layout_constraintEnd_toEndOf="@+id/editText2SignIn"
-          app:layout_constraintHorizontal_bias="0"
-          app:layout_constraintStart_toStartOf="@+id/editText2SignIn"
-          app:layout_constraintTop_toBottomOf="@+id/editText2SignIn" />-->
 
     <TextView
         style="@style/forgot_password_style"
@@ -113,16 +104,19 @@
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/singIpButton"
+        android:id="@+id/singInButton"
         style="@style/signin_style"
         android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="32dp"
         android:enabled="false"
+        android:textColor="@color/hint_color"
         android:text="@string/sign_in"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ProgressBar
+        android:visibility="gone"
         android:id="@+id/login_progress_1"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -132,6 +126,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
+        android:visibility="gone"
         android:id="@+id/login_progress_2"
         android:layout_width="40dp"
         android:layout_height="40dp"

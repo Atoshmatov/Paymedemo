@@ -5,62 +5,28 @@
     android:layout_height="match_parent"
     android:id="@+id/main"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.view.auth.screen.PinCodeScreen">
+    tools:context=".presentation.view.auth.screen.PincodeBase">
 
-    <TextView
-        android:id="@+id/pincodeText"
-        style="@style/sign_in_text_style"
-        android:text="@string/sign_up"
-        android:textColor="@color/text_color"
-        app:layout_constraintBottom_toTopOf="@+id/enterPincodeText"
-        app:layout_constraintVertical_bias="0"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/signUpButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:src="@drawable/ic_box_arrow_in_left"
-        app:layout_constraintBottom_toBottomOf="@+id/pincodeText"
-        app:layout_constraintEnd_toStartOf="@+id/pincodeText"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/pincodeText" />
 
     <TextView
         android:id="@+id/enterPincodeText"
         style="@style/enter_pincode_style"
-        android:layout_marginTop="32dp"
         android:text="@string/enter_the_pin_code"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/pinCodeCircle"
-        app:layout_constraintEnd_toEndOf="@+id/pincodeText"
-        app:layout_constraintStart_toStartOf="@+id/pincodeText"
-        app:layout_constraintTop_toBottomOf="@+id/pincodeText" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/toggleEye"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_eye_slash"
-        app:layout_constraintBottom_toBottomOf="@+id/pinCodeCircle"
-        app:layout_constraintEnd_toStartOf="@+id/pinCodeCircle"
-        app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintStart_toStartOf="@+id/keyboard"
-        app:layout_constraintTop_toTopOf="@+id/pinCodeCircle"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <LinearLayout
         android:id="@+id/pinCodeCircle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/keyboard"
+        app:layout_constraintBottom_toTopOf="@+id/keyboard1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,24 +56,13 @@
 
 
     <include
-        android:id="@+id/keyboard"
+        android:id="@+id/keyboard1"
         layout="@layout/keyboard"
+        android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
-        android:layout_marginTop="32dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/pinCodeCircle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.7" />
-
-    <TextView
-        android:id="@+id/paymeVersion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,4 +28,8 @@ class SharedPrefToken @Inject constructor(@ApplicationContext context: Context) 
     var code: String
         get() = pref.getString("code", "")!!
         set(value) = pref.edit().putString("code", value).apply()
+
+    var password: String
+        get() = pref.getString("password", "")!!
+        set(value) = pref.edit().putString("password", value).apply()
 }

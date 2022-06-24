@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Payme demo</string>
+    <string name="app_name">Payme Clone</string>
 
-    // auth.................
+    <!--    auth screen-->
     // language screen text
     <string name="mobile_banking">Mobile\nBanking</string>
     <string name="rus">Русский</string>
@@ -24,11 +24,13 @@
     <string name="forgot_password">Parolni unutdingizmi!</string>
     //pincode screen
     <string name="enter_the_pin_code">PIN kodni kiriting</string>
+    <string name="enter_new_password">Yangi parol kiritish</string>
     //verify screen
     <string name="ready">Tayyor</string>
     <string name="verify_text">Tekshiruv kodini kiriting</string>
     <string name="stranger_device">Begona qurilma</string>
     <string name="text_phone_number">Raqamga kod yuborildi\n</string>
+    <string name="code">kod</string>
 
 
     //police
@@ -52,6 +54,8 @@
     <string name="get_started">Boshlash</string>
     <string name="skip">Oʻtkazib yuborish</string>
     //intro screen
+    <!--    auth screen-->
+
 
     <!--    main screen-->
     // tab navigation text

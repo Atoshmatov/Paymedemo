@@ -89,7 +89,7 @@
     </com.google.android.material.card.MaterialCardView>
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/btClear"
+        android:id="@+id/btConfirm"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:adjustViewBounds="true"
@@ -108,10 +108,10 @@
     </com.google.android.material.card.MaterialCardView>
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/btConfirm"
+        android:id="@+id/btClear"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:padding="20dp"
+        android:padding="16dp"
         android:src="@drawable/ic_backspace" />
 
     <androidx.constraintlayout.helper.widget.Flow
@@ -119,7 +119,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="20dp"
-        app:constraint_referenced_ids="btOne,btTwo,btThree,btFour,btFive,btSix,btSeven,btEight, btNine, btClear,btZero,btConfirm"
+        app:constraint_referenced_ids="btOne,btTwo,btThree,btFour,btFive,btSix,btSeven,btEight, btNine, btConfirm,btZero,btClear"
         app:flow_horizontalGap="20dp"
         app:flow_maxElementsWrap="3"
         app:flow_verticalGap="20dp"

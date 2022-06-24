@@ -6,6 +6,7 @@
     <color name="text_color">#FF000000</color>
     <color name="text_color_green">#2FB209</color>
     <color name="screen_bg_color">#FFFFFF</color>
+    <color name="hint_color">#535252</color>
 
     //statusBar color
     <color name="status_bar_color">#FFFFFF</color>
@@ -38,4 +39,10 @@
     //pincode screen color
     <color name="pincode_button_color">#F4F4F4</color>
     <!--    auth color..............................-->
+
+
+    <!--    main screen color..................................-->
+
+    <!--    main screen color..................................-->
+
 </resources>

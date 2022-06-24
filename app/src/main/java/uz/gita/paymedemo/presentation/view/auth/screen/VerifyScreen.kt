@@ -7,13 +7,12 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
-import uz.gita.paymedemo.NavGraphDirections
 import uz.gita.paymedemo.R
-import uz.gita.paymedemo.data.local.SharedPrefToken
 import uz.gita.paymedemo.data.remote.request.auth.VerifyRequest
 import uz.gita.paymedemo.databinding.ScreenVerifyBinding
 import uz.gita.paymedemo.presentation.viewmodel.auth.VerifyVIewModel
@@ -28,7 +27,6 @@ class VerifyScreen:Fragment(R.layout.screen_verify) {
     private val args: VerifyScreenArgs by navArgs()
     private val numberList = ArrayList<TextView>(10)
     private var code = StringBuilder(6)
-    private var shared: SharedPrefToken? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +35,6 @@ class VerifyScreen:Fragment(R.layout.screen_verify) {
 
     @SuppressLint("SetTextI18n", "FragmentLiveDataObserve")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
-        shared = SharedPrefToken(requireContext())
         // init function
         loadViews()
         clearCode()
@@ -46,10 +43,22 @@ class VerifyScreen:Fragment(R.layout.screen_verify) {
 
         // number send sms code
         val number = resources.getString(R.string.text_phone_number)
-        verifyCodeNumber.text = number + args.number
-
+//        verifyCodeNumber.text = number + args.number
+        //action
+        backScreen.setOnClickListener {
+            viewModel.backRegisterScreen()
+        }
         //subscriber function
         subscriber()
+        return@with
+    }
+
+    //subscriber
+    private fun subscriber() = with(viewModel) {
+        errorLiveData.observe(viewLifecycleOwner, errorObserver)
+        notConnectionLiveData.observe(viewLifecycleOwner, notConnectionObserver)
+        progressLiveDate.observe(viewLifecycleOwner, progressObserver)
+        backRegisterScreenLiveDate.observe(viewLifecycleOwner, backRegisterScreenObserver)
     }
 
     //Observer Object
@@ -60,61 +69,63 @@ class VerifyScreen:Fragment(R.layout.screen_verify) {
 //        else binding.progress.hide()
     }
     private val openPinCodeScreeObserver = Observer<Unit> {
-        val action = NavGraphDirections.actionGlobalPinCodeScreen()
-        findNavController().navigate(action)
-//        NavHostFragment.findNavController(this).navigate(R.id.action_global_pinCodeScreen)
-        shared!!.id = 2
+        val navOption = NavOptions.Builder()
+            .setPopUpTo(R.id.signUPScreen, true).build()
+        findNavController().navigate(
+            VerifyScreenDirections.actionVerifyScreenToSignInScreen(args.number), navOption
+        )
+    }
+    private val backRegisterScreenObserver = Observer<Unit> {
+        requireActivity().onBackPressed()
     }
 
-    //subscriber
-    private fun subscriber() = with(viewModel) {
-        errorLiveData.observe(viewLifecycleOwner, errorObserver)
-        notConnectionLiveData.observe(viewLifecycleOwner, notConnectionObserver)
-        progressLiveDate.observe(viewLifecycleOwner, progressObserver)
-    }
 
     //function private
     private fun loadViews() {
         binding.keyboard2.apply {
-            numberList.add(btZero)
-            numberList.add(btOne)
-            numberList.add(btTwo)
-            numberList.add(btThree)
-            numberList.add(btFour)
-            numberList.add(btFive)
-            numberList.add(btSix)
-            numberList.add(btSeven)
-            numberList.add(btEight)
-            numberList.add(btNine)
+            numberList.add(verifyBtZero)
+            numberList.add(verifyBtOne)
+            numberList.add(verifyBtTwo)
+            numberList.add(verifyBtThree)
+            numberList.add(verifyBtFour)
+            numberList.add(verifyBtFive)
+            numberList.add(verifyBtSix)
+            numberList.add(verifyBtSeven)
+            numberList.add(verifyBtEight)
+            numberList.add(verifyBtNine)
         }
         for (i in 0 until 10) {
             numberList[i].setOnClickListener {
-                if (code.length == 6)
+                if (code.length == 6) {
+                    binding.keyboard2.verifyBtConfirm.visibility = View.VISIBLE
                     return@setOnClickListener
+                }
                 code.append(i)
+                if (code.length == 6)
+                    binding.keyboard2.verifyBtConfirm.visibility = View.VISIBLE
                 binding.verifyCode.setText(code.toString())
             }
         }
     }
-
     private fun clearCode() {
-        binding.keyboard2.btClear.setOnClickListener {
+        binding.keyboard2.verifyBtClear.setOnClickListener {
             if (code.isEmpty()) return@setOnClickListener
             code.deleteCharAt(code.length - 1)
+            binding.keyboard2.verifyBtConfirm.visibility = View.GONE
             binding.verifyCode.setText(code.toString())
         }
     }
-
     private fun clearLongCode() = with(binding) {
-        keyboard2.btClear.setOnLongClickListener {
+        keyboard2.verifyBtClear.setOnLongClickListener {
             if (code.isEmpty()) return@setOnLongClickListener true
             code.clear()
+            binding.keyboard2.verifyBtConfirm.visibility = View.GONE
+            verifyCode.setText("")
             return@setOnLongClickListener true
         }
     }
-
     private fun verifyCode() = with(binding) {
-        keyboard2.btConfirm.setOnClickListener {
+        keyboard2.verifyBtConfirm.setOnClickListener {
             viewModel.codeVerifyUser(
                 VerifyRequest(
                     args.number,
@@ -123,10 +134,9 @@ class VerifyScreen:Fragment(R.layout.screen_verify) {
             )
         }
     }
-
     override fun onDestroy() {
         super.onDestroy()
-        viewModel.openPinCodeScreenLiveDate.removeObservers(this@VerifyScreen)
+//        viewModel.openPinCodeScreenLiveDate.removeObservers(this@VerifyScreen)
     }
 
 }

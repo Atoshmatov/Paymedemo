@@ -10,7 +10,6 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
-import uz.gita.paymedemo.BuildConfig
 import uz.gita.paymedemo.R
 import uz.gita.paymedemo.data.local.SharedPrefToken
 import uz.gita.paymedemo.databinding.ScreenLanguageBinding
@@ -73,7 +72,7 @@ class LanguageScreen : Fragment(R.layout.screen_language) {
 
     private val openSignUpObserver = Observer<Unit> {
         val navOption = NavOptions.Builder()
-            .setPopUpTo(R.id.introScreen, true).build()
-        findNavController().navigate(R.id.action_languageScreen_to_introScreen, null, navOption)
+            .setPopUpTo(R.id.splashScreen, true).build()
+        findNavController().navigate(R.id.action_languageScreen_to_introScreen)
     }
 }

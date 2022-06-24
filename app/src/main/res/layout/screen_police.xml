@@ -7,41 +7,45 @@
     android:layout_height="match_parent"
     tools:context=".presentation.view.auth.screen.PoliceScreen">
 
-    <TextView
-        android:text="@string/terms_of_use"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        style="@style/polise_text_style"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/appCompatImageView5"
-        android:src="@drawable/ic_payme_logo"
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        style="@style/polise_image_style"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintVertical_bias="0.1" />
-
-    <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/acceptBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView5">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/liner"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textView9"
+                style="@style/polise_text_style"
+                android:layout_gravity="center"
+                android:text="@string/terms_of_use"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/appCompatImageView5"
+                style="@style/polise_image_style"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_payme_logo" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:lineSpacingExtra="5dp"
                 android:id="@+id/policeText"
+                android:textColor="@color/text_color"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="16dp"
@@ -49,26 +53,28 @@
                 android:justificationMode="inter_word"
                 android:paddingVertical="10dp"
                 android:text="@string/polise"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
             <CheckBox
                 style="@style/polise_check_style"
                 android:id="@+id/checkId"
-                android:textColor="@color/text_color"
+                android:layout_marginVertical="20dp"
+                android:paddingHorizontal="10dp"
                 android:text="@string/i_agree_to_all_terms"
-                android:layout_marginVertical="20dp" />
+                android:textColor="@color/text_color" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/acceptBtn"
+                style="@style/signin_style"
+                android:layout_marginHorizontal="16dp"
+                android:enabled="false"
+                android:text="@string/to_accept"
+                android:textColor="@color/hint_color"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </ScrollView>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/acceptBtn"
-        style="@style/signin_style"
-        android:textColor="@color/white"
-        android:layout_marginHorizontal="16dp"
-        android:enabled="false"
-        android:text="@string/to_accept"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
