@@ -42,6 +42,10 @@
 
 
     <!--    main screen color..................................-->
+    //Basic color
+    <color name="main_screen_bg_color">#26303A</color>
+    <color name="main_screen_bg_color2">#3A424D</color>
+    <color name="burger_color">#FFFFFF</color>
 
     <!--    main screen color..................................-->
 

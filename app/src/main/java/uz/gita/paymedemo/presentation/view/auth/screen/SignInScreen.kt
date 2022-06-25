@@ -46,7 +46,7 @@ class SignInScreen:Fragment(R.layout.screen_signin) {
 
     //observer object
     private val openMainScreenObserver = Observer<Unit> {
-        val action = NavGraphDirections.actionGlobalPinCodeNewScreen()
+        val action = NavGraphDirections.actionGlobalPinCodeScreen()
         findNavController().navigate(action)
         shared!!.id = 2
     }

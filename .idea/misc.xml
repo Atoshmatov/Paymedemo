@@ -22,6 +22,7 @@
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable/ic_back.xml" value="0.1775" />
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable/ic_backspace.xml" value="0.1935" />
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable/ic_box_arrow_in_left.xml" value="0.1565" />
+        <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable/ic_burger.xml" value="0.171" />
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable/ic_check.xml" value="0.1935" />
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable/ic_check2_circle.xml" value="0.1575" />
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable/ic_exchange__1_.xml" value="0.1565" />
@@ -38,6 +39,7 @@
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable/ic_launcher_background.xml" value="0.155" />
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable/ic_lock.xml" value="0.178" />
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable/ic_next.xml" value="0.155" />
+        <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable/ic_notification.xml" value="0.171" />
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable/ic_offline_error.xml" value="0.178" />
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable/ic_payme.xml" value="0.1565" />
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable/ic_payme_card_two_rows.xml" value="0.1565" />
@@ -67,7 +69,7 @@
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/layout/keyboard2.xml" value="0.2152777777777778" />
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/layout/keyboard3.xml" value="0.2152777777777778" />
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/layout/keyboardPincode.xml" value="0.2152777777777778" />
-        <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/layout/pager_basic.xml" value="0.25" />
+        <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/layout/pager_basic.xml" value="0.2152777777777778" />
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/layout/pager_caash_flow.xml" value="0.21435185185185185" />
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/layout/pager_intro1.xml" value="0.2152777777777778" />
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/layout/pager_intro2.xml" value="0.2152777777777778" />

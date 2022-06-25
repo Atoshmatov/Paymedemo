@@ -1,5 +1,8 @@
 package uz.gita.paymedemo.domain.usecase.auth
 
-interface VerifyUseCase {
+import kotlinx.coroutines.flow.Flow
+import uz.gita.paymedemo.data.remote.request.auth.VerifyRequest
 
+interface VerifyUseCase {
+    fun verifyCode(data: VerifyRequest): Flow<Result<Unit>>
 }

@@ -4,15 +4,18 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import uz.gita.paymedemo.data.remote.request.auth.VerifyRequest
+import uz.gita.paymedemo.domain.usecase.auth.VerifyUseCase
 import uz.gita.paymedemo.presentation.viewmodel.auth.VerifyVIewModel
 import uz.gita.paymedemo.utils.isConnected
 import javax.inject.Inject
 
 @HiltViewModel
-class VerifyViewModelImpl @Inject constructor() : ViewModel(), VerifyVIewModel {
+class VerifyViewModelImpl @Inject constructor(
+    private val verify: VerifyUseCase
+) : ViewModel(), VerifyVIewModel {
     override val progressLiveDate = MutableLiveData<Boolean>()
     override val notConnectionLiveData = MutableLiveData<Unit>()
     override val errorLiveData = MutableLiveData<String>()
@@ -20,20 +23,23 @@ class VerifyViewModelImpl @Inject constructor() : ViewModel(), VerifyVIewModel {
     override val backRegisterScreenLiveDate = MutableLiveData<Unit>()
 
     override fun codeVerifyUser(data: VerifyRequest) {
-        viewModelScope.launch(Dispatchers.IO) {
-            if (!isConnected()) {
-                notConnectionLiveData.postValue(Unit)
-                return@launch
-            }
-            progressLiveDate.postValue(true)
-            openPinCodeScreenLiveDate.postValue(Unit)
+        if (!isConnected()) {
+            notConnectionLiveData.value = Unit
+            return
         }
+        progressLiveDate.value = true
+        verify.verifyCode(data).onEach {
+            progressLiveDate.postValue(false)
+            it.onSuccess {
+                openPinCodeScreenLiveDate.postValue(Unit)
+            }.onFailure {
+                errorLiveData.postValue(it.message)
+            }
+        }.launchIn(viewModelScope)
     }
 
     override fun backRegisterScreen() {
-        viewModelScope.launch(Dispatchers.IO) {
-            backRegisterScreenLiveDate.postValue(Unit)
-        }
+        backRegisterScreenLiveDate.value = Unit
     }
 
 }

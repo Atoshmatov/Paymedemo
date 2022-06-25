@@ -127,7 +127,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ProgressBar
+    <androidx.core.widget.ContentLoadingProgressBar
         android:visibility="gone"
         android:id="@+id/verify_progress_1"
         android:layout_width="60dp"
@@ -137,7 +137,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ProgressBar
+    <androidx.core.widget.ContentLoadingProgressBar
         android:visibility="gone"
         android:id="@+id/verify_progress_2"
         android:layout_width="40dp"

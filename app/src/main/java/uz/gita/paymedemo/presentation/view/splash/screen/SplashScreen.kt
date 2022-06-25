@@ -6,7 +6,6 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -39,11 +38,11 @@ class SplashScreen : Fragment(R.layout.screen_splash) {
 
     }
     private val openLanguageObserver = Observer<Unit> {
-        if (shared.token.isEmpty() && shared.id == 0) {
+        if (shared.acessToken.isEmpty() && shared.refreshToken.isEmpty() && shared.id == 0) {
             findNavController().navigate(R.id.action_splashScreen_to_languageScreen)
-        } else if (shared.token.isEmpty() && shared.id == 1) {
+        } else if (shared.acessToken.isEmpty() && shared.refreshToken.isEmpty() && shared.id == 1) {
             findNavController().navigate(R.id.action_splashScreen_to_signUPScreen)
-        } else if (shared.token.isEmpty() && shared.id == 2) {
+        } else if (shared.acessToken.isNotEmpty() && shared.refreshToken.isNotEmpty() && shared.id == 2) {
             //TODO esdan chiqmasin not qilish
             val action = NavGraphDirections.actionGlobalPinCodeScreen()
             findNavController().navigate(action)

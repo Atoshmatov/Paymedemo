@@ -3,6 +3,7 @@ package uz.gita.paymedemo.presentation.view.auth.screen
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -29,6 +30,7 @@ class SignUPScreen : Fragment(R.layout.screen_signup) {
     private var boolPhoneNumber = false
     private var boolPassword = false
     private var checked = false
+    private var phone = StringBuilder()
     private var shared: SharedPrefToken? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,17 +44,26 @@ class SignUPScreen : Fragment(R.layout.screen_signup) {
         listener()
         singUpButton.isEnabled = false
         singUpButton.setOnClickListener {
+            val phone = phoneNumber.values().split(" ")
+            var number = ""
+            for (element in phone) {
+                number += element.trim()
+            }
             viewModel.registerUser(
                 SignUpRequest(
                     firstName.values(),
                     lastName.values(),
-                    phoneNumber.values(),
+                    number.substring(4, number.length),
                     password.values(),
                 )
             )
         }
-    }
 
+        //observer
+        viewModel.progressLiveData.observe(viewLifecycleOwner, progressObserver)
+        viewModel.notConnectionLiveData.observe(viewLifecycleOwner, notConnectionObserver)
+        viewModel.errorLiveData.observe(viewLifecycleOwner, errorObserver)
+    }
 
     //observer Object
     private val openVerifyScreenObserver = Observer<Unit> {
@@ -63,11 +74,23 @@ class SignUPScreen : Fragment(R.layout.screen_signup) {
             navOption
         )
     }
-
-    //additional features
-    private fun subscribers() = with(viewModel) {
-
+    private val progressObserver = Observer<Boolean> {
+        if (it) {
+            binding.signProgress1.show()
+            binding.signProgress2.show()
+        } else {
+            binding.signProgress1.hide()
+            binding.signProgress2.hide()
+        }
     }
+    private val notConnectionObserver = Observer<Unit> {
+        Toast.makeText(requireContext(), "Sizda internet Mavjud emas", Toast.LENGTH_SHORT).show()
+    }
+    private val errorObserver = Observer<String> {
+        Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+    }
+
+    //function
     private fun listener() = with(binding) {
         firstName.addListener {
             boolFirstName = it.length in 5..20
@@ -85,7 +108,7 @@ class SignUPScreen : Fragment(R.layout.screen_signup) {
             boolPassword = (it.length in 5..8)
             check()
             shared!!.password = it
-            Timber.tag("NUMBER").d("$it")
+            Timber.tag("NUMBER").d(it)
         }
     }
     private fun check() {

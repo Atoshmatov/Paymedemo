@@ -3,7 +3,6 @@ package uz.gita.paymedemo.utils
 sealed class ResultData<out T> {
     class Success<T>(val data: T) : ResultData<T>()
     class Fail(val message: MessageData) : ResultData<Nothing>()
-
     companion object
 }
 

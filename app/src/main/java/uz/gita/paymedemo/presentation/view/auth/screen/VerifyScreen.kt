@@ -12,7 +12,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
+import uz.gita.paymedemo.NavGraphDirections
 import uz.gita.paymedemo.R
+import uz.gita.paymedemo.data.local.SharedPrefToken
 import uz.gita.paymedemo.data.remote.request.auth.VerifyRequest
 import uz.gita.paymedemo.databinding.ScreenVerifyBinding
 import uz.gita.paymedemo.presentation.viewmodel.auth.VerifyVIewModel
@@ -27,6 +29,7 @@ class VerifyScreen:Fragment(R.layout.screen_verify) {
     private val args: VerifyScreenArgs by navArgs()
     private val numberList = ArrayList<TextView>(10)
     private var code = StringBuilder(6)
+    private var shared: SharedPrefToken? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +38,7 @@ class VerifyScreen:Fragment(R.layout.screen_verify) {
 
     @SuppressLint("SetTextI18n", "FragmentLiveDataObserve")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
+        shared = SharedPrefToken(requireContext())
         // init function
         loadViews()
         clearCode()
@@ -43,37 +47,35 @@ class VerifyScreen:Fragment(R.layout.screen_verify) {
 
         // number send sms code
         val number = resources.getString(R.string.text_phone_number)
-//        verifyCodeNumber.text = number + args.number
+        verifyCodeNumber.text = number + args.number
         //action
         backScreen.setOnClickListener {
             viewModel.backRegisterScreen()
         }
-        //subscriber function
-        subscriber()
-        return@with
-    }
-
-    //subscriber
-    private fun subscriber() = with(viewModel) {
-        errorLiveData.observe(viewLifecycleOwner, errorObserver)
-        notConnectionLiveData.observe(viewLifecycleOwner, notConnectionObserver)
-        progressLiveDate.observe(viewLifecycleOwner, progressObserver)
-        backRegisterScreenLiveDate.observe(viewLifecycleOwner, backRegisterScreenObserver)
+        //observer
+        viewModel.errorLiveData.observe(viewLifecycleOwner, errorObserver)
+        viewModel.notConnectionLiveData.observe(viewLifecycleOwner, notConnectionObserver)
+        viewModel.progressLiveDate.observe(viewLifecycleOwner, progressObserver)
+        viewModel.backRegisterScreenLiveDate.observe(viewLifecycleOwner, backRegisterScreenObserver)
     }
 
     //Observer Object
     private val errorObserver = Observer<String> { showToast(it) }
     private val notConnectionObserver = Observer<Unit> { showToast("Sizda internet mavjud emas") }
     private val progressObserver = Observer<Boolean> {
-//        if (it) binding.progress.show()
-//        else binding.progress.hide()
+        if (it) {
+            binding.verifyProgress1.show()
+            binding.verifyProgress2.show()
+        } else {
+            binding.verifyProgress1.hide()
+            binding.verifyProgress2.hide()
+        }
     }
     private val openPinCodeScreeObserver = Observer<Unit> {
         val navOption = NavOptions.Builder()
             .setPopUpTo(R.id.signUPScreen, true).build()
-        findNavController().navigate(
-            VerifyScreenDirections.actionVerifyScreenToSignInScreen(args.number), navOption
-        )
+        val action = NavGraphDirections.actionGlobalPinCodeNewScreen()
+        findNavController().navigate(action, navOption)
     }
     private val backRegisterScreenObserver = Observer<Unit> {
         requireActivity().onBackPressed()
@@ -128,15 +130,10 @@ class VerifyScreen:Fragment(R.layout.screen_verify) {
         keyboard2.verifyBtConfirm.setOnClickListener {
             viewModel.codeVerifyUser(
                 VerifyRequest(
-                    args.number,
+                    "Barear " + shared!!.token,
                     verifyCode.values()
                 )
             )
         }
     }
-    override fun onDestroy() {
-        super.onDestroy()
-//        viewModel.openPinCodeScreenLiveDate.removeObservers(this@VerifyScreen)
-    }
-
 }
