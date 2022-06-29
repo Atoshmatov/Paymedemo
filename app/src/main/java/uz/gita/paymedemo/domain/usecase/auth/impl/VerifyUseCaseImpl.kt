@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import uz.gita.paymedemo.data.remote.modele.ErrorMessage
-import uz.gita.paymedemo.data.remote.request.auth.VerifyRequest
+import uz.gita.paymedemo.data.remote.request.auth.CodeRequest
 import uz.gita.paymedemo.domain.repository.auth.VerifyRepository
 import uz.gita.paymedemo.domain.usecase.auth.VerifyUseCase
 import javax.inject.Inject
@@ -16,15 +16,15 @@ class VerifyUseCaseImpl @Inject constructor(
     private val gson: Gson
 ) : VerifyUseCase {
 
-    override fun verifyCode(data: VerifyRequest): Flow<Result<Unit>> = flow {
+    override fun verifyCode(data: CodeRequest): Flow<Result<Unit>> = flow {
         val response = verifyRepository.verifyUser(data)
         if (response.isSuccessful) {
             response.body()?.let {
-                verifyRepository.saveToken(it.accessToken, it.refreshToken)
+                verifyRepository.saveToken(it)
             }
             emit(Result.success(Unit))
         } else {
-            var error = ErrorMessage(500, "Unknown error")
+            var error = ErrorMessage(406, "Unknown error")
             response.errorBody()?.string()?.let {
                 error = gson.fromJson(it, ErrorMessage::class.java)
             }

@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import uz.gita.paymedemo.data.remote.request.auth.VerifyRequest
+import uz.gita.paymedemo.data.remote.request.auth.CodeRequest
 import uz.gita.paymedemo.domain.usecase.auth.VerifyUseCase
 import uz.gita.paymedemo.presentation.viewmodel.auth.VerifyVIewModel
 import uz.gita.paymedemo.utils.isConnected
@@ -22,7 +22,7 @@ class VerifyViewModelImpl @Inject constructor(
     override val openPinCodeScreenLiveDate = MutableLiveData<Unit>()
     override val backRegisterScreenLiveDate = MutableLiveData<Unit>()
 
-    override fun codeVerifyUser(data: VerifyRequest) {
+    override fun codeVerifyUser(data: CodeRequest) {
         if (!isConnected()) {
             notConnectionLiveData.value = Unit
             return

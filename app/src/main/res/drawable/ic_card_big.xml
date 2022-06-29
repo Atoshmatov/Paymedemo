@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+	android:width="32dp"
+	android:height="32dp"
+	android:viewportWidth="32"
+	android:viewportHeight="32">
+	<path
+		android:fillColor="@color/burger_color"
+		android:pathData="M25.5,26.48H6.5A3.59,3.59,0,0,1,2.92,22.9V9.1A3.59,3.59,0,0,1,6.5,5.52h19A3.59,3.59,0,0,1,29.08,9.1V22.9A3.59,3.59,0,0,1,25.5,26.48ZM6.5,7A2.09,2.09,0,0,0,4.42,9.1V22.9A2.09,2.09,0,0,0,6.5,25h19a2.09,2.09,0,0,0,2.08-2.08V9.1A2.09,2.09,0,0,0,25.5,7Z" />
+	<path
+		android:fillColor="@color/burger_color"
+		android:pathData="M13.48,17.07H8.32A1.32,1.32,0,0,1,7,15.75V11.92A1.32,1.32,0,0,1,8.32,10.6h5.16a1.32,1.32,0,0,1,1.32,1.32v3.83A1.32,1.32,0,0,1,13.48,17.07Zm-5-1.5h4.8V12.1H8.5Z" />
+</vector>

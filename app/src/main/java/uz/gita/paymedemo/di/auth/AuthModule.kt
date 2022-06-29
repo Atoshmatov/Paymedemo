@@ -11,6 +11,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import uz.gita.paymedemo.BuildConfig.BASE_URL
+import uz.gita.paymedemo.data.local.SharedPrefToken
 import uz.gita.paymedemo.data.remote.api.auth.AuthApi
 import javax.inject.Singleton
 
@@ -19,9 +20,24 @@ import javax.inject.Singleton
 class AuthModule {
 
     @[Provides Singleton]
-    fun okHTTPClientObject(@ApplicationContext context: Context): OkHttpClient =
+    fun okHTTPClientObject(
+        @ApplicationContext context: Context,
+        shared: SharedPrefToken
+    ): OkHttpClient =
         OkHttpClient.Builder()
             .addInterceptor(ChuckInterceptor(context))
+            /*.addInterceptor {
+                val request = it.request()
+                val build = request.newBuilder()
+                build.addHeader("Authorization", "Bearer ${shared.token}")
+                val newRequest = build.build()
+                val response = it.proceed(newRequest)
+                if (response.code == 401) {
+
+                    return@addInterceptor it.proceed(newRequest)
+                }
+                response
+            }*/
             .build()
 
     @[Provides Singleton]

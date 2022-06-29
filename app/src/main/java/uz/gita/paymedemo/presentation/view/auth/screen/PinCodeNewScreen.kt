@@ -35,7 +35,6 @@ class PinCodeNewScreen : Fragment(R.layout.screen_pincode) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
         shared = SharedPrefToken(requireContext())
-        subscriber()
         loadView()
         clearCode()
         enterPincodeText.text = resources.getString(R.string.enter_new_password)
@@ -48,6 +47,7 @@ class PinCodeNewScreen : Fragment(R.layout.screen_pincode) {
             .setPopUpTo(R.id.pinCodeNewScreen, true).build()
         val action = NavGraphDirections.actionGlobalMainScreen()
         findNavController().navigate(action, navOption)
+        shared!!.id = 2
     }
 
     //view Model Observer
@@ -88,7 +88,6 @@ class PinCodeNewScreen : Fragment(R.layout.screen_pincode) {
             }
         }
     }
-
     private fun clearCode() {
         binding.keyboard1.btClear.setOnClickListener {
             if (code.isEmpty())

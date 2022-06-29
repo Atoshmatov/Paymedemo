@@ -9,8 +9,13 @@ import javax.inject.Inject
 @HiltViewModel
 class IntroViewModelImpl @Inject constructor() : ViewModel(), IntroViewModel {
     override val openLanguageScreenLiveData = MutableLiveData<Unit>()
+    override val backLanguageScreenLiveData = MutableLiveData<Unit>()
 
     override fun openLang() {
         openLanguageScreenLiveData.value = Unit
+    }
+
+    override fun backScreen() {
+        backLanguageScreenLiveData.value = Unit
     }
 }

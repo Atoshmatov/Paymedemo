@@ -14,5 +14,6 @@ import javax.inject.Singleton
 class SharedModule {
 
     @[Provides Singleton]
-    fun getSharedPref(@ApplicationContext context: Context) = SharedPrefToken(context)
+    fun getSharedPref(@ApplicationContext context: Context): SharedPrefToken =
+        SharedPrefToken(context)
 }

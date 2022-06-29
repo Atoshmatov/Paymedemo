@@ -9,6 +9,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import uz.gita.paymedemo.data.local.SharedPrefToken
 import uz.gita.paymedemo.presentation.view.auth.screen.LanguageScreen
 import uz.gita.paymedemo.utils.LocaleHelper
+import uz.gita.paymedemo.utils.boradcast.ConnectionBroad
 import java.util.*
 
 
@@ -16,6 +17,7 @@ import java.util.*
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
     private var languageScreen: LanguageScreen? = null
     private var shared: SharedPrefToken? = null
+    private lateinit var reciver: ConnectionBroad
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
         languageScreen = LanguageScreen()
@@ -27,5 +29,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         val local = Locale(SharedPrefToken(newBase ?: this).language)
         val contextWrapper = LocaleHelper.setLocale(newBase ?: this, local.toString())
         super.attachBaseContext(contextWrapper)
+    }
+
+    override fun onStop() {
+        super.onStop()
+//        unregisterReceiver(reciver)
     }
 }

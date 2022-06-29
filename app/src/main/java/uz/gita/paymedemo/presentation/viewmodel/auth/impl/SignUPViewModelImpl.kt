@@ -22,6 +22,7 @@ class SignUPViewModelImpl
     override val notConnectionLiveData = MutableLiveData<Unit>()
     override val errorLiveData = MutableLiveData<String>()
     override val openVerifyScreenLiveData = MutableLiveData<Unit>()
+    override val openSingInScreenLiveData = MutableLiveData<Unit>()
 
     override fun registerUser(data: SignUpRequest) {
         if (!isConnected()) {
@@ -33,9 +34,13 @@ class SignUPViewModelImpl
             progressLiveData.postValue(false)
             it.onSuccess {
                 openVerifyScreenLiveData.postValue(Unit)
-            }.onFailure {
-                errorLiveData.postValue(it.message)
+            }.onFailure { error ->
+                errorLiveData.postValue(error.message)
             }
         }.launchIn(viewModelScope)
+    }
+
+    override fun openSignInScreen() {
+        openSingInScreenLiveData.value = Unit
     }
 }

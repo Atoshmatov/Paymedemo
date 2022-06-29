@@ -42,9 +42,16 @@
 
 
     <!--    main screen color..................................-->
+    //Basic color
     <color name="main_screen_bg_color">#F8FAF9</color>
-    <color name="main_screen_bg_color2">#F8FAF9</color>
-    <color name="burger_color">#FFFFFF</color>
+    <color name="burger_color">#000000</color>
+    <color name="basic_screen_text_color">#171717</color>
+    <color name="icon_1_color_1">#00CECE</color>
+    <color name="icon_1_color_2">#BAC8CB</color>
+    <color name="icon_1_color_3">#289C97</color>
+    <color name="icon_1_color_4">#8FA5A6</color>
+    <color name="icon_1_color_5">#A962A3</color>
+    <color name="icon_1_color_6">#81577D</color>
 
     <!--    main screen color..................................-->
 

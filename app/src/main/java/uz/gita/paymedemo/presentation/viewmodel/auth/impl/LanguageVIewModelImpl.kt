@@ -9,6 +9,8 @@ import javax.inject.Inject
 @HiltViewModel
 class LanguageVIewModelImpl @Inject constructor() : ViewModel(), LanguageVIewModel {
     override val openSignUpScreen = MutableLiveData<Unit>()
+    override val notConnectionLiveData = MutableLiveData<Boolean>()
+
 
     override fun openSingUp() {
         openSignUpScreen.value = Unit

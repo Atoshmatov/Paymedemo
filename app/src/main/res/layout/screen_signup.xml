@@ -62,7 +62,7 @@
             android:layout_height="match_parent"
             android:hint="@string/last_name"
             android:maxLines="1"
-            android:inputType="text"
+            android:inputType="textCapSentences|text"
             android:maxLength="20" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -91,7 +91,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/first_name"
-            android:inputType="text"
+            android:inputType="textCapSentences|text"
             android:maxLength="20"
             android:maxLines="1" />
 
@@ -105,25 +105,25 @@
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="@+id/editText3" />
 
-    <com.fredporciuncula.phonemoji.PhonemojiTextInputLayout
-        android:id="@+id/editText3"
-        style="@style/inputText_style"
-        android:layout_marginHorizontal="16dp"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@id/editText4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editText2">
+        <com.fredporciuncula.phonemoji.PhonemojiTextInputLayout
+            android:id="@+id/editText3"
+            style="@style/inputText_style"
+            android:layout_marginHorizontal="16dp"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@id/editText4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editText2">
 
-        <com.fredporciuncula.phonemoji.PhonemojiTextInputEditText
-            android:id="@+id/phoneNumber"
-            android:maxLength="17"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="phone|number"
-            android:maxLines="1" />
+            <com.fredporciuncula.phonemoji.PhonemojiTextInputEditText
+                android:id="@+id/phoneNumber"
+                android:maxLength="17"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="phone|number"
+                android:maxLines="1" />
 
-    </com.fredporciuncula.phonemoji.PhonemojiTextInputLayout>
+        </com.fredporciuncula.phonemoji.PhonemojiTextInputLayout>
 
     <androidx.appcompat.widget.AppCompatTextView
         style="@style/input_text_hint_style"
@@ -133,33 +133,34 @@
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="@+id/editText4" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/editText4"
-        style="@style/inputText_style"
-        android:layout_marginHorizontal="16dp"
-        android:backgroundTint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editText3"
-        app:startIconDrawable="@drawable/ic_lock"
-        app:passwordToggleTint="@color/main_color"
-        app:passwordToggleEnabled="true">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editText4"
+            style="@style/inputText_style"
+            android:layout_marginHorizontal="16dp"
+            android:backgroundTint="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editText3"
+            app:startIconDrawable="@drawable/ic_lock"
+            app:passwordToggleTint="@color/main_color"
+            app:passwordToggleEnabled="true">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/password"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="@string/password"
-            android:inputType="textPassword"
-            android:maxLength="8"
-            android:maxLines="1" />
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:maxLength="8"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/singUpButton"
         style="@style/signin_style"
+        android:layout_marginBottom="48dp"
         android:layout_marginHorizontal="16sp"
         android:enabled="false"
         android:text="@string/sign_up"
@@ -168,6 +169,34 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/signInText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/already_have_an_account"
+        android:textColor="@color/text_color"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/singInButton"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/singUpButton" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/singInButton"
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="@string/sign_in"
+        android:textColor="@color/box_stroke_color"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/signInText2"
+        app:layout_constraintTop_toBottomOf="@+id/singUpButton" />
 
     <androidx.core.widget.ContentLoadingProgressBar
         android:visibility="gone"

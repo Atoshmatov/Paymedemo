@@ -1,6 +1,5 @@
 package uz.gita.paymedemo.presentation.view.auth.screen
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -12,10 +11,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
-import uz.gita.paymedemo.NavGraphDirections
 import uz.gita.paymedemo.R
 import uz.gita.paymedemo.data.local.SharedPrefToken
-import uz.gita.paymedemo.data.remote.request.auth.VerifyRequest
+import uz.gita.paymedemo.data.remote.request.auth.CodeRequest
 import uz.gita.paymedemo.databinding.ScreenVerifyBinding
 import uz.gita.paymedemo.presentation.viewmodel.auth.VerifyVIewModel
 import uz.gita.paymedemo.presentation.viewmodel.auth.impl.VerifyViewModelImpl
@@ -36,7 +34,6 @@ class VerifyScreen:Fragment(R.layout.screen_verify) {
         viewModel.openPinCodeScreenLiveDate.observe(this@VerifyScreen, openPinCodeScreeObserver)
     }
 
-    @SuppressLint("SetTextI18n", "FragmentLiveDataObserve")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
         shared = SharedPrefToken(requireContext())
         // init function
@@ -74,8 +71,8 @@ class VerifyScreen:Fragment(R.layout.screen_verify) {
     private val openPinCodeScreeObserver = Observer<Unit> {
         val navOption = NavOptions.Builder()
             .setPopUpTo(R.id.signUPScreen, true).build()
-        val action = NavGraphDirections.actionGlobalPinCodeNewScreen()
-        findNavController().navigate(action, navOption)
+        findNavController().navigate(R.id.action_verifyScreen_to_pinCodeNewScreen, null, navOption)
+        shared!!.id = 2
     }
     private val backRegisterScreenObserver = Observer<Unit> {
         requireActivity().onBackPressed()
@@ -128,12 +125,7 @@ class VerifyScreen:Fragment(R.layout.screen_verify) {
     }
     private fun verifyCode() = with(binding) {
         keyboard2.verifyBtConfirm.setOnClickListener {
-            viewModel.codeVerifyUser(
-                VerifyRequest(
-                    "Barear " + shared!!.token,
-                    verifyCode.values()
-                )
-            )
+            viewModel.codeVerifyUser(CodeRequest(verifyCode.values()))
         }
     }
 }

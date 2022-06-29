@@ -16,7 +16,7 @@
     <string name="phone_number">Номер телефона</string>
     <string name="password">Пароль</string>
     <string name="number_hint"> 90 123 4567</string>
-
+    <string name="already_have_an_account">У вас уже есть аккаунт?</string>
 
     //sign in screen
     <string name="sign_in">Войти</string>
@@ -44,6 +44,12 @@
     //not connection screen
     <string name="not_connection">Нет связи с сервером</string>
     <string name="connect_text">Проверьте подключение к Интернету\n и повторите попытку.</string>
+
+    //finger screen
+    <string name="text_turn_on">включить</string>
+    <string name="text_finger_print">Защита от отпечатков пальцев</string>
+    <string name="text_finger_print_description">Чтобы каждый раз не вводить пин-код, можно включить вход по отпечатку пальца</string>
+
     // auth..................
 
     //splash screen
@@ -63,5 +69,14 @@
     <string name="payment">Оплата</string>
     <string name="services">Сервисы</string>
     <string name="cashFlow">Мониторинг</string>
+    <string name="total_balance">Итоговый баланс</string>
+    <string name="sum">сумма</string>
+    <string name="my_cards">Мои карты</string>
+    <string name="payme_go">Payme Go</string>
+    <string name="qr_payment">QR-платеж</string>
+    <string name="transfers">Трансферы</string>
+    <string name="money_transfer">Перевод денег</string>
+    <string name="ask_for_money">Попросить денег</string>
+    <string name="more">Все</string>
     <!--    main screen-->
 </resources>

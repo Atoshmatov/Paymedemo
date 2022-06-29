@@ -1,7 +1,9 @@
 package uz.gita.paymedemo.presentation.view.auth.screen
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -23,20 +25,39 @@ class PoliceScreen : Fragment(R.layout.screen_police) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         shared = SharedPrefToken(requireContext())
-        viewModel.openSigInScreenLiveData.observe(this@PoliceScreen, openSigInScreenObserver)
     }
 
 
+    @SuppressLint("FragmentLiveDataObserve")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
+        viewModel.openSigInScreenLiveData.observe(this@PoliceScreen, openSigInScreenObserver)
+
         checkId.setOnCheckedChangeListener { _, p ->
             checked = p
             acceptBtn.isEnabled = checked
             if (checked) {
-                checkId.setTextColor(resources.getColor(R.color.police_text_color))
-                acceptBtn.setTextColor(resources.getColor(R.color.white))
-            }else {
-                checkId.setTextColor(resources.getColor(R.color.text_color))
-                acceptBtn.setTextColor(resources.getColor(R.color.hint_color))
+                checkId.setTextColor(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        R.color.police_text_color
+                    )
+                )
+                acceptBtn.setTextColor(
+                    ContextCompat.getColor(
+                        requireContext(), R.color.white
+                    )
+                )
+            } else {
+                checkId.setTextColor(
+                    ContextCompat.getColor(
+                        requireContext(), R.color.text_color
+                    )
+                )
+                acceptBtn.setTextColor(
+                    ContextCompat.getColor(
+                        requireContext(), R.color.hint_color
+                    )
+                )
             }
         }
 
@@ -47,8 +68,8 @@ class PoliceScreen : Fragment(R.layout.screen_police) {
 
     private val openSigInScreenObserver = Observer<Unit> {
         val navOption = NavOptions.Builder()
-            .setPopUpTo(R.id.policeScreen, true).build()
-        findNavController().navigate(R.id.action_policeScreen_to_signUPScreen, null, navOption)
+            .setPopUpTo(R.id.introScreen, true).build()
+        findNavController().navigate(R.id.action_policeScreen_to_signUPScreen)
         shared.id = 1
     }
 }

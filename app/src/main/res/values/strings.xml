@@ -18,6 +18,7 @@
     <string name="phone_number">Phone Number</string>
     <string name="password">Password</string>
     <string name="number_hint"> 90 123 4567</string>
+    <string name="already_have_an_account">Already have an account?</string>
 
     //sign in screen
     <string name="sign_in">Sign In</string>
@@ -44,6 +45,10 @@
     //not connection screen
     <string name="not_connection">There is no connection\n to the server</string>
     <string name="connect_text">Check your internet \n connection and try again</string>
+    //finger screen
+    <string name="text_turn_on">Turn on</string>
+    <string name="text_finger_print">Fingerprint protection</string>
+    <string name="text_finger_print_description">In order not to enter the PIN code every time, you can enable fingerprint login</string>
 
     // auth..................
 
@@ -64,7 +69,15 @@
     <string name="payment">Payment</string>
     <string name="services">Services</string>
     <string name="cashFlow">Cash flow</string>
-
-
+    <string name="total_balance">Total balance</string>
+    <string name="sum">sum</string>
+    <string name="my_cards">My cards</string>
+    <string name="payme_go">Payme Go</string>
+    <string name="qr_payment">QR payment</string>
+    <string name="transfers">Transfers</string>
+    <string name="money_transfer">Money transfer</string>
+    <string name="ask_for_money">Ask for money</string>
+    <string name="more">More</string>
+    <string name="todo">TODO</string>
     <!--    main screen-->
 </resources>

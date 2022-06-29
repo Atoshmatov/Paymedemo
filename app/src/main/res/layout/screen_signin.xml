@@ -85,7 +85,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordSignIn"
-            android:inputType="textPassword"
+            android:inputType="textCapSentences"
             android:hint="@string/password"
             android:maxLength="8"
             android:layout_width="match_parent"

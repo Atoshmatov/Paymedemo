@@ -4,7 +4,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import uz.gita.paymedemo.presentation.view.main.pager.*
+import uz.gita.paymedemo.presentation.view.main.pager.basic.BasicPager
+import uz.gita.paymedemo.presentation.view.main.pager.cashflow.CashFlowPager
+import uz.gita.paymedemo.presentation.view.main.pager.payment.PaymentPager
+import uz.gita.paymedemo.presentation.view.main.pager.service.ServicePager
+import uz.gita.paymedemo.presentation.view.main.pager.transfer.TransferPager
 
 class MainAdapter(fm: FragmentManager, lf: Lifecycle) : FragmentStateAdapter(fm, lf) {
     override fun getItemCount(): Int = 5

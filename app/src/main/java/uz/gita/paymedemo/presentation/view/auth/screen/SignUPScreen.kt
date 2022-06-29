@@ -1,9 +1,9 @@
 package uz.gita.paymedemo.presentation.view.auth.screen
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -11,7 +11,6 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 import uz.gita.paymedemo.R
 import uz.gita.paymedemo.data.local.SharedPrefToken
 import uz.gita.paymedemo.data.remote.request.auth.SignUpRequest
@@ -30,15 +29,14 @@ class SignUPScreen : Fragment(R.layout.screen_signup) {
     private var boolPhoneNumber = false
     private var boolPassword = false
     private var checked = false
-    private var phone = StringBuilder()
     private var shared: SharedPrefToken? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.openVerifyScreenLiveData.observe(this@SignUPScreen, openVerifyScreenObserver)
+        viewModel.openSingInScreenLiveData.observe(this@SignUPScreen, openSingInScreenObserver)
     }
 
-    @SuppressLint("ResourceAsColor", "FragmentLiveDataObserve", "ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
         shared = SharedPrefToken(requireContext())
         listener()
@@ -57,6 +55,9 @@ class SignUPScreen : Fragment(R.layout.screen_signup) {
                     password.values(),
                 )
             )
+        }
+        singInButton.setOnClickListener {
+            viewModel.openSignInScreen()
         }
 
         //observer
@@ -89,15 +90,19 @@ class SignUPScreen : Fragment(R.layout.screen_signup) {
     private val errorObserver = Observer<String> {
         Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
     }
+    private val openSingInScreenObserver = Observer<Unit> {
+        findNavController().navigate(R.id.action_signUPScreen_to_signInScreen)
+    }
 
     //function
     private fun listener() = with(binding) {
         firstName.addListener {
-            boolFirstName = it.length in 5..20
+            boolFirstName = it.length in 5..20 && "[A-Za-z]*".toRegex().matches(it)
             check()
         }
         lastName.addListener {
-            boolLastName = it.length in 5..20
+            boolLastName = it.length in 5..20 && "[A-Za-z]*".toRegex().matches(it)
+            check()
         }
         phoneNumber.addListener {
             boolPhoneNumber =
@@ -108,17 +113,23 @@ class SignUPScreen : Fragment(R.layout.screen_signup) {
             boolPassword = (it.length in 5..8)
             check()
             shared!!.password = it
-            Timber.tag("NUMBER").d(it)
         }
     }
     private fun check() {
         checked = boolFirstName && boolLastName && boolPhoneNumber && boolPassword
         binding.singUpButton.isEnabled = checked
         if (checked) {
-            binding.singUpButton.setTextColor(resources.getColor(R.color.white))
+            binding.singUpButton.setTextColor(
+                ContextCompat.getColor(
+                    requireContext(), R.color.white
+                )
+            )
         } else {
-            binding.singUpButton.setTextColor(resources.getColor(R.color.hint_color))
+            binding.singUpButton.setTextColor(
+                ContextCompat.getColor(
+                    requireContext(), R.color.hint_color
+                )
+            )
         }
     }
-
 }

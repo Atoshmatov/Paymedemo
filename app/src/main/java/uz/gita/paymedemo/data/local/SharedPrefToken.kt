@@ -14,13 +14,13 @@ class SharedPrefToken @Inject constructor(@ApplicationContext context: Context) 
 
     //access token
     var acessToken: String
-        get() = pref.getString("acessToken", "")!!
-        set(value) = pref.edit().putString("acessToken", "").apply()
+        get() = pref.getString("TOKEN1", "")!!
+        set(value) = pref.edit().putString("TOKEN1", value).apply()
 
     //refresh token
     var refreshToken: String
-        get() = pref.getString("refreshToken", "")!!
-        set(value) = pref.edit().putString("refreshToken", "").apply()
+        get() = pref.getString("TOKEN2", "")!!
+        set(value) = pref.edit().putString("TOKEN2", value).apply()
 
     // screen action
     var id: Int

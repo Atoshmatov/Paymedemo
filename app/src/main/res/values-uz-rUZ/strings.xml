@@ -17,6 +17,7 @@
     <string name="phone_number">Telefon</string>
     <string name="password">Parol</string>
     <string name="number_hint"> 90 123 4567</string>
+    <string name="already_have_an_account">Hisobingiz bormi?</string>
 
     //sign in screen
     <string name="sign_in">Tizimga kirish</string>
@@ -41,8 +42,14 @@
 
 
     //not connection screen
+    <string name="text_turn_on">Ishga tushirish</string>
     <string name="not_connection">Server bilan aloqa yo\'q</string>
     <string name="connect_text">Internet ulanishingizni tekshiring\n va qayta urinib ko\'ring</string>
+
+    //finger screen
+    <string name="text_finger_print">Barmoq izini himoya qilish</string>
+    <string name="text_finger_print_description">PIN-kodni har safar kiritmaslik uchun siz barmoq izi bilan kirishni yoqishingiz mumkin</string>
+
     // auth.................
 
     //splash screen
@@ -64,5 +71,14 @@
     <string name="payment">To\'lov</string>
     <string name="services">Servislar</string>
     <string name="cashFlow">Kirim-chiqim</string>
+    <string name="total_balance">Umumiy balans</string>
+    <string name="sum">so\'m</string>
+    <string name="my_cards">Kartalarim</string>
+    <string name="payme_go">Payme Go</string>
+    <string name="qr_payment">QR to\'lov</string>
+    <string name="transfers">O\'tkazmalar</string>
+    <string name="money_transfer">Pul o\'tkazish</string>
+    <string name="ask_for_money">Pul so\'rash</string>
+    <string name="more">Yana</string>
     <!--    main screen-->
 </resources>

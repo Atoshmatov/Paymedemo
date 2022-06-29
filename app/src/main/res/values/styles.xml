@@ -143,7 +143,7 @@
         <item name="fontFamily">@font/amiko_semibold</item>
         <item name="background">@color/input_bg_color</item>
         <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">72dp</item>
+        <item name="android:layout_height">70dp</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/text_color</item>
         <item name="android:textSize">24sp</item>
@@ -161,15 +161,16 @@
         <item name="android:layout_height">280dp</item>
         <item name="android:adjustViewBounds">true</item>
     </style>
+
     <style name="intro_getStart_style">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_marginBottom">32dp</item>
         <item name="android:background">@drawable/intro_style_bg</item>
         <item name="android:elevation">10dp</item>
         <item name="android:fontFamily">@font/amiko_semibold</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:visibility">gone</item>
     </style>
     <style name="input_text_hint_style">
@@ -182,7 +183,7 @@
         <item name="android:textSize">14sp</item>
     </style>
     <style name="tablayout_style">
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">bottom|center</item>
         <item name="android:layout_margin">16dp</item>
@@ -199,10 +200,13 @@
         <item name="android:layout_marginTop">16dp</item>
         <item name="android:fontFamily">@font/amiko_semibold</item>
         <item name="android:textColor">@color/text_color</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">18sp</item>
     </style>
+
     <style name="polise_image_style">
         <item name="android:layout_width">120dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="layout_constraintDimensionRatio">1:1</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:adjustViewBounds">true</item>
     </style>
@@ -233,13 +237,125 @@
         <item name="android:gravity">center</item>
         <item name="android:layout_marginBottom">20dp</item>
     </style>
+
+
     //Splash
     <!--    Splash screen style-->
 
 
     <!--    Main screen style-->
-    //Main
+    //Main -- basic pager
 
+    <style name="basic_screen_card_style">
+        <item name="android:layout_width">74dp</item>
+        <item name="android:layout_height">74dp</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?selectableItemBackground</item>
+        <item name="layout_constraintVertical_chainStyle">packed</item>
+        <item name="layout_constraintVertical_bias">0</item>
+        <item name="android:backgroundTint">@color/screen_bg_color</item>
+    </style>
+
+    <style name="basic_card_text_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:fontFamily">@font/amiko_semibold</item>
+        <item name="android:textColor">@color/basic_screen_text_color</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="trans_card_style">
+        <item name="android:layout_width">180dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?selectableItemBackground</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="android:backgroundTint">@color/screen_bg_color</item>
+    </style>
+
+    <style name="trans_text_style">
+        <item name="android:textSize">13sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/basic_screen_text_color</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="basic_image_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="basic_text_all_balance">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">14sp</item>
+        <item name="android:textColor">@color/basic_screen_text_color</item>
+    </style>
+
+    <style name="basic_text_money_sum">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:textColor">@color/basic_screen_text_color</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="basic_text_sum2_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">4dp</item>
+        <item name="android:textColor">@color/basic_screen_text_color</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="basic_image_eye_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_marginEnd">20dp</item>
+    </style>
+
+    <style name="basic_text_expand_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="basic_text_cash_flow_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:textColor">@color/basic_screen_text_color</item>
+    </style>
+
+    <style name="cards_text_more_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="card_item_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">8dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?android:selectableItemBackground</item>
+    </style>
 
     //Main
     <!--    Main screen style-->

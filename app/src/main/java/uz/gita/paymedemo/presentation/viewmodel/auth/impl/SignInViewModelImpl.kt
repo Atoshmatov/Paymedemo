@@ -8,9 +8,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SignInViewModelImpl @Inject constructor() : ViewModel(), SignInViewModel {
-    override val openMainScreenLiveData = MutableLiveData<Unit>()
+    override val openScreenLiveData = MutableLiveData<Unit>()
 
     override fun openScreen() {
-        openMainScreenLiveData.value = Unit
+        openScreenLiveData.value = Unit
     }
 }

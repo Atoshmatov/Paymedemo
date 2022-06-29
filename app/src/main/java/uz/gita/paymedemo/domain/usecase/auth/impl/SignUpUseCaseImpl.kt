@@ -23,7 +23,7 @@ class SignUpUseCaseImpl @Inject constructor(
             }
             emit(Result.success(Unit))
         } else {
-            var error = ErrorMessage(500, "Unknown error")
+            var error = ErrorMessage(406, "Unknown error")
             response.errorBody()?.string()?.let {
                 error = gson.fromJson(it, ErrorMessage::class.java)
             }

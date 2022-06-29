@@ -8,6 +8,8 @@ interface SignUpViewModel {
     val notConnectionLiveData: LiveData<Unit>
     val errorLiveData: LiveData<String>
     val openVerifyScreenLiveData: LiveData<Unit>
+    val openSingInScreenLiveData: LiveData<Unit>
 
     fun registerUser(data: SignUpRequest)
+    fun openSignInScreen()
 }

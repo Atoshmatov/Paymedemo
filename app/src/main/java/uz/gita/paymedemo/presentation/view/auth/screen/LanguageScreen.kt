@@ -1,6 +1,6 @@
 package uz.gita.paymedemo.presentation.view.auth.screen
 
-import android.content.res.Configuration
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -16,7 +16,6 @@ import uz.gita.paymedemo.databinding.ScreenLanguageBinding
 import uz.gita.paymedemo.presentation.viewmodel.auth.LanguageVIewModel
 import uz.gita.paymedemo.presentation.viewmodel.auth.impl.LanguageVIewModelImpl
 import uz.gita.paymedemo.utils.LocaleHelper
-import java.util.*
 
 @AndroidEntryPoint
 class LanguageScreen : Fragment(R.layout.screen_language) {
@@ -26,10 +25,12 @@ class LanguageScreen : Fragment(R.layout.screen_language) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         shared = SharedPrefToken(requireContext())
-        viewModel.openSignUpScreen.observe(this@LanguageScreen, openSignUpObserver)
     }
 
+    @SuppressLint("FragmentLiveDataObserve")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
+        viewModel.openSignUpScreen.observe(this@LanguageScreen, openSignUpObserver)
+
         rusButton.setOnClickListener {
             shared?.language = "ru"
             LocaleHelper.setLocale(requireContext(), "ru")
@@ -45,29 +46,6 @@ class LanguageScreen : Fragment(R.layout.screen_language) {
             shared?.language = "en"
             viewModel.openSingUp()
         }
-    }
-
-    private fun onOptionsItemSelected(id: String) {
-        var languageToLoad = "en"
-        languageToLoad = when (id) {
-            "ru" -> {
-                "ru"
-            }
-            "uz" -> {
-                "uz"
-            }
-            else -> {
-                "en"
-            }
-        }
-        val locale = Locale(languageToLoad);
-        Locale.setDefault(locale);
-        val config = Configuration();
-        config.locale = locale;
-        requireContext().resources.updateConfiguration(
-            config,
-            requireContext().resources.displayMetrics
-        )
     }
 
     private val openSignUpObserver = Observer<Unit> {

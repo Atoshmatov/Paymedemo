@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainScreen">
+    app:startDestination="@id/splashScreen">
 
     <fragment
         android:id="@+id/languageScreen"
@@ -15,7 +15,9 @@
             android:id="@+id/action_languageScreen_to_introScreen"
             app:destination="@id/introScreen"
             app:enterAnim="@anim/enter"
-            app:exitAnim="@anim/exit" />
+            app:exitAnim="@anim/exit"
+            app:popEnterAnim="@anim/pop_enter"
+            app:popExitAnim="@anim/pop_exit" />
     </fragment>
     <fragment
         android:id="@+id/splashScreen"
@@ -27,6 +29,7 @@
             android:id="@+id/action_splashScreen_to_signUPScreen"
             app:destination="@id/signUPScreen"
             app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit"
             app:popUpTo="@id/splashScreen"
             app:popUpToInclusive="true" />
 
@@ -34,11 +37,21 @@
             android:id="@+id/action_splashScreen_to_languageScreen"
             app:destination="@id/languageScreen"
             app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit"
             app:popUpTo="@id/splashScreen"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_splashScreen_to_signInScreen"
             app:destination="@id/signInScreen"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit"
+            app:popEnterAnim="@anim/pop_enter"
+            app:popExitAnim="@anim/pop_exit"
+            app:popUpTo="@id/splashScreen"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashScreen_to_pinCodeScreen"
+            app:destination="@id/pinCodeScreen"
             app:enterAnim="@anim/enter"
             app:exitAnim="@anim/exit"
             app:popUpTo="@id/splashScreen"
@@ -56,12 +69,15 @@
             app:enterAnim="@anim/enter"
             app:exitAnim="@anim/exit"
             app:launchSingleTop="true"
+            app:popExitAnim="@anim/pop_exit"
             app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_signUPScreen_to_signInScreen"
             app:destination="@id/signInScreen"
             app:enterAnim="@anim/enter"
-            app:exitAnim="@anim/exit" />
+            app:exitAnim="@anim/exit"
+            app:popEnterAnim="@anim/pop_enter"
+            app:popExitAnim="@anim/pop_exit" />
     </fragment>
     <fragment
         android:id="@+id/introScreen"
@@ -73,6 +89,8 @@
             app:destination="@id/policeScreen"
             app:enterAnim="@anim/enter"
             app:exitAnim="@anim/exit"
+            app:popEnterAnim="@anim/pop_enter"
+            app:popExitAnim="@anim/pop_exit"
             app:popUpToInclusive="false" />
     </fragment>
     <fragment
@@ -80,9 +98,14 @@
         android:name="uz.gita.paymedemo.presentation.view.auth.screen.SignInScreen"
         android:label="screen_signin"
         tools:layout="@layout/screen_signin">
-        <argument
-            android:name="number"
-            app:argType="string" />
+        <action
+            android:id="@+id/action_signInScreen_to_pinCodeNewScreen"
+            app:destination="@id/pinCodeNewScreen"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit"
+            app:popExitAnim="@anim/pop_exit"
+            app:popUpTo="@id/signInScreen"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/verifyScreen"
@@ -93,6 +116,14 @@
         <argument
             android:name="number"
             app:argType="string" />
+        <action
+            android:id="@+id/action_verifyScreen_to_pinCodeNewScreen"
+            app:destination="@id/pinCodeNewScreen"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit"
+            app:popExitAnim="@anim/pop_exit"
+            app:popUpTo="@id/verifyScreen"
+            app:popUpToInclusive="true" />
 
     </fragment>
     <fragment
@@ -110,6 +141,8 @@
             app:destination="@id/signUPScreen"
             app:enterAnim="@anim/enter"
             app:exitAnim="@anim/exit"
+            app:popEnterAnim="@anim/pop_enter"
+            app:popExitAnim="@anim/pop_exit"
             app:popUpTo="@id/policeScreen"
             app:popUpToInclusive="true" />
     </fragment>
@@ -129,18 +162,15 @@
         android:id="@+id/pinCodeScreen"
         android:name="uz.gita.paymedemo.presentation.view.auth.screen.PinCodeScreen"
         android:label="PinCodeScreen" />
-    <action
-        android:id="@+id/action_global_pinCodeScreen"
-        app:destination="@id/pinCodeScreen"
-        app:enterAnim="@anim/enter"
-        app:exitAnim="@anim/exit"
-        app:popUpTo="@id/splashScreen"
-        app:popUpToInclusive="true" />
-    <action
-        android:id="@+id/action_global_pinCodeNewScreen"
-        app:destination="@id/pinCodeNewScreen"
-        app:enterAnim="@anim/enter"
-        app:exitAnim="@anim/exit"
-        app:popUpTo="@id/signInScreen"
-        app:popUpToInclusive="true" />
+
+    <fragment
+        android:id="@+id/fingerScreen"
+        android:name="uz.gita.paymedemo.presentation.view.auth.screen.FingerScreen"
+        android:label="screen_finger"
+        tools:layout="@layout/screen_finger" />
+    <fragment
+        android:id="@+id/basicPager"
+        android:name="uz.gita.paymedemo.presentation.view.main.pager.basic.BasicPager"
+        android:label="pager_basic"
+        tools:layout="@layout/pager_basic" />
 </navigation>

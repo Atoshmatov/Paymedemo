@@ -1,10 +1,9 @@
 package uz.gita.paymedemo.presentation.view.auth.screen
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.hardware.biometrics.BiometricManager.Authenticators.BIOMETRIC_STRONG
-import android.hardware.biometrics.BiometricManager.Authenticators.DEVICE_CREDENTIAL
 import android.os.Bundle
+import android.os.CancellationSignal
 import android.provider.Settings
 import android.view.View
 import androidx.appcompat.widget.AppCompatImageView
@@ -26,10 +25,31 @@ import uz.gita.paymedemo.data.local.SharedPrefToken
 import uz.gita.paymedemo.databinding.ScreenPincodeBinding
 import uz.gita.paymedemo.presentation.viewmodel.auth.PinCodeViewModel
 import uz.gita.paymedemo.presentation.viewmodel.auth.impl.PinCodeViewModelImpl
+import uz.gita.paymedemo.utils.myApply
 import java.util.concurrent.Executor
+
 
 @AndroidEntryPoint
 class PinCodeScreen : Fragment(R.layout.screen_pincode) {
+    private var cancellationSignal: CancellationSignal? = null
+
+    /* private val authenticationCallback: BiometricPrompt.AuthenticationCallback
+         get() =
+             @RequiresApi(Build.VERSION_CODES.P)
+             object : BiometricPrompt.AuthenticationCallback() {
+                 override fun onAuthenticationError(errorCode: Int, errString: CharSequence?) {
+                     super.onAuthenticationError(errorCode, errString)
+                     notifyUser("Authentication error: $errString")
+                 }
+
+                 override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult?) {
+                     super.onAuthenticationSucceeded(result)
+                     notifyUser("Authentication Success!")
+                     startActivity(Intent(requireContext(), Secret::class.java))
+                 }
+             }
+
+     @RequiresApi(Build.VERSION_CODES.P)*/
     private val binding by viewBinding(ScreenPincodeBinding::bind)
     private val viewModel: PinCodeViewModel by viewModels<PinCodeViewModelImpl>()
     private val numberList = ArrayList<CardView>()
@@ -46,17 +66,13 @@ class PinCodeScreen : Fragment(R.layout.screen_pincode) {
         viewModel.openMainScreenLiveData.observe(this@PinCodeScreen, openMainScreenObserver)
     }
 
-    @SuppressLint("FragmentLiveDataObserve")
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) = binding.myApply {
         shared = SharedPrefToken(requireContext())
-        subscriber()
         loadView()
         clearCode()
-//        main.post {
-////            biometricId()
-//        }
-        keyboard1.btConfirm.visibility = View.INVISIBLE
-        return@with
+        main.post {
+            biometricId()
+        }
     }
 
     //observer Object
@@ -65,6 +81,7 @@ class PinCodeScreen : Fragment(R.layout.screen_pincode) {
             .setPopUpTo(R.id.pinCodeScreen, true).build()
         val action = NavGraphDirections.actionGlobalMainScreen()
         findNavController().navigate(action, navOption)
+        shared!!.id = 2
     }
 
     //view Model Observer
@@ -103,10 +120,9 @@ class PinCodeScreen : Fragment(R.layout.screen_pincode) {
             }
         }
     }
-    @SuppressLint("WrongConstant", "InlinedApi", "SwitchIntDef")
     private fun biometricId() {
         val biometricManager = BiometricManager.from(requireContext())
-        when (biometricManager.canAuthenticate(BIOMETRIC_STRONG or DEVICE_CREDENTIAL)) {
+        when (biometricManager.canAuthenticate(BIOMETRIC_STRONG)) {
             BiometricManager.BIOMETRIC_SUCCESS ->
                 Timber.tag("MY_APP_TAG").d("App can authenticate using biometrics.")
             BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE ->
@@ -117,7 +133,7 @@ class PinCodeScreen : Fragment(R.layout.screen_pincode) {
                 val enrollIntent = Intent(Settings.ACTION_BIOMETRIC_ENROLL).apply {
                     putExtra(
                         Settings.EXTRA_BIOMETRIC_AUTHENTICATORS_ALLOWED,
-                        BIOMETRIC_STRONG or DEVICE_CREDENTIAL
+                        BIOMETRIC_STRONG
                     )
                 }
                 startActivityForResult(enrollIntent, REQUEST_CODE)
@@ -157,7 +173,6 @@ class PinCodeScreen : Fragment(R.layout.screen_pincode) {
 
         biometricPrompt.authenticate(promptInfo)
     }
-
     private fun clearCode() {
         binding.keyboard1.btClear.setOnClickListener {
             if (code.isEmpty())
@@ -165,13 +180,6 @@ class PinCodeScreen : Fragment(R.layout.screen_pincode) {
             pincodeList[code.length - 1].setBackgroundResource(R.drawable.pincode_1)
             code.deleteCharAt(code.length - 1)
         }
-    }
-
-    //fragment lifecycle
-    override fun onDestroy() {
-        super.onDestroy()
-//        biometricPrompt.cancelAuthentication()
-//        viewModel.openMainScreenLiveData.removeObservers(this@PinCodeScreen)
     }
 }
 

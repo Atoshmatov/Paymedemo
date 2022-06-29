@@ -1,4 +1,4 @@
-package uz.gita.paymedemo.presentation.view.main.pager
+package uz.gita.paymedemo.presentation.view.main.pager.service
 
 import androidx.fragment.app.Fragment
 import dagger.hilt.android.AndroidEntryPoint
