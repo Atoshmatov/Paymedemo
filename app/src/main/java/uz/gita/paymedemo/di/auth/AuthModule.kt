@@ -13,6 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import uz.gita.paymedemo.BuildConfig.BASE_URL
 import uz.gita.paymedemo.data.local.SharedPrefToken
 import uz.gita.paymedemo.data.remote.api.auth.AuthApi
+import uz.gita.paymedemo.data.remote.api.main.BasicApi
 import javax.inject.Singleton
 
 @Module
@@ -49,4 +50,7 @@ class AuthModule {
 
     @[Provides Singleton]
     fun getAuthApi(retrofit: Retrofit): AuthApi = retrofit.create(AuthApi::class.java)
+
+    @[Provides Singleton]
+    fun getCardApi(retrofit: Retrofit): BasicApi = retrofit.create(BasicApi::class.java)
 }

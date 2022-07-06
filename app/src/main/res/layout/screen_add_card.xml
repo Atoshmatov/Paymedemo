@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.view.main.pager.basic.screen.AddCardScreen">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/backScreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?selectableItemBackgroundBorderless"
+        android:padding="8dp"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="6dp"
+            android:src="@drawable/ic_back" />
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <TextView
+        android:id="@+id/appCompatTextView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/add_a_card"
+        android:textColor="@color/basic_screen_text_color"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/backScreen"
+        app:layout_constraintStart_toEndOf="@+id/backScreen"
+        app:layout_constraintTop_toTopOf="@+id/backScreen" />
+
+
+    <include
+        android:id="@+id/cardAddImageFon"
+        layout="@layout/my_card_list_item"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@id/itemColorList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backScreen"
+        app:layout_constraintVertical_bias="0"
+
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/itemColorList"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/cardNumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardAddImageFon"
+        tools:itemCount="7"
+        tools:listitem="@layout/card_color_item" />
+
+    <TextView
+        android:id="@+id/cardNumber"
+        style="@style/input_text_hint_style"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/amiko_semibold"
+        android:text="@string/card_number"
+        app:layout_constraintBottom_toTopOf="@+id/cardEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@+id/cardEditText"
+        app:layout_constraintTop_toBottomOf="@+id/itemColorList" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/cardEditText"
+        style="@style/inputText_style_2"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@id/cardTimeText"
+        app:layout_constraintEnd_toStartOf="@id/cardScanner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardNumber"
+        app:passwordToggleTint="@color/main_color">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/cardCode"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/card_number"
+            android:inputType="number"
+            android:maxLength="16" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardScanner"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/input_bg_color"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?selectableItemBackgroundBorderless"
+        app:cardCornerRadius="56dp"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cardEditText"
+        app:layout_constraintTop_toTopOf="@+id/cardEditText">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="14dp"
+            android:src="@drawable/ic_card_scan" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <TextView
+        android:id="@+id/cardTimeText"
+        style="@style/input_text_hint_style"
+        android:text="@string/validity_period"
+        app:layout_constraintBottom_toTopOf="@+id/cardEditText2"
+        app:layout_constraintEnd_toEndOf="@+id/cardEditText2"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@+id/cardEditText2"
+        app:layout_constraintTop_toBottomOf="@+id/cardEditText" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/cardEditText2"
+        style="@style/inputText_style_2"
+        android:layout_marginHorizontal="16dp"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/main_color"
+        app:layout_constraintBottom_toTopOf="@id/cardOwner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardTimeText">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/time"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/validity_period"
+            android:inputType="number"
+            android:maxLength="4"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/cardOwner"
+        style="@style/input_text_hint_style"
+        android:text="@string/the_name_of_the_card"
+        app:layout_constraintBottom_toTopOf="@id/cardEditText3"
+        app:layout_constraintEnd_toEndOf="@+id/cardEditText3"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@+id/cardEditText3"
+        app:layout_constraintTop_toBottomOf="@+id/cardEditText2" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/cardEditText3"
+        style="@style/inputText_style_2"
+        android:layout_marginHorizontal="16dp"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/main_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardOwner">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/cardText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/the_name_of_the_card"
+            android:inputType="text"
+            android:maxLength="20"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/addCardButton"
+        style="@style/signin_style"
+        android:layout_marginHorizontal="16sp"
+        android:layout_marginBottom="16dp"
+        android:enabled="false"
+        android:text="@string/add_a_card"
+        android:textColor="@color/hint_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -79,5 +79,13 @@
     <string name="ask_for_money">Ask for money</string>
     <string name="more">More</string>
     <string name="todo">TODO</string>
+    <string name="add_a_card">Add a card</string>
+    <string name="card_number">Card number</string>
+    <string name="validity_period">Validity period</string>
+    <string name="the_name_of_the_card">Card name</string>
+    <string name="to_accept_a_transfer_from_this_card">To accept a transfer from this card</string>
+    <string name="share_QR">Share QR</string>
+    <string name="share_the_link">Share link</string>
+    <string name="copy_link">Copy link</string>
     <!--    main screen-->
 </resources>

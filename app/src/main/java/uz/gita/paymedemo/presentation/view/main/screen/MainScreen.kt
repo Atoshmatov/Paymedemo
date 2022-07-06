@@ -15,13 +15,13 @@ import uz.gita.paymedemo.presentation.viewmodel.main.impl.MainViewModelImpl
 class MainScreen : Fragment(R.layout.screen_main) {
     private val binding by viewBinding(ScreenMainBinding::bind)
     private val viewModel: MainViewModel by viewModels<MainViewModelImpl>()
-    private val adapter by lazy { MainAdapter(childFragmentManager, lifecycle) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
+        val adapter = MainAdapter(childFragmentManager, lifecycle)
         mainViewPager.adapter = adapter
         mainViewPager.isUserInputEnabled = false
         mainBottomTab.setOnItemSelectedListener {

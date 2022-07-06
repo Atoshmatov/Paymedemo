@@ -35,7 +35,7 @@
         android:layout_marginStart="16dp"
         android:fontFamily="@font/amiko_semibold"
         android:text="@string/verify_text"
-        app:layout_constraintBottom_toTopOf="@+id/verifyEditText"
+        app:layout_constraintBottom_toTopOf="@+id/cardEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +43,7 @@
         app:layout_constraintVertical_bias="1" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/verifyEditText"
+        android:id="@+id/cardEditText"
         style="@style/inputText_style"
         android:layout_marginHorizontal="16dp"
         android:gravity="center"
@@ -78,7 +78,7 @@
         android:textColor="@color/text_color"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/verifyEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/cardEditText" />
 
     <Switch
         android:id="@+id/strangerDevice"
@@ -89,7 +89,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/verifyEditText"
+        app:layout_constraintTop_toBottomOf="@+id/cardEditText"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <TextView
@@ -100,9 +100,9 @@
         android:gravity="center"
         android:textColor="@color/text_color"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/verifyEditText"
-        app:layout_constraintEnd_toEndOf="@+id/verifyEditText"
-        app:layout_constraintStart_toStartOf="@+id/verifyEditText"
+        app:layout_constraintBottom_toTopOf="@+id/cardEditText"
+        app:layout_constraintEnd_toEndOf="@+id/cardEditText"
+        app:layout_constraintStart_toStartOf="@+id/cardEditText"
         app:layout_constraintTop_toBottomOf="@+id/appCompatImageView4"
         app:layout_constraintVertical_bias="0.2" />
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     style="@style/card_item_style"
     android:layout_marginHorizontal="16dp"
     android:layout_height="200dp">
@@ -14,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/card_bg_6"
+            tools:src="@drawable/card_bg_6"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -27,22 +28,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             android:adjustViewBounds="true"
-            android:src="@drawable/ic_humo_full"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_humo_full" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/cardName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="12dp"
             android:fontFamily="sans-serif"
-            android:text="hamkorbank"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/cardBgImage"
+            tools:text="hamkorbank"
             app:layout_constraintTop_toBottomOf="@+id/cardLogo" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -52,19 +55,21 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:fontFamily="sans-serif"
-            android:text="47 000.23"
+            android:textSize="30sp"
+            android:textStyle="bold"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            tools:text="47 000.23"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardName"
             app:layout_constraintVertical_bias="0" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/sumCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="@string/sum"
+            android:textSize="18sp"
+            tools:text="@string/sum"
             app:layout_constraintVertical_bias="1"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/cardAllTotal"
@@ -75,11 +80,11 @@
             android:id="@+id/userName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Alimardon Toshmatov"
+            android:layout_marginTop="12dp"
+            android:textSize="18sp"
             android:textAllCaps="true"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            tools:text="Alimardon Toshmatov"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/cardAllTotal"
             app:layout_constraintTop_toBottomOf="@+id/cardAllTotal"
@@ -89,10 +94,10 @@
             android:id="@+id/cardNumberPan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="8600 3129 3139 3769"
+            android:layout_marginTop="12dp"
+            android:textSize="18sp"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            tools:text="8600 3129 3139 3769"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/userName"
             app:layout_constraintTop_toBottomOf="@+id/userName"
@@ -104,11 +109,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:text="02/26"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/cardNumberPan"
-            app:layout_constraintStart_toEndOf="@+id/cardNumberPan" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.063"
+            app:layout_constraintStart_toEndOf="@+id/cardNumberPan"
+            tools:text="02/26" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

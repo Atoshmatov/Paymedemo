@@ -1,7 +1,7 @@
 package uz.gita.paymedemo.di.main
 
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import uz.gita.paymedemo.domain.repository.main.basic.BasicRepository
@@ -12,6 +12,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 interface RepositoryModule {
 
-//    @[Provides Singleton]
-//    fun binBasicRepository(impl: BasicRepositoryImpl): BasicRepository
+    @[Binds Singleton]
+    fun binBasicRepository(impl: BasicRepositoryImpl): BasicRepository
 }

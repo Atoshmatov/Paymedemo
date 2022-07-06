@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+	android:width="24dp"
+	android:height="24dp"
+	android:viewportWidth="24"
+	android:viewportHeight="24">
+	<path
+		android:fillColor="@color/burger_color"
+		android:pathData="M7.37,11.69H4.83A3.84,3.84,0,0,1,1,7.86V5.32A3.84,3.84,0,0,1,4.83,1.48H7.37A3.84,3.84,0,0,1,11.2,5.32V7.86A3.84,3.84,0,0,1,7.37,11.69ZM4.83,3.48A1.84,1.84,0,0,0,3,5.32V7.86A1.84,1.84,0,0,0,4.83,9.69H7.37A1.84,1.84,0,0,0,9.2,7.86V5.32A1.84,1.84,0,0,0,7.37,3.48Z" />
+	<path
+		android:fillColor="@color/burger_color"
+		android:pathData="M7.37,22.94H4.83A3.84,3.84,0,0,1,1,19.11V16.57a3.84,3.84,0,0,1,3.83-3.83H7.37a3.84,3.84,0,0,1,3.83,3.83v2.54A3.84,3.84,0,0,1,7.37,22.94ZM4.83,14.73A1.84,1.84,0,0,0,3,16.57v2.54a1.84,1.84,0,0,0,1.83,1.83H7.37A1.84,1.84,0,0,0,9.2,19.11V16.57a1.84,1.84,0,0,0-1.83-1.83Z" />
+	<path
+		android:fillColor="@color/burger_color"
+		android:pathData="M19.21,11.69H16.67a3.84,3.84,0,0,1-3.83-3.83V5.32a3.84,3.84,0,0,1,3.83-3.83h2.54A3.84,3.84,0,0,1,23,5.32V7.86A3.84,3.84,0,0,1,19.21,11.69ZM16.67,3.48a1.84,1.84,0,0,0-1.83,1.83V7.86a1.84,1.84,0,0,0,1.83,1.83h2.54A1.84,1.84,0,0,0,21,7.86V5.32a1.84,1.84,0,0,0-1.83-1.83Z" />
+	<path
+		android:fillColor="@color/burger_color"
+		android:pathData="M 6.13 5.08 L 6.13 5.08 Q 7.67 5.08 7.67 6.62 L 7.67 6.62 Q 7.67 8.16 6.13 8.16 L 6.13 8.16 Q 4.59 8.16 4.59 6.62 L 4.59 6.62 Q 4.59 5.08 6.13 5.08 Z" />
+	<path
+		android:fillColor="@color/burger_color"
+		android:pathData="M 15.08 13.97 L 15.07 13.97 Q 16.37 13.97 16.37 15.27 L 16.37 15.26 Q 16.37 16.56 15.07 16.56 L 15.08 16.56 Q 13.78 16.56 13.78 15.26 L 13.78 15.27 Q 13.78 13.97 15.08 13.97 Z" />
+	<path
+		android:fillColor="@color/burger_color"
+		android:pathData="M 18 16.57 L 17.99 16.57 Q 19.29 16.57 19.29 17.87 L 19.29 17.86 Q 19.29 19.16 17.99 19.16 L 18 19.16 Q 16.7 19.16 16.7 17.86 L 16.7 17.87 Q 16.7 16.57 18 16.57 Z" />
+	<path
+		android:fillColor="@color/burger_color"
+		android:pathData="M 20.96 13.97 L 20.95 13.97 Q 22.25 13.97 22.25 15.27 L 22.25 15.26 Q 22.25 16.56 20.95 16.56 L 20.96 16.56 Q 19.66 16.56 19.66 15.26 L 19.66 15.27 Q 19.66 13.97 20.96 13.97 Z" />
+	<path
+		android:fillColor="@color/burger_color"
+		android:pathData="M 15.08 19.22 L 15.07 19.22 Q 16.37 19.22 16.37 20.52 L 16.37 20.51 Q 16.37 21.81 15.07 21.81 L 15.08 21.81 Q 13.78 21.81 13.78 20.51 L 13.78 20.52 Q 13.78 19.22 15.08 19.22 Z" />
+	<path
+		android:fillColor="@color/burger_color"
+		android:pathData="M 20.96 19.22 L 20.95 19.22 Q 22.25 19.22 22.25 20.52 L 22.25 20.51 Q 22.25 21.81 20.95 21.81 L 20.96 21.81 Q 19.66 21.81 19.66 20.51 L 19.66 20.52 Q 19.66 19.22 20.96 19.22 Z" />
+	<path
+		android:fillColor="@color/burger_color"
+		android:pathData="M 6.13 16.36 L 6.13 16.36 Q 7.67 16.36 7.67 17.9 L 7.67 17.9 Q 7.67 19.44 6.13 19.44 L 6.13 19.44 Q 4.59 19.44 4.59 17.9 L 4.59 17.9 Q 4.59 16.36 6.13 16.36 Z" />
+	<path
+		android:fillColor="@color/burger_color"
+		android:pathData="M 17.93 5.08 L 17.93 5.08 Q 19.47 5.08 19.47 6.62 L 19.47 6.62 Q 19.47 8.16 17.93 8.16 L 17.93 8.16 Q 16.39 8.16 16.39 6.62 L 16.39 6.62 Q 16.39 5.08 17.93 5.08 Z" />
+	<path android:pathData="M0,0H24V24H0Z" />
+</vector>

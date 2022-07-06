@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dialog_bottom_style">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/to_accept_a_transfer_from_this_card"
+        android:textColor="@color/text_color"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/qrCode"
+        style="@style/basic_screen_card_style_2"
+        app:cardCornerRadius="74dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toStartOf="@id/share"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView5">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:padding="22dp"
+            android:src="@drawable/ic_qr_small" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/qrCodeText"
+        style="@style/basic_card_text_style"
+        android:layout_marginTop="24dp"
+        android:text="@string/share_QR"
+        app:layout_constraintEnd_toEndOf="@+id/qrCode"
+        app:layout_constraintStart_toStartOf="@+id/qrCode"
+        app:layout_constraintTop_toBottomOf="@+id/qrCode" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/share"
+        style="@style/basic_screen_card_style_2"
+        app:cardCornerRadius="74dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/qrCode"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView5">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:padding="24dp"
+            android:src="@drawable/ic_share" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/shareText"
+        style="@style/basic_card_text_style"
+        android:text="@string/share_the_link"
+        app:layout_constraintEnd_toEndOf="@+id/share"
+        app:layout_constraintStart_toStartOf="@+id/share"
+        app:layout_constraintTop_toBottomOf="@+id/share" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/copy_link_style"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?selectableItemBackground"
+        android:gravity="center"
+        android:paddingStart="20dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="5dp"
+        android:text="@string/copy_link"
+        android:textColor="@color/main_color"
+        app:layout_constraintEnd_toEndOf="@+id/shareText"
+        app:layout_constraintStart_toStartOf="@+id/qrCodeText"
+        app:layout_constraintTop_toBottomOf="@+id/shareText"
+        tools:ignore="RtlSymmetry,UnusedAttribute" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

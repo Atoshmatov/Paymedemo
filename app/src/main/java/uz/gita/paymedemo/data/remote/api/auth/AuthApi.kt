@@ -11,7 +11,6 @@ import uz.gita.paymedemo.data.remote.response.auth.VerifyResponse
 
 
 interface AuthApi {
-
     @POST("auth/sign-up")
     suspend fun signUp(@Body data: SignUpRequest): Response<SignUpResponse>
 

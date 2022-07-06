@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_screen_bg_color"
-    tools:context=".presentation.view.main.pager.basic.BasicPager">
+    android:background="@color/main_screen_bg_color">
 
     <com.google.android.material.appbar.AppBarLayout
         android:background="@color/main_screen_bg_color"
@@ -89,7 +88,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/allBalanceSum"
                     style="@style/basic_text_money_sum"
-                    android:text="15 140 182"
+                    tools:text="15 140 182"
                     app:layout_constraintEnd_toStartOf="@+id/sum"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/eyeImage"
@@ -143,7 +142,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/appCompatTextView"
                     style="@style/basic_text_cash_flow_style"
-                    android:text="Iyundagi chiqim - 15 430 123 so'm"
+                    tools:text="Iyundagi chiqim - 15 430 123 so'm"
                     app:layout_constraintEnd_toEndOf="@+id/eyeImage2"
                     app:layout_constraintStart_toStartOf="@+id/eyeImage"
                     app:layout_constraintTop_toBottomOf="@+id/allBalanceSum"
@@ -244,6 +243,8 @@
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/sendMoney"
                     style="@style/trans_card_style"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/endMoney"
                     app:layout_constraintHorizontal_chainStyle="spread"
@@ -276,7 +277,8 @@
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/endMoney"
                     style="@style/trans_card_style"
-                    android:backgroundTint="@color/screen_bg_color"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="16dp"
                     app:layout_constraintBottom_toBottomOf="@+id/sendMoney"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/sendMoney"
@@ -333,7 +335,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

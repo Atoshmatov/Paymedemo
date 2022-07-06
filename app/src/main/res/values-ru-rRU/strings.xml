@@ -78,5 +78,18 @@
     <string name="money_transfer">Перевод денег</string>
     <string name="ask_for_money">Попросить денег</string>
     <string name="more">Все</string>
+    <string name="todo">TODO</string>
+    <string name="add_a_card">Добавьте карту</string>
+    <string name="card_number">Номер карты</string>
+    <string name="validity_period">Срок годности</string>
+    <string name="the_name_of_the_card">Название карты</string>
+    <string name="to_accept_a_transfer_from_this_card">Принять перевод с этой карты</string>
+    <string name="share_QR">Поделиться QR-кодом</string>
+    <string name="share_the_link">Поделитесь ссылкой</string>
+    <string name="copy_link">Ссылка на скачивание</string>
+
+
+
+
     <!--    main screen-->
 </resources>

@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintBottom_toTopOf="@id/editText1"
+        app:layout_constraintBottom_toTopOf="@id/cardTime"
         android:src="@drawable/ic_payme_logo"
         app:layout_constraintTop_toBottomOf="@id/signUpText"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,16 +34,16 @@
         app:layout_constraintVertical_chainStyle="packed" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textView7"
+        android:id="@+id/cardTimeText"
         style="@style/input_text_hint_style"
         android:text="@string/last_name"
-        app:layout_constraintBottom_toTopOf="@+id/editText1"
-        app:layout_constraintEnd_toEndOf="@+id/editText1"
+        app:layout_constraintBottom_toTopOf="@+id/cardTime"
+        app:layout_constraintEnd_toEndOf="@+id/cardTime"
         app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="@+id/editText1" />
+        app:layout_constraintStart_toStartOf="@+id/cardTime" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/editText1"
+        android:id="@+id/cardTime"
         style="@style/inputText_style"
         android:layout_marginTop="50dp"
         app:endIconMode="clear_text"
@@ -84,7 +84,7 @@
         app:layout_constraintBottom_toTopOf="@id/editText3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editText1">
+        app:layout_constraintTop_toBottomOf="@id/cardTime">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/lastName"
