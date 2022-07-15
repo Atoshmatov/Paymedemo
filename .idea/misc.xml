@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/card_dialog_bottom.xml" value="0.25" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/pager_basic.xml" value="0.17546296296296296" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/screen_main.xml" value="0.17546296296296296" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/screen_verify.xml" value="0.2125" />
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable-v24/circle_tab_indicator.xml" value="0.155" />
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable-v24/color_item.xml" value="0.1625" />
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable-v24/dot.xml" value="0.155" />

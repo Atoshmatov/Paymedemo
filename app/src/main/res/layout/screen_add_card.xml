@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.view.main.pager.basic.screen.AddCardScreen">
+    tools:context=".presentation.ui.main.pager.basic.screen.AddCardScreen">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/backScreen"

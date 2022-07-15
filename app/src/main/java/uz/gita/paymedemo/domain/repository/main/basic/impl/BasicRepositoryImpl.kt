@@ -10,7 +10,8 @@ import uz.gita.paymedemo.data.remote.response.main.basic.Basic
 import uz.gita.paymedemo.domain.repository.main.basic.BasicRepository
 import javax.inject.Inject
 
-class BasicRepositoryImpl
+class
+BasicRepositoryImpl
 @Inject constructor(
     private val cardApi: BasicApi,
     private val shared: SharedPrefToken

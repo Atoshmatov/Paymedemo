@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/languageScreen"
-        android:name="uz.gita.paymedemo.presentation.view.auth.screen.LanguageScreen"
+        android:name="uz.gita.paymedemo.presentation.ui.auth.screen.LanguageScreen"
         android:label="screen_language"
         tools:layout="@layout/screen_language">
 
@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/splashScreen"
-        android:name="uz.gita.paymedemo.presentation.view.splash.screen.SplashScreen"
+        android:name="uz.gita.paymedemo.presentation.ui.splash.screen.SplashScreen"
         android:label="screen_splash"
         tools:layout="@layout/screen_splash">
 
@@ -60,7 +60,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUPScreen"
-        android:name="uz.gita.paymedemo.presentation.view.auth.screen.SignUPScreen"
+        android:name="uz.gita.paymedemo.presentation.ui.auth.screen.SignUPScreen"
         android:label="screen_signup"
         tools:layout="@layout/screen_signup" >
         <action
@@ -69,6 +69,7 @@
             app:enterAnim="@anim/enter"
             app:exitAnim="@anim/exit"
             app:launchSingleTop="true"
+            app:popEnterAnim="@anim/pop_enter"
             app:popExitAnim="@anim/pop_exit"
             app:popUpToInclusive="false" />
         <action
@@ -81,7 +82,7 @@
     </fragment>
     <fragment
         android:id="@+id/introScreen"
-        android:name="uz.gita.paymedemo.presentation.view.auth.screen.IntroScreen"
+        android:name="uz.gita.paymedemo.presentation.ui.auth.screen.IntroScreen"
         android:label="screen_intro"
         tools:layout="@layout/screen_intro">
         <action
@@ -95,7 +96,7 @@
     </fragment>
     <fragment
         android:id="@+id/signInScreen"
-        android:name="uz.gita.paymedemo.presentation.view.auth.screen.SignInScreen"
+        android:name="uz.gita.paymedemo.presentation.ui.auth.screen.SignInScreen"
         android:label="screen_signin"
         tools:layout="@layout/screen_signin">
         <action
@@ -108,11 +109,15 @@
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_signInScreen_to_verifyScreen"
-            app:destination="@id/verifyScreen" />
+            app:destination="@id/verifyScreen"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit"
+            app:popEnterAnim="@anim/pop_enter"
+            app:popExitAnim="@anim/pop_exit" />
     </fragment>
     <fragment
         android:id="@+id/verifyScreen"
-        android:name="uz.gita.paymedemo.presentation.view.auth.screen.VerifyScreen"
+        android:name="uz.gita.paymedemo.presentation.ui.auth.screen.VerifyScreen"
         android:label="screen_verify"
         tools:layout="@layout/screen_verify">
 
@@ -131,7 +136,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainScreen"
-        android:name="uz.gita.paymedemo.presentation.view.main.screen.MainScreen"
+        android:name="uz.gita.paymedemo.presentation.ui.main.screen.MainScreen"
         android:label="screen_main"
         tools:layout="@layout/screen_main">
         <action
@@ -144,7 +149,7 @@
     </fragment>
     <fragment
         android:id="@+id/policeScreen"
-        android:name="uz.gita.paymedemo.presentation.view.auth.screen.PoliceScreen"
+        android:name="uz.gita.paymedemo.presentation.ui.auth.screen.PoliceScreen"
         android:label="screen_police"
         tools:layout="@layout/screen_police">
         <action
@@ -167,21 +172,21 @@
         app:popUpToInclusive="true" />
     <fragment
         android:id="@+id/pinCodeNewScreen"
-        android:name="uz.gita.paymedemo.presentation.view.auth.screen.PinCodeNewScreen"
+        android:name="uz.gita.paymedemo.presentation.ui.auth.screen.PinCodeNewScreen"
         android:label="PinCodeNewScreen" />
     <fragment
         android:id="@+id/pinCodeScreen"
-        android:name="uz.gita.paymedemo.presentation.view.auth.screen.PinCodeScreen"
+        android:name="uz.gita.paymedemo.presentation.ui.auth.screen.PinCodeScreen"
         android:label="PinCodeScreen" />
 
     <fragment
         android:id="@+id/fingerScreen"
-        android:name="uz.gita.paymedemo.presentation.view.auth.screen.FingerScreen"
+        android:name="uz.gita.paymedemo.presentation.ui.auth.screen.FingerScreen"
         android:label="screen_finger"
         tools:layout="@layout/screen_finger" />
     <fragment
         android:id="@+id/cardScreen"
-        android:name="uz.gita.paymedemo.presentation.view.main.pager.basic.screen.CardScreen"
+        android:name="uz.gita.paymedemo.presentation.ui.main.pager.basic.screen.CardScreen"
         android:label="screen_cards"
         tools:layout="@layout/screen_cards">
         <action
@@ -194,7 +199,7 @@
     </fragment>
     <fragment
         android:id="@+id/addCardScreen"
-        android:name="uz.gita.paymedemo.presentation.view.main.pager.basic.screen.AddCardScreen"
+        android:name="uz.gita.paymedemo.presentation.ui.main.pager.basic.screen.AddCardScreen"
         android:label="screen_add_card"
         tools:layout="@layout/screen_add_card"></fragment>
 </navigation>

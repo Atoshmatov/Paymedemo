@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.view.auth.screen.VerifyScreen">
+    tools:context=".presentation.ui.auth.screen.VerifyScreen">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/backScreen"
@@ -30,6 +30,7 @@
         app:layout_constraintVertical_bias="0.1" />
 
     <TextView
+        android:layout_marginBottom="10dp"
         android:id="@+id/textView2"
         style="@style/input_text_hint_style"
         android:layout_marginStart="16dp"

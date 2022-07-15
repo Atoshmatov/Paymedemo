@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.r0adkll.slidr.Slidr
 import dagger.hilt.android.AndroidEntryPoint
 import uz.gita.paymedemo.data.local.SharedPrefToken
-import uz.gita.paymedemo.presentation.view.auth.screen.LanguageScreen
+import uz.gita.paymedemo.presentation.ui.auth.screen.LanguageScreen
 import uz.gita.paymedemo.utils.LocaleHelper
 import uz.gita.paymedemo.utils.boradcast.ConnectionBroad
 import java.util.*
