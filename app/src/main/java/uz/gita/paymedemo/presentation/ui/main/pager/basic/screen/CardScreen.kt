@@ -13,23 +13,28 @@ import uz.gita.paymedemo.R
 import uz.gita.paymedemo.data.remote.response.main.basic.Basic
 import uz.gita.paymedemo.databinding.ScreenCardsBinding
 import uz.gita.paymedemo.presentation.ui.main.pager.basic.adapter.CardAdapter
-import uz.gita.paymedemo.presentation.viewmodel.main.pager.basic.CardViewModel
+import uz.gita.paymedemo.presentation.ui.main.pager.basic.dialog.CardDialogItem
+import uz.gita.paymedemo.presentation.viewmodel.main.pager.basic.CardsViewModel
 import uz.gita.paymedemo.presentation.viewmodel.main.pager.basic.impl.CardsViewModelImpl
 
 @AndroidEntryPoint
-class CardScreen:Fragment(R.layout.screen_cards) {
+class CardScreen : Fragment(R.layout.screen_cards) {
     private val binding by viewBinding(ScreenCardsBinding::bind)
-    private val viewModel: CardViewModel by viewModels<CardsViewModelImpl>()
+    private val viewModel: CardsViewModel by viewModels<CardsViewModelImpl>()
     private var card: CardAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.openAddCardScreenLiveData.observe(this@CardScreen, openAddCardScreenObserver)
+        viewModel.showEventDialogLivaData.observe(this@CardScreen, showEventDialogObserver)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
         card = CardAdapter(requireContext())
         recyclerView.adapter = card
+        card!!.setOnclickItemListener { data ->
+            viewModel.showEventDialog(data)
+        }
         recyclerView.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         viewModel.getAllCard()
@@ -47,6 +52,11 @@ class CardScreen:Fragment(R.layout.screen_cards) {
 
     private val backScreenObserver = Observer<Unit> {
         requireActivity().onBackPressed()
+    }
+
+    private val showEventDialogObserver = Observer<Basic.CardAddResponse> { data ->
+        val dialog = CardDialogItem(data)
+        dialog.show(childFragmentManager, "")
     }
     private val progressObserver = Observer<Boolean> {
         if (it) {

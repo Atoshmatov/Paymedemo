@@ -1,7 +1,7 @@
 package uz.gita.paymedemo.di.auth
 
 import android.content.Context
-import com.readystatesoftware.chuck.ChuckInterceptor
+import com.mocklets.pluto.PlutoInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,7 +26,7 @@ class AuthModule {
         shared: SharedPrefToken
     ): OkHttpClient =
         OkHttpClient.Builder()
-            .addInterceptor(ChuckInterceptor(context))
+            .addInterceptor(PlutoInterceptor())
             /*.addInterceptor {
                 val request = it.request()
                 val build = request.newBuilder()
@@ -53,4 +53,6 @@ class AuthModule {
 
     @[Provides Singleton]
     fun getCardApi(retrofit: Retrofit): BasicApi = retrofit.create(BasicApi::class.java)
+
+
 }

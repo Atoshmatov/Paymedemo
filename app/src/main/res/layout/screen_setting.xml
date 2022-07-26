@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/status_bar_color"
+    tools:context=".presentation.ui.main.screen.SettingScreen">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linearLayoutCompat"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:gravity="center|start"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:backgroundTint="@color/screen_bg_color"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?selectableItemBackgroundBorderless"
+            android:padding="8dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="6dp"
+                android:src="@drawable/ic_back" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="@string/setting"
+            android:textColor="@color/basic_screen_text_color"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/backScreen"
+            app:layout_constraintStart_toEndOf="@+id/backScreen"
+            app:layout_constraintTop_toTopOf="@+id/backScreen" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/muli_light"
+                android:text="Umumiy"
+                android:textColor="@color/text_color"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/profile"
+                style="@style/liner_style_2"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/all">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/profileImage"
+                    style="@style/draw_image_style_2"
+                    android:src="@drawable/ic_person" />
+
+                <TextView
+                    android:id="@+id/profileText"
+                    style="@style/draw_text_style_2"
+                    android:text="@string/profile" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/security"
+                style="@style/liner_style_2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profile">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/securityImage"
+                    style="@style/draw_image_style_2"
+                    android:padding="1dp"
+                    android:src="@drawable/ic_lock" />
+
+                <TextView
+                    android:id="@+id/securityText"
+                    style="@style/draw_text_style_2"
+                    android:text="@string/security" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <!--            <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/notifi"
+                            style="@style/liner_style_2"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/profile">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/securityImage"
+                                style="@style/draw_image_style_2"
+                                android:src="@drawable/ic_lock" />
+
+                            <TextView
+                                android:id="@+id/securityText"
+                                style="@style/draw_text_style_2"
+                                android:text="@string/security" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

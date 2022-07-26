@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?selectableItemBackgroundBorderless"
+    android:padding="14dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageLink"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:padding="2dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textLink"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_history_small" />
+
+    <TextView
+        android:id="@+id/textLink"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/muli_light"
+        android:textColor="@color/text_color"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageLink"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageLink"
+        app:layout_constraintTop_toTopOf="@+id/imageLink"
+        tools:text="@string/share_the_link" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

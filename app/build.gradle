@@ -118,8 +118,8 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
 
     //Chuck
-    debugImplementation 'com.readystatesoftware.chuck:library:1.1.0'
-    releaseImplementation 'com.readystatesoftware.chuck:library-no-op:1.1.0'
+    /*debugImplementation 'com.readystatesoftware.chuck:library:1.1.0'
+    releaseImplementation 'com.readystatesoftware.chuck:library-no-op:1.1.0'*/
 
 
     //Better Logging In Android Using Timber
@@ -134,9 +134,16 @@ dependencies {
     //input text
     implementation 'com.fredporciuncula:phonemoji:1.2.0'
 
-    //slidrInterface
+    //slider Interface
     implementation 'com.r0adkll:slidableactivity:2.1.0'
 
     //refresh animation
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
+    //pluto
+    debugImplementation 'com.mocklets:pluto:1.1.3'
+    releaseImplementation 'com.mocklets:pluto-no-op:1.1.0'
+
+    // list
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
 }

@@ -3,10 +3,61 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/circle_tab_indicator.xml" value="0.205" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/copy_link_style.xml" value="0.205" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/dialog_bottom_style.xml" value="0.205" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/dot.xml" value="0.205" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/ic_arrow.xml" value="0.14" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/ic_arrow_expn.xml" value="0.205" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/ic_back.xml" value="0.205" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/ic_card_number.xml" value="0.14" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/ic_check2_circle.xml" value="0.14" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/ic_delete.xml" value="0.14" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/ic_delete_1.xml" value="0.14" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/ic_drag_drop.xml" value="0.14" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/ic_gear.xml" value="0.205" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/ic_headset.xml" value="0.14" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/ic_history.xml" value="0.14" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/ic_history_small.xml" value="0.205" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/ic_lock.xml" value="0.14" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/ic_lock_widget.xml" value="0.1275" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/ic_person.xml" value="0.138" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/ic_picture.xml" value="0.205" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/ic_push.xml" value="0.1275" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/ic_settings.xml" value="0.14" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/ic_share.xml" value="0.205" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/ic_tab_main.xml" value="0.14" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/ic_tab_payment.xml" value="0.14" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/ic_tab_perevod.xml" value="0.14" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/ic_tab_services.xml" value="0.14" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/drawable/shape_burger.xml" value="0.14" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/font/amiko_semibold.xml" value="0.2023148148148148" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/activity_main.xml" value="0.17546296296296296" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/ads_slider_basic_item.xml" value="0.17453703703703705" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/card_color_item.xml" value="0.17546296296296296" />
         <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/card_dialog_bottom.xml" value="0.25" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/card_dialog_item.xml" value="0.25" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/keyboard.xml" value="0.17546296296296296" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/keyboard2.xml" value="0.17546296296296296" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/keyboard3.xml" value="0.17546296296296296" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/my_card_item.xml" value="0.17546296296296296" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/my_card_list_item.xml" value="0.17546296296296296" />
         <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/pager_basic.xml" value="0.17546296296296296" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/pager_basic_nav.xml" value="0.17546296296296296" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/screen_add_card.xml" value="0.2" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/screen_cards.xml" value="0.17546296296296296" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/screen_finger.xml" value="0.17546296296296296" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/screen_intro.xml" value="0.17546296296296296" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/screen_language.xml" value="0.17546296296296296" />
         <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/screen_main.xml" value="0.17546296296296296" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/screen_main_nav.xml" value="0.25" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/screen_pincode.xml" value="0.17546296296296296" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/screen_police.xml" value="0.17546296296296296" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/screen_setting.xml" value="0.17546296296296296" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/screen_splash.xml" value="0.17546296296296296" />
         <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/screen_verify.xml" value="0.2125" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/layout/setting_item.xml" value="0.17546296296296296" />
+        <entry key="..\:/BootCamp_Android/Paymedemo/app/src/main/res/menu/main_menu.xml" value="0.17546296296296296" />
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable-v24/circle_tab_indicator.xml" value="0.155" />
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable-v24/color_item.xml" value="0.1625" />
         <entry key="..\:/Play_Market/newPlayMerket/Paymedemo/app/src/main/res/drawable-v24/dot.xml" value="0.155" />

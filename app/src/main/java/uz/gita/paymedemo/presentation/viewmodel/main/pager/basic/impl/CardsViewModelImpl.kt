@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.gita.paymedemo.data.remote.response.main.basic.Basic
 import uz.gita.paymedemo.domain.usecase.main.basic.BasicUseCase
-import uz.gita.paymedemo.presentation.viewmodel.main.pager.basic.CardViewModel
+import uz.gita.paymedemo.presentation.viewmodel.main.pager.basic.CardsViewModel
 import uz.gita.paymedemo.utils.isConnected
 import javax.inject.Inject
 
@@ -18,7 +18,7 @@ class CardsViewModelImpl
     private val basicUseCase: BasicUseCase
 ) :
     ViewModel(),
-    CardViewModel {
+    CardsViewModel {
     override val openAddCardScreenLiveData = MutableLiveData<Unit>()
     override val cardListLiveData = MutableLiveData<List<Basic.CardAddResponse>>()
     override val errorLiveData = MutableLiveData<String>()
@@ -26,6 +26,13 @@ class CardsViewModelImpl
     override val progressLiveData = MutableLiveData<Boolean>()
     override val notConnectionLiveData = MutableLiveData<Unit>()
     override val backScreenLiveData = MutableLiveData<Unit>()
+    override val showEventDialogLivaData = MutableLiveData<Basic.CardAddResponse>()
+
+
+    override fun showEventDialog(data: Basic.CardAddResponse) {
+        showEventDialogLivaData.value = data
+    }
+
 
     override fun openAddScreen() {
         openAddCardScreenLiveData.value = Unit

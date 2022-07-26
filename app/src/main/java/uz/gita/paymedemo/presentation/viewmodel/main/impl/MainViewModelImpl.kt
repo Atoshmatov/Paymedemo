@@ -12,6 +12,9 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModelImpl @Inject constructor() : ViewModel(), MainViewModel {
     override val selectPagePositionLiveData = MutableLiveData<Int>()
+    override val openDrawLiveData = MutableLiveData<Unit>()
+    override val closeDrawLiveData = MutableLiveData<Unit>()
+    override val openDialogLiveData = MutableLiveData<Unit>()
 
     override fun selectPagePosition(pos: Int) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -19,4 +22,21 @@ class MainViewModelImpl @Inject constructor() : ViewModel(), MainViewModel {
         }
     }
 
+    override fun openDraw() {
+        viewModelScope.launch(Dispatchers.IO) {
+            openDrawLiveData.postValue(Unit)
+        }
+    }
+
+    override fun closeDraw() {
+        viewModelScope.launch(Dispatchers.IO) {
+            closeDrawLiveData.postValue(Unit)
+        }
+    }
+
+    override fun openDialog() {
+        viewModelScope.launch(Dispatchers.IO) {
+            openDialogLiveData.postValue(Unit)
+        }
+    }
 }

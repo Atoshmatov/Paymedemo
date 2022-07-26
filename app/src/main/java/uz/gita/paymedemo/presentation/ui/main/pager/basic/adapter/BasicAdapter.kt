@@ -29,29 +29,30 @@ class BasicAdapter : ListAdapter<Basic.CardAddResponse, BasicAdapter.Holder>(Bas
         RecyclerView.ViewHolder(binding.root) {
         fun bind(): Basic.CardAddResponse = with(binding) {
             getItem(absoluteAdapterPosition).apply {
-                binding.cardAllTotal.text = amount.toString().substring(0, 3) + " " + amount.toString()
-                    .substring(3, amount.toString().length)
+                cardAllTotal.text =
+                    amount.toString().substring(0, 3) + " " + amount.toString()
+                        .substring(3, amount.toString().length)
                 when (theme) {
+                    0 -> {
+                        cardBgImage.setBackgroundResource(R.drawable.card_bg_1)
+                    }
                     1 -> {
-                        binding.cardBgImage.setBackgroundResource(R.drawable.card_bg_1)
+                        cardBgImage.setBackgroundResource(R.drawable.card_bg_2)
                     }
                     2 -> {
-                        binding.cardBgImage.setBackgroundResource(R.drawable.card_bg_2)
+                        cardBgImage.setBackgroundResource(R.drawable.card_bg_3)
                     }
                     3 -> {
-                        binding.cardBgImage.setBackgroundResource(R.drawable.card_bg_3)
+                        cardBgImage.setBackgroundResource(R.drawable.card_bg_4)
                     }
                     4 -> {
-                        binding.cardBgImage.setBackgroundResource(R.drawable.card_bg_4)
+                        cardBgImage.setBackgroundResource(R.drawable.card_bg_5)
                     }
                     5 -> {
-                        binding.cardBgImage.setBackgroundResource(R.drawable.card_bg_5)
-                    }
-                    6 -> {
-                        binding.cardBgImage.setBackgroundResource(R.drawable.card_bg_6)
+                        cardBgImage.setBackgroundResource(R.drawable.card_bg_6)
                     }
                     else -> {
-                        binding.cardBgImage.setBackgroundResource(R.drawable.card_bg_1)
+                        cardBgImage.setBackgroundResource(R.drawable.card_bg_1)
                     }
                 }
                 binding.cardName.text = name

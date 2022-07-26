@@ -9,15 +9,12 @@
     <string name="uz">O\'zbekcha</string>
     <string name="eng">English</string>
     <string name="text_splash_payme">version %1$s</string>
-
-
     //sign up screen
     <string name="sign_up">Sign Up</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="phone_number">Phone Number</string>
     <string name="password">Password</string>
-    <string name="number_hint"> 90 123 4567</string>
     <string name="already_have_an_account">Already have an account?</string>
 
     //sign in screen
@@ -87,5 +84,24 @@
     <string name="share_QR">Share QR</string>
     <string name="share_the_link">Share link</string>
     <string name="copy_link">Copy link</string>
+
+    <string name="block">Block</string>
+    <string name="deposit_card">Deposit card</string>
+    <string name="card_settings">Card settings</string>
+    <string name="delete">Delete</string>
+
+
+    <string name="close">Close</string>
+
+
+    <string name="setting">Settings</string>
+    <string name="themes">Themes</string>
+    <string name="share">Share</string>
+    <string name="help">Help Center</string>
+    <string name="private_link">shaxsiy havola</string>
+
+    //setting string
+    <string name="profile">Profile</string>
+    <string name="security">Security</string>
     <!--    main screen-->
 </resources>

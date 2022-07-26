@@ -146,6 +146,13 @@
             app:exitAnim="@anim/exit"
             app:popEnterAnim="@anim/pop_enter"
             app:popExitAnim="@anim/pop_exit" />
+        <action
+            android:id="@+id/action_mainScreen_to_settingScreen"
+            app:destination="@id/settingScreen"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit"
+            app:popEnterAnim="@anim/pop_enter"
+            app:popExitAnim="@anim/pop_exit" />
     </fragment>
     <fragment
         android:id="@+id/policeScreen"
@@ -202,4 +209,9 @@
         android:name="uz.gita.paymedemo.presentation.ui.main.pager.basic.screen.AddCardScreen"
         android:label="screen_add_card"
         tools:layout="@layout/screen_add_card"></fragment>
+    <fragment
+        android:id="@+id/settingScreen"
+        android:name="uz.gita.paymedemo.presentation.ui.main.screen.SettingScreen"
+        android:label="screen_setting"
+        tools:layout="@layout/screen_setting" />
 </navigation>

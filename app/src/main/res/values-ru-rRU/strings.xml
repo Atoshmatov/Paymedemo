@@ -15,7 +15,6 @@
     <string name="last_name">Фамилия</string>
     <string name="phone_number">Номер телефона</string>
     <string name="password">Пароль</string>
-    <string name="number_hint"> 90 123 4567</string>
     <string name="already_have_an_account">У вас уже есть аккаунт?</string>
 
     //sign in screen
@@ -88,8 +87,22 @@
     <string name="share_the_link">Поделитесь ссылкой</string>
     <string name="copy_link">Ссылка на скачивание</string>
 
+    <string name="block">Блокировать</string>
+    <string name="deposit_card">Депозитная карта</string>
+    <string name="card_settings">Настройки карты</string>
+    <string name="delete">Удалить</string>
 
 
+    <string name="close">Закрывать</string>
 
+    <string name="setting">Настройки</string>
+    <string name="themes">Темы</string>
+    <string name="share">Делиться</string>
+    <string name="help">Центр помощи</string>
+    <string name="private_link">shaxsiy havola</string>
+
+    //setting string
+    <string name="profile">Профиль</string>
+    <string name="security">Безопасность</string>
     <!--    main screen-->
 </resources>

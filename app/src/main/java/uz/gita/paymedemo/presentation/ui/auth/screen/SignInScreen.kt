@@ -18,7 +18,7 @@ import uz.gita.paymedemo.presentation.viewmodel.auth.impl.SignInViewModelImpl
 import uz.gita.paymedemo.utils.addListener
 
 @AndroidEntryPoint
-class SignInScreen:Fragment(R.layout.screen_signin) {
+class SignInScreen : Fragment(R.layout.screen_signin) {
     private val binding by viewBinding(ScreenSigninBinding::bind)
     private val viewModel: SignInViewModel by viewModels<SignInViewModelImpl>()
     private var shared: SharedPrefToken? = null
@@ -31,6 +31,7 @@ class SignInScreen:Fragment(R.layout.screen_signin) {
         super.onCreate(savedInstanceState)
         viewModel.openScreenLiveData.observe(this@SignInScreen, openMainScreenObserver)
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
         shared = SharedPrefToken(requireContext())
         listener()
@@ -43,7 +44,7 @@ class SignInScreen:Fragment(R.layout.screen_signin) {
     private val openMainScreenObserver = Observer<Unit> {
         val navOption = NavOptions.Builder()
             .setPopUpTo(R.id.signUPScreen, true).build()
-        findNavController().navigate(R.id.action_signInScreen_to_pinCodeNewScreen)
+        findNavController().navigate(R.id.action_signInScreen_to_pinCodeNewScreen,  null,navOption)
         shared!!.id = 2
     }
 
@@ -59,6 +60,7 @@ class SignInScreen:Fragment(R.layout.screen_signin) {
             check()
         }
     }
+
     private fun check() {
         checked = boolPhoneNumber && boolPassword
         binding.singInButton.isEnabled = checked

@@ -1,8 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--
 
-    <!--    auth module style-->
+        <style name="CustomBottomSheetDialog" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
+            <item name="bottomSheetStyle">@style/CustomBottomSheet</item>
+        </style>
+
+        <style name="CustomBottomSheet" parent="Widget.MaterialComponents.BottomSheet">
+            <item name="shapeAppearanceOverlay">@style/CustomShapeAppearanceBottomSheetDialog</item>
+        </style>
+
+        <style name="CustomShapeAppearanceBottomSheetDialog" parent="">
+            <item name="cornerFamily">rounded</item>
+            <item name="cornerSizeTopRight">20dp</item>
+            <item name="cornerSizeTopLeft">20dp</item>
+            <item name="cornerSizeBottomRight">0dp</item>
+            <item name="cornerSizeBottomLeft">0dp</item>
+        </style>
+
+        <style name="BottomSheetDialog" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
+            <item name="bottomSheetStyle">@style/BottomSheet</item>
+            <item name="android:colorBackground">@color/screen_bg_color</item>
+        </style>
+
+        <style name="BottomSheet" parent="Widget.MaterialComponents.BottomSheet.Modal">
+            <item name="backgroundTint">@android:color/transparent</item>
+        </style>
+    -->
+
+
+    <style name="AppBottomSheetDialogTheme" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheetStyle</item>
+    </style>
+
+    <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/dialog_bottom_style</item>
+    </style>
     //language style
+
     <style name="language_text_style">
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
@@ -16,11 +51,13 @@
         <item name="android:textColor">@color/text_color</item>
         <item name="android:textSize">16sp</item>
     </style>
+
     <style name="liner_style">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1.3dp</item>
         <item name="android:background">@color/liner_color</item>
     </style>
+
     <style name="payme_logo_style">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
@@ -30,6 +67,7 @@
     //language style
 
     //sign up screen
+
     <style name="inputText_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -55,6 +93,7 @@
     //sign up screen
 
     //sign in screen
+
     <style name="wrong_password_style">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -139,6 +178,7 @@
     //pincode screen
 
     //verify screen
+
     <style name="PinItem">
         <item name="fontFamily">@font/amiko_semibold</item>
         <item name="background">@color/input_bg_color</item>
@@ -156,6 +196,7 @@
 
     <!--    Intro screen style-->
     //intro
+
     <style name="intro_image_style">
         <item name="android:layout_width">280dp</item>
         <item name="android:layout_height">280dp</item>
@@ -173,6 +214,7 @@
         <item name="android:textSize">14sp</item>
         <item name="android:visibility">gone</item>
     </style>
+
     <style name="input_text_hint_style">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -181,6 +223,7 @@
         <item name="android:textColor">@color/text_color</item>
         <item name="android:textSize">14sp</item>
     </style>
+
     <style name="tablayout_style">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
@@ -193,6 +236,7 @@
 
     <!--    polise screen style-->
     //polise
+
     <style name="polise_text_style">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -209,6 +253,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:adjustViewBounds">true</item>
     </style>
+
     <style name="polise_check_style">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">20dp</item>
@@ -223,11 +268,13 @@
 
     <!--    Splash screen style-->
     //Splash
+
     <style name="splash_image_style">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:adjustViewBounds">true</item>
     </style>
+
     <style name="splash_text_style">
         <item name="android:textColor">@color/text_color</item>
         <item name="android:layout_width">wrap_content</item>
@@ -258,11 +305,12 @@
     </style>
 
     <style name="basic_screen_card_style_2">
-        <item name="android:layout_width">74dp</item>
-        <item name="android:layout_height">74dp</item>
-        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:layout_width">64dp</item>
+        <item name="android:layout_height">64dp</item>
+        <item name="android:layout_marginTop">30dp</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
+        <item name="fontFamily">@font/muli_light</item>
         <item name="android:foreground">?selectableItemBackground</item>
         <item name="layout_constraintVertical_chainStyle">packed</item>
         <item name="layout_constraintVertical_bias">0</item>
@@ -361,6 +409,7 @@
 
     <style name="card_item_style">
         <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">100dp</item>
         <item name="android:layout_marginTop">5dp</item>
         <item name="cardCornerRadius">16dp</item>
         <item name="android:layout_marginBottom">5dp</item>
@@ -369,9 +418,29 @@
         <item name="android:foreground">?android:selectableItemBackground</item>
     </style>
 
+    <style name="card_item_style_2">
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?android:selectableItemBackground</item>
+    </style>
+
+    <style name="card_item_style_3">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?android:selectableItemBackground</item>
+    </style>
+
     <style name="inputText_style_2" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_height">50dp</item>
         <item name="android:layout_marginBottom">20dp</item>
         <item name="boxCornerRadiusBottomEnd">12dp</item>
         <item name="boxCornerRadiusBottomStart">12dp</item>
@@ -397,9 +466,9 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">20dp</item>
-        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginTop">40dp</item>
         <item name="android:elevation">22dp</item>
-        <item name="android:fontFamily">@font/amiko_semibold</item>
+        <item name="android:fontFamily">@font/muli_light</item>
         <item name="android:gravity">center|start</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">16sp</item>
@@ -410,23 +479,84 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">4dp</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:fontFamily">@font/muli_light</item>
         <item name="android:elevation">22dp</item>
         <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="draw_text_style">
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="fontFamily">@font/muli_light</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">20dp</item>
     </style>
+    <style name="draw_text_style_2">
+        <item name="android:textColor">@color/text_color</item>
+        <item name="fontFamily">@font/muli_light</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">24dp</item>
+    </style>
+
 
     <style name="draw_image_style">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">20dp</item>
         <item name="android:adjustViewBounds">true</item>
+    </style>
+
+    <style name="draw_image_style_2">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="tint">@color/text_color</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+
+
+    <style name="card_item_bottom_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:backgroundTint">@color/transparent</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?selectableItemBackgroundBorderless</item>
+    </style>
+
+    <style name="card_item_image_bottom">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginStart">20dp</item>
+    </style>
+
+    <style name="cart_item_text_bottom">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:fontFamily">@font/muli_light</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="user_link_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:layout_marginHorizontal">16dp</item>
+
+        <item name="android:backgroundTint">@color/main_color</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?selectableItemBackgroundBorderless</item>
     </style>
 
     //Main

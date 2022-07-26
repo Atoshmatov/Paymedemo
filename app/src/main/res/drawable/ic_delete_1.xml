@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="@color/wrong_password_color"
+        android:pathData="M4.6001,4.03V5.67H19.3401V4.03H15.6801L14.5901,2.94H9.3501L8.2601,4.03H4.6001Z" />
+    <path
+        android:fillColor="@color/wrong_password_color"
+        android:pathData="M18.2501,7.31H5.6901V19.14C5.6901,19.6466 5.8913,20.1324 6.2495,20.4906C6.6077,20.8488 7.0935,21.05 7.6001,21.05H16.3401C16.8467,21.05 17.3325,20.8488 17.6907,20.4906C18.0489,20.1324 18.2501,19.6466 18.2501,19.14V7.31ZM16.6101,19.41H7.3301V8.95H16.6101V19.41Z" />
+</vector>

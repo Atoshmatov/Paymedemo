@@ -51,7 +51,6 @@
         app:layout_constraintVertical_chainStyle="packed">
 
         <com.fredporciuncula.phonemoji.PhonemojiTextInputEditText
-            android:hint="@string/number_hint"
             android:id="@+id/numberSignIn"
             internationalPhoneNumber="@{user.phoneNumber}"
             android:layout_height="match_parent"

@@ -2,6 +2,7 @@
 <resources>
     //main color
     <color name="input_bg_color">#353C46</color>
+    <color name="qr_code_color">#353C46</color>
     <color name="screen_bg_color">#242B35</color>
     <color name="main_color">#00CECE</color>
     <color name="text_color">#FFFFFF</color>
@@ -74,6 +75,7 @@
 
 
     <color name="dialog_item_color">#475361</color>
+    <color name="version_color">#FFFFFF</color>
     <!--    main screen color..................................-->
 
 </resources>

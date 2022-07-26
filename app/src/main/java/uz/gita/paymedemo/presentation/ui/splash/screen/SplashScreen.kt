@@ -1,8 +1,6 @@
 package uz.gita.paymedemo.presentation.ui.splash.screen
 
 import android.annotation.SuppressLint
-import android.content.Intent
-import android.content.IntentFilter
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -11,13 +9,11 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 import uz.gita.paymedemo.R
 import uz.gita.paymedemo.data.local.SharedPrefToken
 import uz.gita.paymedemo.databinding.ScreenSplashBinding
 import uz.gita.paymedemo.presentation.viewmodel.splash.SplashViewModel
 import uz.gita.paymedemo.presentation.viewmodel.splash.impl.SplashViewModelImpl
-import uz.gita.paymedemo.utils.boradcast.ConnectionBroad
 
 @AndroidEntryPoint
 @SuppressLint("CustomSplashScreen")
@@ -25,18 +21,11 @@ class SplashScreen : Fragment(R.layout.screen_splash) {
     private val binding by viewBinding(ScreenSplashBinding::bind)
     private val viewModel: SplashViewModel by viewModels<SplashViewModelImpl>()
     private lateinit var shared: SharedPrefToken
-    private lateinit var reciver: ConnectionBroad
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.openLanguageScreen.observe(this@SplashScreen, openLanguageObserver)
-        reciver = ConnectionBroad()
-        IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED).also {
-            requireActivity().registerReceiver(reciver, it)
-            Timber.tag("TTT").d(it.toString())
-        }
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {

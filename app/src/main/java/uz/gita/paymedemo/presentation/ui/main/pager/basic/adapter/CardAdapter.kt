@@ -13,6 +13,7 @@ import uz.gita.paymedemo.databinding.MyCardListItemBinding
 
 class CardAdapter(val context: Context) :
     ListAdapter<Basic.CardAddResponse, CardAdapter.Holder>(BasicCallBack) {
+    private var onclickItemListener: ((Basic.CardAddResponse) -> Unit)? = null
     lateinit var shared: SharedPrefToken
     private val cardCodeNew = StringBuilder()
 
@@ -33,6 +34,11 @@ class CardAdapter(val context: Context) :
     inner class Holder(private val binding: MyCardListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
+        init {
+            binding.root.setOnClickListener {
+                onclickItemListener?.invoke(getItem(absoluteAdapterPosition))
+            }
+        }
 
         fun bind(): Basic.CardAddResponse = with(binding) {
             shared = SharedPrefToken(context)
@@ -41,22 +47,22 @@ class CardAdapter(val context: Context) :
                     amount.toString().substring(0, 3) + " " + amount.toString()
                         .substring(3, amount.toString().length)
                 when (theme) {
-                    1 -> {
+                    0 -> {
                         cardBgImage.setBackgroundResource(R.drawable.card_bg_1)
                     }
-                    2 -> {
+                    1 -> {
                         cardBgImage.setBackgroundResource(R.drawable.card_bg_2)
                     }
-                    3 -> {
+                    2 -> {
                         cardBgImage.setBackgroundResource(R.drawable.card_bg_3)
                     }
-                    4 -> {
+                    3 -> {
                         cardBgImage.setBackgroundResource(R.drawable.card_bg_4)
                     }
-                    5 -> {
+                    4 -> {
                         cardBgImage.setBackgroundResource(R.drawable.card_bg_5)
                     }
-                    6 -> {
+                    5 -> {
                         cardBgImage.setBackgroundResource(R.drawable.card_bg_6)
                     }
                     else -> {
@@ -93,5 +99,9 @@ class CardAdapter(val context: Context) :
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         holder.bind()
+    }
+
+    fun setOnclickItemListener(block: (Basic.CardAddResponse) -> Unit) {
+        onclickItemListener = block
     }
 }

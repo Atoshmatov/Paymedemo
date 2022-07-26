@@ -1,56 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_screen_bg_color"
-    tools:context=".presentation.view.main.pager.basic.BasicPager">
-
-    <com.google.android.material.appbar.AppBarLayout
-        android:background="@color/main_screen_bg_color"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        app:elevation="0dp">
-
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:layout_height="wrap_content"
-            android:id="@+id/collapsingToolbar"
-            android:layout_width="match_parent"
-            android:layout_gravity="center"
-            android:fitsSystemWindows="true"
-            app:layout_scrollFlags="scroll|enterAlways">
-
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="?actionBarSize"
-                android:orientation="horizontal">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/burger"
-                    style="@style/basic_image_style"
-                    android:src="@drawable/ic_burger" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="6" />
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/notification"
-                    style="@style/basic_image_style"
-                    android:src="@drawable/ic_notification" />
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
-    </com.google.android.material.appbar.AppBarLayout>
+    tools:context=".presentation.ui.main.pager.basic.BasicPager">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingClass">
 
         <androidx.core.widget.NestedScrollView
@@ -89,12 +53,12 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/allBalanceSum"
                     style="@style/basic_text_money_sum"
-                    tools:text="15 140 182"
                     app:layout_constraintEnd_toStartOf="@+id/sum"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/eyeImage"
                     app:layout_constraintTop_toBottomOf="@id/allBalanceText"
-                    tools:ignore="HardcodedText" />
+                    tools:ignore="HardcodedText"
+                    tools:text="15 140 182" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/sum"
@@ -123,7 +87,8 @@
                     app:layout_constraintBottom_toBottomOf="@+id/allBalanceSum"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/sum"
-                    app:layout_constraintTop_toTopOf="@+id/allBalanceSum" />
+                    app:layout_constraintTop_toTopOf="@+id/allBalanceSum"
+                    tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
                 <androidx.core.widget.ContentLoadingProgressBar
                     android:id="@+id/contentLoadingProgressBar"
@@ -143,11 +108,11 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/appCompatTextView"
                     style="@style/basic_text_cash_flow_style"
-                    tools:text="Iyundagi chiqim - 15 430 123 so'm"
                     app:layout_constraintEnd_toEndOf="@+id/eyeImage2"
                     app:layout_constraintStart_toStartOf="@+id/eyeImage"
                     app:layout_constraintTop_toBottomOf="@+id/allBalanceSum"
-                    tools:ignore="HardcodedText" />
+                    tools:ignore="HardcodedText"
+                    tools:text="Iyundagi chiqim - 15 430 123 so'm" />
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/myCard"
@@ -309,16 +274,27 @@
 
                 </com.google.android.material.card.MaterialCardView>
 
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/sdsList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toTopOf="@+id/myCards"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/sendMoney"
+                    tools:listitem="@layout/ads_slider_basic_item" />
+
                 <TextView
                     android:id="@+id/myCards"
                     style="@style/cards_text_more_style"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="32dp"
                     android:text="@string/my_cards"
                     android:textColor="@color/basic_screen_text_color"
                     app:layout_constraintBottom_toTopOf="@+id/my_card_list_item"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/sendMoney" />
+                    app:layout_constraintTop_toBottomOf="@+id/sdsList" />
 
                 <TextView
                     android:id="@+id/myCardsMore"
@@ -335,9 +311,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/myCards"
@@ -351,4 +327,4 @@
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

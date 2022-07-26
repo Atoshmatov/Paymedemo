@@ -60,10 +60,14 @@ class SignUPScreen : Fragment(R.layout.screen_signup) {
             viewModel.openSignInScreen()
         }
 
+
         //observer
         viewModel.progressLiveData.observe(viewLifecycleOwner, progressObserver)
         viewModel.notConnectionLiveData.observe(viewLifecycleOwner, notConnectionObserver)
         viewModel.errorLiveData.observe(viewLifecycleOwner, errorObserver)
+
+        //call back fun
+        saveUser()
     }
 
     //observer Object
@@ -115,6 +119,19 @@ class SignUPScreen : Fragment(R.layout.screen_signup) {
             shared!!.password = it
         }
     }
+
+    private fun saveUser() = with(binding) {
+        phoneNumber.addListener {
+            shared!!.phoneNumber = it
+        }
+        firstName.addListener {
+            shared!!.userName1 = it
+        }
+        lastName.addListener {
+            shared!!.userName2 = it
+        }
+    }
+
     private fun check() {
         checked = boolFirstName && boolLastName && boolPhoneNumber && boolPassword
         binding.singUpButton.isEnabled = checked

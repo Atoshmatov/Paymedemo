@@ -1,13 +1,16 @@
 package uz.gita.paymedemo.utils
 
+import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import uz.gita.paymedemo.R
 
 fun <T : ViewBinding> T.myApply(block: T.() -> Unit) {
     block(this)
@@ -44,5 +47,13 @@ fun <T> Call<T>.myEnqueue(
     })
 }
 
+fun BottomSheetDialogFragment.setTransparentBackground() {
+    dialog?.apply {
+        setOnShowListener {
+            val bottomSheet = findViewById<View?>(R.id.dialog_button)
+            bottomSheet?.setBackgroundResource(android.R.color.transparent)
+        }
+    }
+}
 
 

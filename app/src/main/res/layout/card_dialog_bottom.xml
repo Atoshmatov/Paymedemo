@@ -2,8 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialog_button"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@drawable/dialog_bottom_style">
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -11,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:fontFamily="@font/muli_light"
         android:text="@string/to_accept_a_transfer_from_this_card"
         android:textColor="@color/text_color"
         android:textSize="18sp"
@@ -21,17 +23,18 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/qrCode"
         style="@style/basic_screen_card_style_2"
-        app:cardCornerRadius="74dp"
-        app:cardElevation="4dp"
+        android:layout_marginEnd="24dp"
+        app:cardCornerRadius="64dp"
         app:layout_constraintEnd_toStartOf="@id/share"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView5">
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView5"
+        tools:ignore="DuplicateSpeakableTextCheck">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:padding="22dp"
+            android:padding="20dp"
             android:src="@drawable/ic_qr_small" />
 
     </com.google.android.material.card.MaterialCardView>
@@ -48,8 +51,8 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/share"
         style="@style/basic_screen_card_style_2"
-        app:cardCornerRadius="74dp"
-        app:cardElevation="4dp"
+        android:layout_marginStart="24dp"
+        app:cardCornerRadius="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/qrCode"
         app:layout_constraintTop_toBottomOf="@+id/appCompatTextView5">
@@ -58,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:padding="24dp"
+            android:padding="20dp"
             android:src="@drawable/ic_share" />
 
     </com.google.android.material.card.MaterialCardView>
@@ -71,25 +74,192 @@
         app:layout_constraintStart_toStartOf="@+id/share"
         app:layout_constraintTop_toBottomOf="@+id/share" />
 
-    <TextView
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/copyLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@drawable/copy_link_style"
+        android:backgroundTint="@color/screen_bg_color"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?selectableItemBackground"
-        android:gravity="center"
-        android:paddingStart="20dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="20dp"
-        android:paddingBottom="5dp"
-        android:text="@string/copy_link"
-        android:textColor="@color/main_color"
+        app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="@+id/shareText"
         app:layout_constraintStart_toStartOf="@+id/qrCodeText"
         app:layout_constraintTop_toBottomOf="@+id/shareText"
-        tools:ignore="RtlSymmetry,UnusedAttribute" />
+        app:strokeColor="@color/main_color"
+        app:strokeWidth="1.5dp"
+        tools:ignore="RtlSymmetry,UnusedAttribute,TouchTargetSizeCheck">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/muli_light"
+            android:gravity="center"
+            android:paddingStart="20dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="8dp"
+            android:text="@string/copy_link"
+            android:textColor="@color/main_color"
+            tools:ignore="TextContrastCheck" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dialogBottomItemListCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        android:paddingVertical="10dp"
+        android:scrollbars="none"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/copyLink"
+        tools:itemCount="5"
+        tools:listitem="@layout/card_dialog_item" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView2"
+        style="@style/card_item_bottom_style"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/copyLink">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageLink1"
+                style="@style/card_item_image_bottom"
+                android:src="@drawable/ic_tab_perevod" />
+
+            <TextView
+                android:id="@+id/textLink1"
+                style="@style/cart_item_text_bottom"
+                android:text="@string/deposit_card" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView3"
+        style="@style/card_item_bottom_style"
+        android:layout_marginHorizontal="16dp"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView2">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageLink2"
+                style="@style/card_item_image_bottom"
+                android:src="@drawable/ic_history" />
+
+            <TextView
+                android:id="@+id/textLink2"
+                style="@style/cart_item_text_bottom"
+                android:text="@string/cashFlow"
+                android:textStyle="bold" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView4"
+        style="@style/card_item_bottom_style"
+        android:layout_marginHorizontal="16dp"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView3">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageLink3"
+                style="@style/card_item_image_bottom"
+                android:src="@drawable/ic_settings" />
+
+            <TextView
+                android:id="@+id/textLink3"
+                style="@style/cart_item_text_bottom"
+                android:text="@string/card_settings" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView5"
+        style="@style/card_item_bottom_style"
+        android:layout_marginHorizontal="16dp"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView4">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageLink4"
+                style="@style/card_item_image_bottom"
+                android:padding="4dp"
+                android:src="@drawable/ic_lock" />
+
+            <TextView
+                android:id="@+id/textLink4"
+                style="@style/cart_item_text_bottom"
+                android:text="@string/block" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/card_item_bottom_style"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="20dp"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView5">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageLink5"
+                style="@style/card_item_image_bottom"
+                android:src="@drawable/ic_delete_1" />
+
+            <TextView
+                android:id="@+id/textLink5"
+                style="@style/cart_item_text_bottom"
+                android:text="@string/delete" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </com.google.android.material.card.MaterialCardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

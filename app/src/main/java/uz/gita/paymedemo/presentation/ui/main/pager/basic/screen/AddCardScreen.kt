@@ -64,7 +64,7 @@ class AddCardScreen : Fragment(R.layout.screen_add_card) {
                     cardAddImageFon.cardBgImage.setBackgroundResource(R.drawable.card_bg_6)
                 }
                 else -> {
-                   cardAddImageFon.cardBgImage.setBackgroundResource(R.drawable.card_bg_1)
+                    cardAddImageFon.cardBgImage.setBackgroundResource(R.drawable.card_bg_1)
                 }
             }
         }
@@ -92,15 +92,37 @@ class AddCardScreen : Fragment(R.layout.screen_add_card) {
         cardCode.addListener {
             boolCardCode = it.length == 16 && "[0-9]*$".toRegex().matches(it)
             check()
+            cardAddImageFon.cardNumberPan.text = it
+/*
+            for (i in 0..16) {
+                if (it.length == 4 || it.length == 8 || it.length == 12 || it.length == 16) {
+                    cardAddImageFon.cardNumberPan.text = it + " "
+                    Timber.tag("TTT").d("${cardAddImageFon.cardNumberPan.text}")
+                } else {
+                    cardAddImageFon.cardNumberPan.text = it
+                    Timber.tag("TTT").d("${cardAddImageFon.cardNumberPan.text}")
+                }
+            }
+*/
         }
         time.addListener {
             boolCardTime = it.length == 4 && "[0-9]*$".toRegex().matches(it)
             check()
+            cardAddImageFon.cardPeriod.text = it
+/*
+            for (i in 0..it.length) {
+                if (i % 2 == 0)
+                    cardAddImageFon.cardPeriod.text = it + "/"
+                else
+                    cardAddImageFon.cardPeriod.text = it
+            }
+*/
         }
         cardText.addListener {
             boolCardName =
                 it.length in 5..20 && "[A-Za-z]*".toRegex().matches(it)
             check()
+            cardAddImageFon.cardName.text = it
         }
     }
 
